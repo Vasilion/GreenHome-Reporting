@@ -2332,7 +2332,7 @@
                             <label class="tvt-field-label">Type of Heating System</label>
 
 														<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysType1" id="heatType1"
-	                                    onchange="omniHide(this, 'None', 'Heating1'); omniHide(this, 'None', 'Heating2Div'); ">
+	                                    onchange="omniHide(this, 'None', 'Heating1'); omniHide(this, 'None', 'Heating2'); ">
 	                                <option value="None">None</option>
 	                                <option value="central_furnace:natural_gas">Central Gas Furnace</option>
 	                                <option value="wall_furnace:natural_gas">Room (Through-the-wall) Gas Furnace</option>

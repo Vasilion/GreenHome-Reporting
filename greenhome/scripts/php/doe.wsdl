@@ -1,0 +1,1056 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://hesapi.labworks.org/st_api/serve" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="st_api_handler" targetNamespace="http://hesapi.labworks.org/st_api/serve">
+<types>
+<xsd:schema xmlns:tns="http://hesapi.labworks.org/st_api/serve" targetNamespace="http://hesapi.labworks.org/st_api/serve">
+<!--
+ tns:retrieve_recommendations_result is defined in retrieve_recommendations.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/retrieve_recommendations"/>
+<!--
+ tns:buildings_by_id and tns:buildings_by_id_result is defined in archive_buildings_by_id.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/archive_buildings_by_id"/>
+<!--
+ tns:nearest_weather and tns:buildings_by_id_result is defined in nearest_weather.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/nearest_weather"/>
+<!--
+ tns:buildings_by_id and tns:buildings_by_id_result is defined in user_exists.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/user_exists"/>
+<!--
+ tns:building_ca_id and tns:building_ca_id_result is defined in building_ca_id.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/building_ca_id"/>
+<!--
+ tns:buildings_by_id and tns:buildings_by_id_result is defined in delete_buildings_by_id.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/delete_buildings_by_id"/>
+<!--
+ tns:buildings_by_id and tns:buildings_by_id_result is defined in retrieve_buildings_by_id.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/retrieve_buildings_by_id"/>
+<!--
+ tns:buildings_by_id and tns:retrieve_legacy_result is defined in retrieve_legacy_buildings.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/retrieve_legacy_buildings"/>
+<!--
+ tns:buildings_by_address and tns:buildings_by_address_result is defined in retrieve_buildings_by_address.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/retrieve_buildings_by_address"/>
+<!--
+ tns:doe2sim and tns:doe2sim_result are defined in doe2sim.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/doe2sim"/>
+<!--
+ tns:building and tns:submit_result are defined in submit_inputs.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/submit_inputs"/>
+<!--
+ tns:building and tns:submit_result are defined in submit_hpxml_inputs.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/submit_hpxml_inputs"/>
+<!--  tns:address is defined in submit_address.xsd  -->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/submit_address"/>
+<!--
+ tns:retrieve_results_in and tns:building_configuration_result are defined in retrieve_results.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/retrieve_results"/>
+<!--
+ tns:building_info and tns:calculate_result are defined in calculate.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/calculate"/>
+<!--
+ tns:building_label is defined in generate_label.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/generate_label"/>
+<!--
+ tns:building_label is defined in generate_custom_label.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/generate_custom_label"/>
+<!--
+ tns:label_result is defined in retrieve_label_results.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/retrieve_label_results"/>
+<!--
+ tns:extended_result is defined in retrieve_extended_results.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/retrieve_extended_results"/>
+<!--
+ tns:login_credentials and tns:export_label_results_result are defined in export_label_results.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/export_label_results"/>
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/export_partner_label_results"/>
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/get_user_roles"/>
+<!--
+ tns:building_inputs is defined in retrieve_inputs.xsd 
+-->
+<xsd:include schemaLocation="https://sandbox.hesapi.labworks.org/st_api/xsd/retrieve_inputs"/>
+<xsd:element name="retrieve_recommendationsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_info" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_recommendationsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:retrieve_recommendations_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="calculate_package_buildingRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_info" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="calculate_package_buildingResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:calculate_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="commit_resultsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_info" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="commit_resultsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:label_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="validate_inputsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:validate_inputs" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="validate_inputsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:validate_inputs_results" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="nearest_weatherRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:nearest_weather" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="nearest_weatherResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:nearest_weather_result" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="user_existsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:user_exists" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="user_existsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:user_exists_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="building_ca_idRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_ca_id" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="building_ca_idResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_ca_id_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="archive_buildings_by_idRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:archive_buildings_by_id" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="archive_buildings_by_idResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:archive_buildings_by_id_result" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="delete_buildings_by_idRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:delete_buildings_by_id" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="delete_buildings_by_idResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:delete_buildings_by_id_result" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_buildings_by_idRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:buildings_by_id" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_buildings_by_idResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:buildings_by_id_result" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_legacy_buildingsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:legacy_buildings" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_legacy_buildingsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:legacy_buildings_result" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_buildings_by_addressRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:buildings_by_address" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_buildings_by_addressResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:buildings_by_address_result" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="doe2simRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:doe2sim" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="doe2simResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:doe2sim_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="submit_inputsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="submit_inputsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_inputs" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="submit_hpxml_inputsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:submit_hpxml_inputs" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="submit_hpxml_inputsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:submit_hpxml_inputs_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="submit_addressRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_address" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="submit_addressResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:submit_address_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_resultsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:retrieve_results" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_resultsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_configuration_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="calculateRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_info" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="calculateResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:calculate_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="calculate_base_buildingRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_info" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="calculate_base_buildingResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:calculate_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="calculate_package_building_pollRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_info" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="calculate_package_building_pollResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:calculate_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="generate_labelRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_label" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="generate_labelResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_label_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="generate_custom_labelRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:custom_building_label" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="generate_custom_labelResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:custom_building_label_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_label_resultsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_info" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_label_resultsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:label_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_inputsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_info" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_inputsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_inputs" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_extended_resultsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:building_info" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="retrieve_extended_resultsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:extended_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="export_label_resultsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:export_label_results" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="export_label_resultsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:export_label_results_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="export_partner_label_resultsRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:export_partner_label_results" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="export_partner_label_resultsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:export_partner_label_results_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="get_user_rolesRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:get_user_roles" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="get_user_rolesResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="tns:get_user_roles_result" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>
+</types>
+<portType name="st_api_handlerPort">
+<operation name="retrieve_recommendations">
+<documentation>Retrieve upgrade recommendations</documentation>
+<input message="tns:retrieve_recommendationsIn"/>
+<output message="tns:retrieve_recommendationsOut"/>
+</operation>
+<operation name="calculate_package_building">
+<documentation>Calculate package building results</documentation>
+<input message="tns:calculate_package_buildingIn"/>
+<output message="tns:calculate_package_buildingOut"/>
+</operation>
+<operation name="commit_results">
+<documentation>commit results</documentation>
+<input message="tns:commit_resultsIn"/>
+<output message="tns:commit_resultsOut"/>
+</operation>
+<operation name="validate_inputs">
+<documentation>validate inputs</documentation>
+<input message="tns:validate_inputsIn"/>
+<output message="tns:validate_inputsOut"/>
+</operation>
+<operation name="nearest_weather">
+<documentation>Nearest weather</documentation>
+<input message="tns:nearest_weatherIn"/>
+<output message="tns:nearest_weatherOut"/>
+</operation>
+<operation name="user_exists">
+<documentation>User Exists</documentation>
+<input message="tns:user_existsIn"/>
+<output message="tns:user_existsOut"/>
+</operation>
+<operation name="building_ca_id">
+<documentation>Building CA Id</documentation>
+<input message="tns:building_ca_idIn"/>
+<output message="tns:building_ca_idOut"/>
+</operation>
+<operation name="archive_buildings_by_id">
+<documentation>archive Buildings By Id</documentation>
+<input message="tns:archive_buildings_by_idIn"/>
+<output message="tns:archive_buildings_by_idOut"/>
+</operation>
+<operation name="delete_buildings_by_id">
+<documentation>Delete Buildings By Id</documentation>
+<input message="tns:delete_buildings_by_idIn"/>
+<output message="tns:delete_buildings_by_idOut"/>
+</operation>
+<operation name="retrieve_buildings_by_id">
+<documentation>Retrieve Buildings By Id</documentation>
+<input message="tns:retrieve_buildings_by_idIn"/>
+<output message="tns:retrieve_buildings_by_idOut"/>
+</operation>
+<operation name="retrieve_legacy_buildings">
+<documentation>Retrieve Legacy Label</documentation>
+<input message="tns:retrieve_legacy_buildingsIn"/>
+<output message="tns:retrieve_legacy_buildingsOut"/>
+</operation>
+<operation name="retrieve_buildings_by_address">
+<documentation>Retrieve Buildings By Address</documentation>
+<input message="tns:retrieve_buildings_by_addressIn"/>
+<output message="tns:retrieve_buildings_by_addressOut"/>
+</operation>
+<operation name="doe2sim">
+<documentation>Submit building for DOE2 calculation</documentation>
+<input message="tns:doe2simIn"/>
+<output message="tns:doe2simOut"/>
+</operation>
+<operation name="submit_inputs">
+<documentation>Submit Inputs</documentation>
+<input message="tns:submit_inputsIn"/>
+<output message="tns:submit_inputsOut"/>
+</operation>
+<operation name="submit_hpxml_inputs">
+<documentation>Submit HPXML Inputs</documentation>
+<input message="tns:submit_hpxml_inputsIn"/>
+<output message="tns:submit_hpxml_inputsOut"/>
+</operation>
+<operation name="submit_address">
+<documentation>Submit Address</documentation>
+<input message="tns:submit_addressIn"/>
+<output message="tns:submit_addressOut"/>
+</operation>
+<operation name="retrieve_results">
+<documentation>Retrieve Results</documentation>
+<input message="tns:retrieve_resultsIn"/>
+<output message="tns:retrieve_resultsOut"/>
+</operation>
+<operation name="calculate">
+<documentation>Calculate results</documentation>
+<input message="tns:calculateIn"/>
+<output message="tns:calculateOut"/>
+</operation>
+<operation name="calculate_base_building">
+<documentation>Calculate base building results</documentation>
+<input message="tns:calculate_base_buildingIn"/>
+<output message="tns:calculate_base_buildingOut"/>
+</operation>
+<operation name="calculate_package_building_poll">
+<documentation>Calculate package building polling</documentation>
+<input message="tns:calculate_package_building_pollIn"/>
+<output message="tns:calculate_package_building_pollOut"/>
+</operation>
+<operation name="generate_label">
+<documentation>Generate label</documentation>
+<input message="tns:generate_labelIn"/>
+<output message="tns:generate_labelOut"/>
+</operation>
+<operation name="generate_custom_label">
+<documentation>Generate custom label</documentation>
+<input message="tns:generate_custom_labelIn"/>
+<output message="tns:generate_custom_labelOut"/>
+</operation>
+<operation name="retrieve_label_results">
+<documentation>Retrieve label results</documentation>
+<input message="tns:retrieve_label_resultsIn"/>
+<output message="tns:retrieve_label_resultsOut"/>
+</operation>
+<operation name="retrieve_inputs">
+<documentation>Retrieve inputs</documentation>
+<input message="tns:retrieve_inputsIn"/>
+<output message="tns:retrieve_inputsOut"/>
+</operation>
+<operation name="retrieve_extended_results">
+<documentation>Retrieve extended results</documentation>
+<input message="tns:retrieve_extended_resultsIn"/>
+<output message="tns:retrieve_extended_resultsOut"/>
+</operation>
+<operation name="export_label_results">
+<documentation>Export Label Results</documentation>
+<input message="tns:export_label_resultsIn"/>
+<output message="tns:export_label_resultsOut"/>
+</operation>
+<operation name="export_partner_label_results">
+<documentation>
+Export label results for all assessors associated with a single partner
+</documentation>
+<input message="tns:export_partner_label_resultsIn"/>
+<output message="tns:export_partner_label_resultsOut"/>
+</operation>
+<operation name="get_user_roles">
+<documentation>
+Get the roles assigned to a user. Multiple arrays are comma separated
+</documentation>
+<input message="tns:get_user_rolesIn"/>
+<output message="tns:get_user_rolesOut"/>
+</operation>
+</portType>
+<binding name="st_api_handlerBinding" type="tns:st_api_handlerPort">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<operation name="retrieve_recommendations">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#retrieve_recommendations"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="commit_results">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#commit_results"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="validate_inputs">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#validate_inputs"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="nearest_weather">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#nearest_weather"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="user_exists">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#user_exists"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="building_ca_id">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#building_ca_id"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="archive_buildings_by_id">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#archive_buildings_by_id"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="delete_buildings_by_id">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#delete_buildings_by_id"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="retrieve_buildings_by_id">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#retrieve_buildings_by_id"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="retrieve_legacy_buildings">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#retrieve_legacy_buildings"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="retrieve_buildings_by_address">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#retrieve_buildings_by_address"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="doe2sim">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#doe2sim"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="submit_inputs">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#submit_inputs"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="submit_hpxml_inputs">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#submit_hpxml_inputs"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="submit_address">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#submit_address"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="retrieve_results">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#retrieve_results"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="calculate">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#calculate"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="calculate_base_building">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#calculate_base_building"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="calculate_package_building">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#calculate_package_building"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="calculate_package_building_poll">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#calculate_package_building_poll"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="generate_label">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#generate_label"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="generate_custom_label">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#generate_custom_label"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="retrieve_label_results">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#retrieve_label_results"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="retrieve_inputs">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#retrieve_inputs"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="retrieve_extended_results">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#retrieve_extended_results"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="export_label_results">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#export_label_results"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="export_partner_label_results">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#export_partner_label_results"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="get_user_roles">
+<soap:operation soapAction="https://sandbox.hesapi.labworks.org/st_api/serve#get_user_roles"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+</binding>
+<service name="st_api_handlerService">
+<port name="st_api_handlerPort" binding="tns:st_api_handlerBinding">
+<soap:address location="https://sandbox.hesapi.labworks.org/st_api/serve"/>
+</port>
+</service>
+<message name="retrieve_recommendationsIn">
+<part name="parameters" element="tns:retrieve_recommendationsRequest"/>
+</message>
+<message name="retrieve_recommendationsOut">
+<part name="parameters" element="tns:retrieve_recommendationsResponse"/>
+</message>
+<message name="calculate_package_buildingIn">
+<part name="parameters" element="tns:calculate_package_buildingRequest"/>
+</message>
+<message name="calculate_package_buildingOut">
+<part name="parameters" element="tns:calculate_package_buildingResponse"/>
+</message>
+<message name="commit_resultsIn">
+<part name="parameters" element="tns:commit_resultsRequest"/>
+</message>
+<message name="commit_resultsOut">
+<part name="parameters" element="tns:commit_resultsResponse"/>
+</message>
+<message name="validate_inputsIn">
+<part name="parameters" element="tns:validate_inputsRequest"/>
+</message>
+<message name="validate_inputsOut">
+<part name="parameters" element="tns:validate_inputsResponse"/>
+</message>
+<message name="nearest_weatherIn">
+<part name="parameters" element="tns:nearest_weatherRequest"/>
+</message>
+<message name="nearest_weatherOut">
+<part name="parameters" element="tns:nearest_weatherResponse"/>
+</message>
+<message name="user_existsIn">
+<part name="parameters" element="tns:user_existsRequest"/>
+</message>
+<message name="user_existsOut">
+<part name="parameters" element="tns:user_existsResponse"/>
+</message>
+<message name="building_ca_idIn">
+<part name="parameters" element="tns:building_ca_idRequest"/>
+</message>
+<message name="building_ca_idOut">
+<part name="parameters" element="tns:building_ca_idResponse"/>
+</message>
+<message name="archive_buildings_by_idIn">
+<part name="parameters" element="tns:archive_buildings_by_idRequest"/>
+</message>
+<message name="archive_buildings_by_idOut">
+<part name="parameters" element="tns:archive_buildings_by_idResponse"/>
+</message>
+<message name="delete_buildings_by_idIn">
+<part name="parameters" element="tns:delete_buildings_by_idRequest"/>
+</message>
+<message name="delete_buildings_by_idOut">
+<part name="parameters" element="tns:delete_buildings_by_idResponse"/>
+</message>
+<message name="retrieve_buildings_by_idIn">
+<part name="parameters" element="tns:retrieve_buildings_by_idRequest"/>
+</message>
+<message name="retrieve_buildings_by_idOut">
+<part name="parameters" element="tns:retrieve_buildings_by_idResponse"/>
+</message>
+<message name="retrieve_legacy_buildingsIn">
+<part name="parameters" element="tns:retrieve_legacy_buildingsRequest"/>
+</message>
+<message name="retrieve_legacy_buildingsOut">
+<part name="parameters" element="tns:retrieve_legacy_buildingsResponse"/>
+</message>
+<message name="retrieve_buildings_by_addressIn">
+<part name="parameters" element="tns:retrieve_buildings_by_addressRequest"/>
+</message>
+<message name="retrieve_buildings_by_addressOut">
+<part name="parameters" element="tns:retrieve_buildings_by_addressResponse"/>
+</message>
+<message name="doe2simIn">
+<part name="parameters" element="tns:doe2simRequest"/>
+</message>
+<message name="doe2simOut">
+<part name="parameters" element="tns:doe2simResponse"/>
+</message>
+<message name="submit_inputsIn">
+<part name="parameters" element="tns:submit_inputsRequest"/>
+</message>
+<message name="submit_inputsOut">
+<part name="parameters" element="tns:submit_inputsResponse"/>
+</message>
+<message name="submit_hpxml_inputsIn">
+<part name="parameters" element="tns:submit_hpxml_inputsRequest"/>
+</message>
+<message name="submit_hpxml_inputsOut">
+<part name="parameters" element="tns:submit_hpxml_inputsResponse"/>
+</message>
+<message name="submit_addressIn">
+<part name="parameters" element="tns:submit_addressRequest"/>
+</message>
+<message name="submit_addressOut">
+<part name="parameters" element="tns:submit_addressResponse"/>
+</message>
+<message name="retrieve_resultsIn">
+<part name="parameters" element="tns:retrieve_resultsRequest"/>
+</message>
+<message name="retrieve_resultsOut">
+<part name="parameters" element="tns:retrieve_resultsResponse"/>
+</message>
+<message name="calculateIn">
+<part name="parameters" element="tns:calculateRequest"/>
+</message>
+<message name="calculateOut">
+<part name="parameters" element="tns:calculateResponse"/>
+</message>
+<message name="calculate_base_buildingIn">
+<part name="parameters" element="tns:calculate_base_buildingRequest"/>
+</message>
+<message name="calculate_base_buildingOut">
+<part name="parameters" element="tns:calculate_base_buildingResponse"/>
+</message>
+<message name="calculate_package_building_pollIn">
+<part name="parameters" element="tns:calculate_package_building_pollRequest"/>
+</message>
+<message name="calculate_package_building_pollOut">
+<part name="parameters" element="tns:calculate_package_building_pollResponse"/>
+</message>
+<message name="generate_labelIn">
+<part name="parameters" element="tns:generate_labelRequest"/>
+</message>
+<message name="generate_labelOut">
+<part name="parameters" element="tns:generate_labelResponse"/>
+</message>
+<message name="generate_custom_labelIn">
+<part name="parameters" element="tns:generate_custom_labelRequest"/>
+</message>
+<message name="generate_custom_labelOut">
+<part name="parameters" element="tns:generate_custom_labelResponse"/>
+</message>
+<message name="retrieve_label_resultsIn">
+<part name="parameters" element="tns:retrieve_label_resultsRequest"/>
+</message>
+<message name="retrieve_label_resultsOut">
+<part name="parameters" element="tns:retrieve_label_resultsResponse"/>
+</message>
+<message name="retrieve_inputsIn">
+<part name="parameters" element="tns:retrieve_inputsRequest"/>
+</message>
+<message name="retrieve_inputsOut">
+<part name="parameters" element="tns:retrieve_inputsResponse"/>
+</message>
+<message name="retrieve_extended_resultsIn">
+<part name="parameters" element="tns:retrieve_extended_resultsRequest"/>
+</message>
+<message name="retrieve_extended_resultsOut">
+<part name="parameters" element="tns:retrieve_extended_resultsResponse"/>
+</message>
+<message name="export_label_resultsIn">
+<part name="parameters" element="tns:export_label_resultsRequest"/>
+</message>
+<message name="export_label_resultsOut">
+<part name="parameters" element="tns:export_label_resultsResponse"/>
+</message>
+<message name="export_partner_label_resultsIn">
+<part name="parameters" element="tns:export_partner_label_resultsRequest"/>
+</message>
+<message name="export_partner_label_resultsOut">
+<part name="parameters" element="tns:export_partner_label_resultsResponse"/>
+</message>
+<message name="get_user_rolesIn">
+<part name="parameters" element="tns:get_user_rolesRequest"/>
+</message>
+<message name="get_user_rolesOut">
+<part name="parameters" element="tns:get_user_rolesResponse"/>
+</message>
+</definitions>

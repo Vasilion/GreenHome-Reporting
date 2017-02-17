@@ -1,0 +1,173 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://hesapi.labworks.org/st_api/serve" targetNamespace="http://hesapi.labworks.org/st_api/serve" elementFormDefault="qualified">
+    <xsd:element name="building_address">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="user_key">
+                    <xsd:annotation>
+                        <xsd:documentation>3scale key</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="40"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="qualified_assessor_id">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            ID of qualified assessor that is submitting this building
+                        </xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="20"/>
+                            <xsd:minLength value="1"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="address">
+                    <xsd:annotation>
+                        <xsd:documentation>Street address of the building</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:minLength value="1"/>
+                            <xsd:maxLength value="255"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="city">
+                    <xsd:annotation>
+                        <xsd:documentation>City</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="40"/>
+                            <xsd:minLength value="1"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="state">
+                    <xsd:annotation>
+                        <xsd:documentation>State</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value="AL"/>
+                            <xsd:enumeration value="AK"/>
+                            <xsd:enumeration value="AZ"/>
+                            <xsd:enumeration value="AR"/>
+                            <xsd:enumeration value="CA"/>
+                            <xsd:enumeration value="CO"/>
+                            <xsd:enumeration value="CT"/>
+                            <xsd:enumeration value="DE"/>
+                            <xsd:enumeration value="FL"/>
+                            <xsd:enumeration value="GA"/>
+                            <xsd:enumeration value="HI"/>
+                            <xsd:enumeration value="ID"/>
+                            <xsd:enumeration value="IL"/>
+                            <xsd:enumeration value="IN"/>
+                            <xsd:enumeration value="IA"/>
+                            <xsd:enumeration value="KS"/>
+                            <xsd:enumeration value="KY"/>
+                            <xsd:enumeration value="LA"/>
+                            <xsd:enumeration value="ME"/>
+                            <xsd:enumeration value="MD"/>
+                            <xsd:enumeration value="MA"/>
+                            <xsd:enumeration value="MI"/>
+                            <xsd:enumeration value="MN"/>
+                            <xsd:enumeration value="MS"/>
+                            <xsd:enumeration value="MO"/>
+                            <xsd:enumeration value="MT"/>
+                            <xsd:enumeration value="NE"/>
+                            <xsd:enumeration value="NV"/>
+                            <xsd:enumeration value="NH"/>
+                            <xsd:enumeration value="NJ"/>
+                            <xsd:enumeration value="NM"/>
+                            <xsd:enumeration value="NY"/>
+                            <xsd:enumeration value="NC"/>
+                            <xsd:enumeration value="ND"/>
+                            <xsd:enumeration value="OH"/>
+                            <xsd:enumeration value="OK"/>
+                            <xsd:enumeration value="OR"/>
+                            <xsd:enumeration value="PA"/>
+                            <xsd:enumeration value="RI"/>
+                            <xsd:enumeration value="SC"/>
+                            <xsd:enumeration value="SD"/>
+                            <xsd:enumeration value="TN"/>
+                            <xsd:enumeration value="TX"/>
+                            <xsd:enumeration value="UT"/>
+                            <xsd:enumeration value="VT"/>
+                            <xsd:enumeration value="VA"/>
+                            <xsd:enumeration value="WA"/>
+                            <xsd:enumeration value="WV"/>
+                            <xsd:enumeration value="WI"/>
+                            <xsd:enumeration value="WY"/>
+                            <xsd:enumeration value="DC"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="zip_code">
+                    <xsd:annotation>
+                        <xsd:documentation>USPS Zip code</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="5"/>
+                            <xsd:minLength value="5"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="assessment_type">
+                    <xsd:annotation>
+                        <xsd:documentation>Type of assessment performed for this building</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value="initial"/>
+                            <xsd:enumeration value="final"/>
+                            <xsd:enumeration value="qa"/>
+                            <xsd:enumeration value="alternative"/>
+                            <xsd:enumeration value="test"/>
+                            <xsd:enumeration value="corrected"/>
+                            <xsd:enumeration value="mentor"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="submit_address_result">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="building_id" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>ID of the buidling submitted</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="result">
+                    <xsd:annotation>
+                        <xsd:documentation>text indicating success or failure</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value="OK"/>
+                            <xsd:enumeration value="FAIL"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="message">
+                    <xsd:annotation>
+                        <xsd:documentation>Building #XXXX successfully created</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="255"/>
+                            <xsd:minLength value="1"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

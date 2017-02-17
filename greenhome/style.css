@@ -1,0 +1,143 @@
+/*
+Theme Name: Green Home Institute
+Theme URI: https://www.curlyhost.com
+Description: Green Home Institute - Enfold Child Theme
+Author: CurlyHost LLC
+Author URI: https://www.curlyhost.com
+Template: enfold
+Version: V0.1
+*/
+
+@import url("../enfold/style.css");
+
+/**
+ * Classes on Demand - Portfolio style
+ */
+
+@media only screen and (min-width: 768px) {
+    /* Portfolio Categorires */
+    .sort_width_container {
+        float: left;
+        width: 23%;
+        margin-right: 2%;
+        display: block;
+        clear: none;
+    }
+}
+
+#js_sort_items a {
+    float: none;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 5px 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#js_sort_items a:before {
+    content: "- ";
+    color: #f0f0f0;
+}
+
+#js_sort_items .text-sep {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    /* Grid Items */
+    .grid-sort-container {
+        float: right;
+        width: 75%;
+        display: block;
+        clear: none;
+    }
+}
+
+#top .grid-sort-container .grid-entry {
+    margin-bottom: 40px;
+    background-color: transparent;
+    margin-right: 2%;
+    width: 31%;
+}
+
+#top .grid-sort-container .grid-content {
+    background-color: transparent;
+}
+
+#top .grid-sort-container .inner-entry {
+    background-color: #f8f8f8;
+    border-radius: 6px;
+}
+
+#top .grid-sort-container .avia-arrow {
+    display: none;
+}
+
+#top .grid-sort-container .inner-entry {
+    padding: 10px;
+}
+
+@media only screen and (min-width: 981px) {
+    #top .grid-sort-container .inner-entry {
+        height: 300px;
+    }
+    #top .grid-sort-container .wp-post-image {
+        max-height: 185px;
+        width: auto;
+        margin: 0 auto;
+    }
+}
+
+.grid-sort-container .grid-entry:nth-child(3) {
+    margin-right: 0;
+}
+
+.grid-sort-container .grid-entry-title {
+    font-weight: bold;
+    font-size: 15px;
+    background-color: transparent;
+}
+
+#top .grid-sort-container .grid-entry-title a:hover {
+    color: #0b9444;
+}
+
+.grid-sort-container {
+    margin-top: -45px;
+}
+
+
+/* Eventbrite Edits */
+
+body.page-template-eventbrite-index article.eventbrite-event a.post-thumbnail {
+    float: left !important;
+    padding-right: 20px;
+}
+
+.page-id-17161 .event-details a {
+    padding: 10px 30px;
+    color: #fff;
+    background-color: #0B9444;
+    margin-right: 30px;
+    font-size: 19px;
+    float: right;
+}
+
+.page-id-17161 .event-organizer a {
+    color: #0B9444;
+}
+
+iframe,
+object,
+embed {
+    max-width: 100%;
+    height: 433px;
+}
+
+.event-organizer-text,
+.sep {
+    display: none;
+}
+
+.gfield.hide{
+  display: none;
+}

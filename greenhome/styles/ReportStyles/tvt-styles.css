@@ -1,0 +1,288 @@
+/*
+Author: VorTech
+Author Email: consultants.vortech@outlook.com
+Description: This stylesheet is for the form and reporting of the Greenhome Institute energy audits.
+
+Elements use the prefix tvt for Team VorTech to  not conflict other Greenhome styling.
+*/
+
+/* Style the list */
+ul.tvt-tab {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    /*border: 1px solid #ccc;*/
+    /*background-color: #f1f1f1;*/
+	text-align:center;
+	width:60%
+}
+
+input[type="radio"] {
+  margin-top: -1px;
+  vertical-align: middle;
+}
+
+/*moving margin from inputs to labels*/
+.tvt .tvt-field-label {
+    padding-top: 18px;
+    padding-left: 15px;
+    font-size: 1.1em;
+    color: #0b9444
+}
+
+/* Set image sizes */
+img:not(.report-snapshot){
+    max-width: 500px;
+    max-height: 500px;
+}
+
+/* Float the list items side by side */
+ul.tvt-tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tvt-tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 30px 16px;
+    text-decoration: none;
+    /*transition: 0.3s;*/
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tvt-tab li a:hover {
+    background-color: rgba(11,148,68, .25);
+}
+
+/* Create an active/current tablink class */
+ul.tvt-tab li a:focus, .active {
+    /*background-color: #ccc;*/
+    border-bottom: 4px solid #20419a;
+	padding-bottom:26px;
+}
+
+/* Style the tab content */
+.tvt-tabcontent {
+    display: none;
+    padding: 6px 12px;
+    /*border: 1px solid #ccc;*/
+    border-top: none;
+}
+
+.tvt-tablinks {
+    color: black;
+}
+/** end of styling for tabs */
+
+.tvt-section-title {
+    border-bottom: 3px solid #20419a;
+}
+
+.tvt-section-group {
+	margin-bottom: 10px !important;
+	overflow: auto;
+}
+
+.center {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.tvt label.tvt-input-option {
+    font-weight: normal;
+}
+
+h3.tvt-group-title {
+    background: #0b9444;
+    color: #fff;
+    padding: 7px;
+}
+
+
+.tvt p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+i{
+margin: 0px 0px 0px 20px;
+visibility: hidden;
+}
+
+p{
+font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+table{
+margin :0px auto;
+max-width: 400px;
+padding: 0px 0px 10px 0px;
+font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+th, td{
+padding: 0px 0px 25px 14px;
+}
+
+.tvt {
+    width: 40%;
+    padding: 30px;
+    background: #FFFFFF;
+    border-radius: 3px;
+    margin: 50px auto auto auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	overflow:auto;
+}
+.tvt li {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+.tvt label{
+    display:block;
+    font-weight: bold;
+}
+.tvt input[type=text], 
+.tvt input[type=date],
+.tvt input[type=datetime],
+.tvt input[type=number],
+.tvt input[type=search],
+.tvt input[type=time],
+.tvt input[type=url],
+.tvt input[type=email],
+.tvt input[type=file],
+.tvt input[type=tel],
+.tvt textarea,
+.tvt select{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    border-radius: 3px;
+    padding: 7px;
+    width: 100%;
+	/*moving margin to labels instead of inputs*/
+    margin-bottom: 8px;
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -ms-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    outline: none;  
+}
+
+
+.tvt input[type=text]:focus, 
+.tvt input[type=date]:focus,
+.tvt input[type=datetime]:focus,
+.tvt input[type=number]:focus,
+.tvt input[type=search]:focus,
+.tvt input[type=time]:focus,
+.tvt input[type=url]:focus,
+.tvt input[type=email]:focus,
+.tvt input[type=file]:focus,
+.tvt input[type=tel]:focus,
+.tvt textarea:focus,
+.tvt select:focus{
+    -moz-box-shadow: 0 0 8px #88D5E9;
+    -webkit-box-shadow: 0 0 8px #88D5E9;
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+}
+.tvt .field-divided{
+    width: 49%;
+}
+
+.tvt .field-long{
+    width: 100%;
+}
+.tvt .field-select{
+    width: 100%;
+}
+.tvt .field-textarea{
+    height: 100px;
+}
+.tvt input[type=submit], .tvt input[type=button]{
+    background: #4B99AD;
+    padding: 8px 15px 8px 15px;
+border-radius: 3px;
+    border: none;
+    color: #fff;
+}
+.tvt input[type=submit]:hover, .tvt input[type=button]:hover{
+    background: #4691A4;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+}
+.tvt .required{
+    color:red;
+}
+
+/* tvt width adjustment depending on screen size. */
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+	.tvt {
+		width:100%;
+	}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+	.tvt {
+		width:100%;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	.tvt {
+		width:90%;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.tvt {
+		width:80%;
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	.tvt {
+		width:70%;
+	}
+}
+
+.error{
+    border-color: red !important;
+}
+
+.saving{
+    border-color: gold !important;
+}
+
+.saved {
+    border-color: darkgreen !important;
+}
+
+.tvt-field-result {
+
+    padding-left: 30px;
+    margin-bottom: 10px;
+    width: 100%;
+    float: right;
+}
+
+h4.tvt-group-subtitle {
+    padding-left: 15px;
+    font-size: 1.1em;
+
+}

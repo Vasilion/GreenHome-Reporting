@@ -1,0 +1,75 @@
+/* Settings for  printing */
+@media print{
+	
+	#form1{
+		width: 100%;
+	}	
+	
+	.tvt, div#RepBod {
+		width:100%;
+		margin: 0;
+		padding: 0;
+		box-shadow:none;
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+	}
+	
+	div#colorblind-div {
+		display: none;
+	}
+	
+	.tvt-tabcontent{
+		
+		display: block!important;
+		
+	}
+	
+	.photo_and_title{
+		
+		display: none;
+	}
+	
+	
+	div {
+		margin: 0 5%;
+		
+	}
+	
+	@page{
+		size: 8.5in 11in;
+	}
+	
+	#nav_bar{
+		display: none;
+	}
+	
+	
+	#button_row{
+		display: none;
+		
+	}
+	
+	h3.tvt-group-title {
+		color: black;
+		background: none;
+	}
+	
+	.pagebreakhere {
+		page-break-after: always;
+	}
+	
+	.tvt-field-result {
+		padding-left: 0;
+	}
+	.tvt .tvt-field-label {
+		padding-top: 0;
+		padding-left: 0;
+	}
+	
+	h3.tvt-group-title {
+		margin-top: 0;
+		margin-bottom: 0;
+		text-align: center;
+	}
+	
+}

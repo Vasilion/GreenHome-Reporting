@@ -1546,7 +1546,7 @@
                                 <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="SkylightPanes" id="skylight1"
                                         onChange="checkValidationForWindows(true, false, 'skylight1', 'skylight3', 'skylight2')">
                                     <option disabled selected value> -- select an option --</option>
-                                    <option value="  None">None</option>
+                                    <!--option value="  None">None</option-->
                                     <option value="s">Single-pane</option>
                                     <option value="d">Double-pane</option>
                                     <option value="thmabw">Triple-pane</option>
@@ -1678,7 +1678,7 @@
                                 <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsPanesGen" id="WinGen1"
                                         onChange="checkValidationForWindows(true, false, 'WinGen1', 'WinGen2', 'WinGen3')">
                                     <option disabled selected value> -- select an option --</option>
-                                    <option value="  None">None</option>
+                                    <!--option value="  None">None</option-->
                                     <option value="s">Single-pane</option>
                                     <option value="d">Double-pane</option>
                                     <option value="thmabw">Triple-pane</option>

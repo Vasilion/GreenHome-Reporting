@@ -3259,7 +3259,7 @@
 
 										<div class="col-sm-12 col-md-12 col-lg-12">
 
-											<div class="DCCapacity">
+											<div class="numbOfPanels">
                         <label class="tvt-field-label">Number of Pannels</label>
 
                         <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="numbOfPanels" type="number"

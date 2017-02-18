@@ -2340,8 +2340,8 @@
                             <label class="tvt-field-label">Type of Heating System</label>
 
 														<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysType1" id="heatType1"
-	                                    onchange="omniHide(this, 'None', 'Heating1'); omniHide(this, 'None', 'Heating2Div'); ">
-	                                <option value="None">None</option>
+	                                    onchange="omniHide(this, 'None', 'Heating1'); omniHide(this, 'None', 'Heating2'); ">
+	                                <option selected value="None">None</option>
 	                                <option value="central_furnace:natural_gas">Central Gas Furnace</option>
 	                                <option value="wall_furnace:natural_gas">Room (Through-the-wall) Gas Furnace</option>
 	                                <option value="central_furnace:lpg">Propane (LPG) Furnace</option>
@@ -3163,6 +3163,92 @@
                         </div>
                     </div>
                 </div> <!-- Closing Div Tag for Hot Water SECTION -->
+
+								<!-- Closing Div Tag for PV System SECTION -->
+								<div class="col-sm-12 col-md-12 col-lg-12">
+                    <h3 class="tvt-group-title">PV System</h3>
+                </div>
+								<div class="PVALL">
+										<div class="col-sm-12 col-md-12 col-lg-12">
+												<label>Enter Photovoltaic (PV) System </label>
+
+												<label class="tvt-input-option">
+
+														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_1"
+																	 value="Yes" id="PV.1_0" onClick="omniHide(this, 'No', 'PVcontent')"/>
+														Yes</label>
+
+												<label class="tvt-input-option">
+														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_1" value="No"
+																	 id="PV.1_1" onClick="omniHide(this, 'No', 'PVcontent'); checked="checked"" />
+														No</label>
+										</div>
+										<div class="PVcontent">
+										<div class="col-sm-12 col-md-12 col-lg-12">
+												<label class="tvt-field-label">Year Installed</label>
+
+												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="PVYear">
+														<option disabled selected value> -- select an option --</option>
+														<option value="2000">2000</option>
+														<option value="2001">2001</option>
+														<option value="2002">2002</option>
+														<option value="2003">2003</option>
+														<option value="2004">2004</option>
+														<option value="2005">2005</option>
+														<option value="2006">2006</option>
+														<option value="2007">2007</option>
+														<option value="2008">2008</option>
+														<option value="2009">2009</option>
+														<option value="2010">2010</option>
+														<option value="2011">2011</option>
+														<option value="2012">2012</option>
+														<option value="2013">2013</option>
+														<option value="2014">2014</option>
+														<option value="2015">2015</option>
+														<option value="2016">2016</option>
+														<option value="2017">2017</option>
+
+												</select>
+										</div>
+
+										<div class="col-sm-12 col-md-12 col-lg-12">
+												<label class="tvt-field-label">Direction Panels Face</label>
+
+												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="PVDirection">
+														<option disabled selected value> -- select an option --</option>
+														<option value="North">North</option>
+														<option value="NorthEast">NorthEash</option>
+														<option value="East">East</option>
+														<option value="SouthEast">SouthEast</option>
+														<option value="South">South</option>
+														<option value="SouthWest">SouthWest</option>
+														<option value="West">West</option>
+														<option value="NorthWest">NorthWest</option>
+
+
+												</select>
+										</div>
+
+										<div class="col-sm-12 col-md-12 col-lg-12">
+												<label>Do you know the systems capacity?</label>
+
+												<label class="tvt-input-option">
+
+														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_2"
+																	 value="Yes" id="PV.2_0" onClick="omniHide(this, 'No', 'HotWaterEnergyFactor');
+															 omniHide(this, 'Yes', 'HotWaterYearInstalled')"/>
+														Yes</label>
+
+												<label class="tvt-input-option">
+														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_2" value="No"
+																	 id="PV.2_1" onClick="omniHide(this, 'No', 'HotWaterEnergyFactor');
+															 omniHide(this, 'Yes', 'HotWaterYearInstalled')" checked />
+														No</label>
+										</div>
+
+									</div><!--Closing PVcontent-->
+								</div> <!-- Closing Div for PV -->
+
 
             </div> <!-- Closing Div Tag for System SECTION -->
 

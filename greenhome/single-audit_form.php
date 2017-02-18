@@ -3179,8 +3179,8 @@
 														Yes</label>
 
 												<label class="tvt-input-option">
-														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_1" value="No"
-																	 id="PV.1_1" onClick="omniHide(this, 'No', 'PVcontent'); checked="checked"" />
+														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" checked="checked" name="PV_1" value="No"
+																	 id="PV.1_1" onClick="omniHide(this, 'No', 'PVcontent')" />
 														No</label>
 										</div>
 										<div class="PVcontent">
@@ -3235,16 +3235,38 @@
 												<label class="tvt-input-option">
 
 														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_2"
-																	 value="Yes" id="PV.2_0" onClick="omniHide(this, 'No', 'HotWaterEnergyFactor');
-															 omniHide(this, 'Yes', 'HotWaterYearInstalled')"/>
+																	 value="Yes" id="PV.2_0" onClick="omniHide(this, 'No', 'DCCapacity');
+															 omniHide(this, 'Yes', 'numbOfPanels')"/>
 														Yes</label>
 
 												<label class="tvt-input-option">
 														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_2" value="No"
-																	 id="PV.2_1" onClick="omniHide(this, 'No', 'HotWaterEnergyFactor');
-															 omniHide(this, 'Yes', 'HotWaterYearInstalled')" checked />
+																	 id="PV.2_1" onClick="omniHide(this, 'No', 'DCCapacity');
+															 omniHide(this, 'Yes', 'numbOfPanels')" checked />
 														No</label>
 										</div>
+
+										<div class="col-sm-12 col-md-12 col-lg-12">
+
+											<div class="DCCapacity">
+                        <label class="tvt-field-label">DC Capacity (KW)</label>
+
+                        <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="DCcapacity" type="text"
+                               value="<?php echo $formData['DCCapacity'][0]; ?>"/>
+
+												 </div>
+                    </div>
+
+										<div class="col-sm-12 col-md-12 col-lg-12">
+
+											<div class="DCCapacity">
+                        <label class="tvt-field-label">Number of Pannels</label>
+
+                        <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="numbOfPanels" type="number"
+                               value="<?php echo $formData['numbOfPanels'][0]; ?>"/>
+
+												 </div>
+                    </div>
 
 									</div><!--Closing PVcontent-->
 								</div> <!-- Closing Div for PV -->

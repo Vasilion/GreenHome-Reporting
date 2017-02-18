@@ -1798,7 +1798,9 @@
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsPanesFront" id="WinFront1"
                                     onChange="checkValidationForWindows(true, false, 'WinFront1', 'WinFront2', 'WinFront3')">
                                 <option disabled selected value> -- select an option --</option>
+																<!---
                                 <option value="  None">None</option>
+															-->
                                 <option value="s">Single-pane</option>
                                 <option value="d">Double-pane</option>
                                 <option value="thmabw">Triple-pane</option>
@@ -1913,7 +1915,9 @@
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsPanesBack" id="WinBack1"
                                     onChange="checkValidationForWindows(true, false, 'WinBack1', 'WinBack2', 'WinBack3')">
                                 <option disabled selected value> -- select an option --</option>
+																<!--
                                 <option value="  None">None</option>
+															-->
                                 <option value="s">Single-pane</option>
                                 <option value="d">Double-pane</option>
                                 <option value="thmabw">Triple-pane</option>
@@ -2027,7 +2031,9 @@
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsPanesRight" id="WinRight1"
                                     onChange="checkValidationForWindows(true, false, 'WinRight1', 'WinRight2', 'WinRight3')">
                                 <option disabled selected value> -- select an option --</option>
+																<!--
                                 <option value="  None">None</option>
+															-->
                                 <option value="s">Single-pane</option>
                                 <option value="d">Double-pane</option>
                                 <option value="thmabw">Triple-pane</option>
@@ -2141,7 +2147,9 @@
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsPanesLeft" id="WinLeft1"
                                     onChange="checkValidationForWindows(true, false, 'WinLeft1', 'WinLeft2', 'WinLeft3')">
                                 <option disabled selected value> -- select an option --</option>
+																<!--
                                 <option value="  None">None</option>
+															-->
                                 <option value="s">Single-pane</option>
                                 <option value="d">Double-pane</option>
                                 <option value="thmabw">Triple-pane</option>

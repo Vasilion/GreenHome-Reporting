@@ -1343,7 +1343,8 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 										} ?>
                   </label>
                   <label class="tvt-field-label">Area</label>
-                  <label class="tvt-field-result"><?php echo $arrayName( $foundarea1 ) ?></label>
+                  <label class="tvt-field-result"><?php echo $arrayName ['foundarea1'][0] ?></label>
+
                   <label class="tvt-field-label">Floor Insulation</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['foundfloorinsul1'][0] == "efw00ca" ) {

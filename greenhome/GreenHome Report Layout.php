@@ -1804,8 +1804,10 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 											}
 											?>
                     </label>
+										
                     <label class="tvt-field-label">Insulation</label>
-                    <label class="tvt-field-result"><?php echo "R", $arrayName['wallsinsulfront'][0] ?></label>
+                    <label class="tvt-field-result"><?php echo "R", $arrayName['wallsinsulgen'][0] ?></label>
+
 									<?php if ( $arrayName['wallsfrontrecom'][0] ) { ?>
                         <label class="tvt-field-label">Assessor's Recommendation</label>
                         <label class="tvt-field-result"><?php echo $arrayName['wallsfrontrecom'][0] ?></label>
@@ -1839,6 +1841,7 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   <!-- NOTE: windows are not optional, a "Windows not measured/recorded" case not applicable -->
                   <label class="tvt-field-label">Area</label>
                   <label class="tvt-field-result"><?php echo $arrayName['windowsareagen1'][0] ?></label>
+
 								<?php if ( $arrayName['wingenknownuandshgc'][0] ) { ?>
                     <label class="tvt-field-label">Panes</label>
                     <label class="tvt-field-result">

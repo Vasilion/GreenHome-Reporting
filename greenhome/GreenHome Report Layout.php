@@ -1480,25 +1480,22 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 										echo "1";
 									} ?></h3>
             </div>
-					<?php if ( $arrayName['roof1photo'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
-                  <label class="tvt-field-label photo-title"><?php echo $arrayName['roof1phototitle'][0] ?></label>
-                  <img src="<?php echo $arrayName['roof1photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
-					<?php } ?>
+
+
             <div class="col-sm-12 col-md-12 col-lg-12">
-							<?php if ( $arrayName['roofConst1'][0] && $arrayName['roofconst1'][0] != "None" ) { ?>
+							<?php if ( $arrayName['roofconst1'][0] && $arrayName['roofconst1'][0] != "None" ) { ?>
                   <label class="tvt-field-label">Type</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['roofconst1'][0] == "rfwf" ) {
-											echo "Wood Frame";
+											echo "Standard Roof";
 										} else if ( $arrayName['roofconst1'][0] == "rfrb" ) {
-											echo "Wood Frame with Radiant Barrier";
+											echo "Roof with Radiant Barrier";
 										} else if ( $arrayName['roofconst1'][0] == "rfps" ) {
-											echo "Wood Frame with Rigid Foam Sheathing";
+											echo "Roof with Rigid Foam Sheathing";
 										}
 										?>
                   </label>
+
                   <label class="tvt-field-label">Exterior Finish</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['roofextfin1'][0] == "co" ) {
@@ -1534,13 +1531,21 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 										?>
                   </label>
                   <label class="tvt-field-label">Area</label>
-                  <label class="tvt-field-result"><?php echo $arrayname['roofarea1'][0] ?></label>
+                  <label class="tvt-field-result"><?php echo $arrayname['roofarea1'][0] ?></label> 
+
 								<?php if ( $arrayName['roof1recom'][0] ) { ?>
                       <label class="tvt-field-label">Assessor's Recommendation</label>
                       <label class="tvt-field-result"><?php echo $arrayName['roof1recom'][0] ?></label>
 								<?php } ?>
 							<?php } else { ?>
                   <label class="tvt-field-result">Roof not measured/recorded</label>
+							<?php } ?>
+
+							<?php if ( $arrayName['roof1photo'][0] ) { ?>
+		              <div class="col-sm-12 col-md-12 col-lg-12 centered">
+		                  <label class="tvt-field-label photo-title"><?php echo $arrayName['roof1phototitle'][0] ?></label>
+		                  <img src="<?php echo $arrayName['roof1photo'][0]; ?>" alt="Photo of Air Leak Test"/>
+		              </div>
 							<?php } ?>
             </div>
         </div> <!-- Closing Div Tag for Roof 1 -->

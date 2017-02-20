@@ -65,7 +65,7 @@
     <!-- Form Element Containing Entire Form -->
     <form id="form1" name="form1" method="post" action="../Audit-Report?form_id=<?php echo $formId ?>" class="tvt" enctype="multipart/form-data">
         <input id="formId" name="form_id" type="text" value="<?php echo $formId ?>" hidden/>
-        <!--div style="text-align:center;">
+        <div style="text-align:center;">
             <div id="legend">
                 <span onclick="$('#legend').hide();" class="close">x</span>
                 <h3>Legend</h3>
@@ -85,8 +85,8 @@
 
                 <!-- Div Containing Colorblind Mode -->
                 <!--                <div class="" id="colorblind-div"></div>
-								-->
-         <!-- Closing Div Tag for Colorblind Mode -->
+								-->            </div>
+        </div> <!-- Closing Div Tag for Colorblind Mode -->
 
         <!-- Div Containing Information TAB SECTION -->
         <div id="Information" class="tvt-tabcontent pagebreakhere">
@@ -731,7 +731,8 @@
 
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofConst1" id="RoofOne1"
                                 onChange="toggleRequiredByInput(this,'Roof1Content'); checkValidationForRoof(true, 'RoofOne1', 'RoofOne2', 'RoofOne3');
-                            omniHide(this, 'None', 'Roof2HideDiv'); omniHide(this, 'None', 'Roof1Content')">
+                            omniHide(this, 'None', 'Roof2HideDiv'); omniHide(this, 'None', 'Roof1Content')"
+														value="<?php echo $formData['roofconst1'][0]; ?>">
                             <option disabled selected value> -- select an option --</option>
                             <option value="None">None</option>
                             <option value="rfwf">Standard Roof</option>

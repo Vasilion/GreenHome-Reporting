@@ -1331,7 +1331,7 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 					<?php } ?>
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <!-- always show at least foundation 1. But can mention not measured if is none -->
-							<?php if ( $arrayName['foundType1'][0] && $arrayName['foundType1'][0] != "None" ) { ?>
+							<?php if ( $arrayName['foundtype1'][0] && $arrayName['foundType1'][0] != "None" ) { ?>
                   <label class="tvt-field-label">Foundation Type</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['foundtype1'][0] == "None" ) {

@@ -65,7 +65,7 @@
     <!-- Form Element Containing Entire Form -->
     <form id="form1" name="form1" method="post" action="../Audit-Report?form_id=<?php echo $formId ?>" class="tvt" enctype="multipart/form-data">
         <input id="formId" name="form_id" type="text" value="<?php echo $formId ?>" hidden/>
-        <!--div style="text-align:center;">
+        <div style="text-align:center;">
             <div id="legend">
                 <span onclick="$('#legend').hide();" class="close">x</span>
                 <h3>Legend</h3>
@@ -85,8 +85,8 @@
 
                 <!-- Div Containing Colorblind Mode -->
                 <!--                <div class="" id="colorblind-div"></div>
-								-->
-         <!-- Closing Div Tag for Colorblind Mode -->
+								-->            </div>
+        </div> <!-- Closing Div Tag for Colorblind Mode -->
 
         <!-- Div Containing Information TAB SECTION -->
         <div id="Information" class="tvt-tabcontent pagebreakhere">

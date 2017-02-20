@@ -1546,7 +1546,7 @@
                                 <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="SkylightPanes" id="skylight1"
                                         onChange="checkValidationForWindows(true, false, 'skylight1', 'skylight3', 'skylight2')">
                                     <option disabled selected value> -- select an option --</option>
-                                    <option value="  None">None</option>
+                                    <!--option value="  None">None</option-->
                                     <option value="s">Single-pane</option>
                                     <option value="d">Double-pane</option>
                                     <option value="thmabw">Triple-pane</option>
@@ -1678,7 +1678,7 @@
                                 <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsPanesGen" id="WinGen1"
                                         onChange="checkValidationForWindows(true, false, 'WinGen1', 'WinGen2', 'WinGen3')">
                                     <option disabled selected value> -- select an option --</option>
-                                    <option value="  None">None</option>
+                                    <!--option value="  None">None</option-->
                                     <option value="s">Single-pane</option>
                                     <option value="d">Double-pane</option>
                                     <option value="thmabw">Triple-pane</option>
@@ -1798,7 +1798,9 @@
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsPanesFront" id="WinFront1"
                                     onChange="checkValidationForWindows(true, false, 'WinFront1', 'WinFront2', 'WinFront3')">
                                 <option disabled selected value> -- select an option --</option>
+																<!---
                                 <option value="  None">None</option>
+															-->
                                 <option value="s">Single-pane</option>
                                 <option value="d">Double-pane</option>
                                 <option value="thmabw">Triple-pane</option>
@@ -1913,7 +1915,9 @@
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsPanesBack" id="WinBack1"
                                     onChange="checkValidationForWindows(true, false, 'WinBack1', 'WinBack2', 'WinBack3')">
                                 <option disabled selected value> -- select an option --</option>
+																<!--
                                 <option value="  None">None</option>
+															-->
                                 <option value="s">Single-pane</option>
                                 <option value="d">Double-pane</option>
                                 <option value="thmabw">Triple-pane</option>
@@ -2027,7 +2031,9 @@
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsPanesRight" id="WinRight1"
                                     onChange="checkValidationForWindows(true, false, 'WinRight1', 'WinRight2', 'WinRight3')">
                                 <option disabled selected value> -- select an option --</option>
+																<!--
                                 <option value="  None">None</option>
+															-->
                                 <option value="s">Single-pane</option>
                                 <option value="d">Double-pane</option>
                                 <option value="thmabw">Triple-pane</option>
@@ -2141,7 +2147,9 @@
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsPanesLeft" id="WinLeft1"
                                     onChange="checkValidationForWindows(true, false, 'WinLeft1', 'WinLeft2', 'WinLeft3')">
                                 <option disabled selected value> -- select an option --</option>
+																<!--
                                 <option value="  None">None</option>
+															-->
                                 <option value="s">Single-pane</option>
                                 <option value="d">Double-pane</option>
                                 <option value="thmabw">Triple-pane</option>
@@ -3171,8 +3179,8 @@
 														Yes</label>
 
 												<label class="tvt-input-option">
-														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_1" value="No"
-																	 id="PV.1_1" onClick="omniHide(this, 'No', 'PVcontent'); checked="checked"" />
+														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" checked="checked" name="PV_1" value="No"
+																	 id="PV.1_1" onClick="omniHide(this, 'No', 'PVcontent')" />
 														No</label>
 										</div>
 										<div class="PVcontent">
@@ -3227,16 +3235,38 @@
 												<label class="tvt-input-option">
 
 														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_2"
-																	 value="Yes" id="PV.2_0" onClick="omniHide(this, 'No', 'HotWaterEnergyFactor');
-															 omniHide(this, 'Yes', 'HotWaterYearInstalled')"/>
+																	 value="Yes" id="PV.2_0" onClick="omniHide(this, 'No', 'DCCapacity');
+															 omniHide(this, 'Yes', 'numbOfPanels')"/>
 														Yes</label>
 
 												<label class="tvt-input-option">
 														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_2" value="No"
-																	 id="PV.2_1" onClick="omniHide(this, 'No', 'HotWaterEnergyFactor');
-															 omniHide(this, 'Yes', 'HotWaterYearInstalled')" checked />
+																	 id="PV.2_1" onClick="omniHide(this, 'No', 'DCCapacity');
+															 omniHide(this, 'Yes', 'numbOfPanels')" checked />
 														No</label>
 										</div>
+
+										<div class="col-sm-12 col-md-12 col-lg-12">
+
+											<div class="DCCapacity">
+                        <label class="tvt-field-label">DC Capacity (KW)</label>
+
+                        <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="DCcapacity" type="text"
+                               value="<?php echo $formData['DCCapacity'][0]; ?>"/>
+
+												 </div>
+                    </div>
+
+										<div class="col-sm-12 col-md-12 col-lg-12">
+
+											<div class="numbOfPanels">
+                        <label class="tvt-field-label">Number of Pannels</label>
+
+                        <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="numbOfPanels" type="number"
+                               value="<?php echo $formData['numbOfPanels'][0]; ?>"/>
+
+												 </div>
+                    </div>
 
 									</div><!--Closing PVcontent-->
 								</div> <!-- Closing Div for PV -->

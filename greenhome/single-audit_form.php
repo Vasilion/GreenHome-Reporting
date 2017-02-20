@@ -65,7 +65,7 @@
     <!-- Form Element Containing Entire Form -->
     <form id="form1" name="form1" method="post" action="../Audit-Report?form_id=<?php echo $formId ?>" class="tvt" enctype="multipart/form-data">
         <input id="formId" name="form_id" type="text" value="<?php echo $formId ?>" hidden/>
-        <div style="text-align:center;">
+        <!--div style="text-align:center;">
             <div id="legend">
                 <span onclick="$('#legend').hide();" class="close">x</span>
                 <h3>Legend</h3>
@@ -85,8 +85,8 @@
 
                 <!-- Div Containing Colorblind Mode -->
                 <!--                <div class="" id="colorblind-div"></div>
-								-->            </div>
-        </div> <!-- Closing Div Tag for Colorblind Mode -->
+								-->
+         <!-- Closing Div Tag for Colorblind Mode -->
 
         <!-- Div Containing Information TAB SECTION -->
         <div id="Information" class="tvt-tabcontent pagebreakhere">
@@ -723,7 +723,7 @@
                 <div id="Roof1">
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <h3 class="tvt-group-title">Roof 1</h3>
+                        <h3 class="tvt-group-title">Roof and Attic 1</h3>
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-6">
@@ -791,6 +791,54 @@
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofArea1" type="number" value="<?php echo $formData['roofarea1'][0]; ?>"/>
 						</div>
 
+
+						<div class="col-sm-12 col-md-6 col-lg-6">
+
+								<label class="tvt-field-label">Attic or Ceiling Type</label>
+
+								<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticType1" onChange="toggleRequiredByInput(this,'Attic1Content');
+						omniHide(this, '  None', 'Attic2Full'); omniHide(this, '  None', 'Attic1Content')">
+										<option disabled selected value> -- select an option --</option>
+										<option value="  None">None</option>
+										<option value="cond_attic">Unconditioned Attic</option>
+										<option value="vented_attic">Conditioned Attic</option>
+										<option value="cath_ceiling">Cathedral Ceiling</option>
+								</select>
+						</div>
+
+						<div class="Attic1Content">
+
+							<div class="col-sm-12 col-md-12 col-lg-12">
+							<label class="tvt-field-label">Attic Area</label>
+
+							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticArea" type="text"
+										 value="<?php echo $formData['atticarea'][0]; ?>"/>
+							</div>
+
+								<div class="col-sm-12 col-md-6 col-lg-6">
+
+										<label class="tvt-field-label">Attic Floor Insulation</label>
+
+										<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticFloorInsul1">
+												<option disabled selected value> -- select an option --</option>
+												<option value="  None">None</option>
+												<option value="ecwf00">R-0</option>
+												<option value="ecwf03">R-3</option>
+												<option value="ecwf06">R-6</option>
+												<option value="ecwf09">R-9</option>
+												<option value="ecwf11">R-11</option>
+												<option value="ecwf19">R-19</option>
+												<option value="ecwf21">R-21</option>
+												<option value="ecwf25">R-25</option>
+												<option value="ecwf30">R-30</option>
+												<option value="ecwf38">R-38</option>
+												<option value="ecwf44">R-44</option>
+												<option value="ecwf49">R-49</option>
+												<option value="ecwf60">R-60</option>
+										</select>
+
+								</div>
+
                         <div>
                             <div class="col-sm-12 col-md-6 col-lg-6 photo_and_title">
                                 <label class="tvt-field-label">Photo</label>
@@ -816,7 +864,7 @@
                 <!-- Div Containing Roof 2 -->
                 <div id="Roof2" class="Roof2HideDiv">
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <h3 class="tvt-group-title">Roof 2</h3>
+                        <h3 class="tvt-group-title">Roof and Attic 2</h3>
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-6">
@@ -894,6 +942,55 @@
 						</div>
 
 
+						<div class="col-sm-12 col-md-6 col-lg-6">
+
+								<label class="tvt-field-label">Attic or Ceiling Type</label>
+
+								<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticType2" id="AtticType2"
+												onChange="toggleRequiredByInput(this,'Attic2Content');
+												omniHide(this, 'None', 'Attic2Content')">
+										<option value="None" selected>None</option>
+										<option value="cond_attic">Unconditioned Attic</option>
+										<option value="vented_attic">Conditioned Attic</option>
+										<option value="cath_ceiling">Cathedral Ceiling</option>
+								</select>
+
+						</div>
+
+						<div class="Attic2Content">
+
+							<div class="col-sm-12 col-md-12 col-lg-12">
+							<label class="tvt-field-label">Attic Area</label>
+
+							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="Attic2Area" type="text"
+										 value="<?php echo $formData['attic2area'][0]; ?>"/>
+							</div>
+
+								<div class="col-sm-12 col-md-6 col-lg-6">
+
+										<label class="tvt-field-label">Attic Floor Insulation</label>
+
+										<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticFloorInsul2">
+												<option disabled selected value> -- select an option --</option>
+												<option value="  None">None</option>
+												<option value="ecwf00">R-0</option>
+												<option value="ecwf03">R-3</option>
+												<option value="ecwf06">R-6</option>
+												<option value="ecwf09">R-9</option>
+												<option value="ecwf11">R-11</option>
+												<option value="ecwf19">R-19</option>
+												<option value="ecwf21">R-21</option>
+												<option value="ecwf25">R-25</option>
+												<option value="ecwf30">R-30</option>
+												<option value="ecwf38">R-38</option>
+												<option value="ecwf44">R-44</option>
+												<option value="ecwf49">R-49</option>
+												<option value="ecwf60">R-60</option>
+										</select>
+								</div>
+
+
+
                         <div class="col-sm-12 col-md-6 col-lg-6 photo_and_title">
                             <label class="tvt-field-label">Photo</label>
                             <input class="tvt-field-input" name="Roof2Photo" type="file" accept="image/*"/>
@@ -914,158 +1011,8 @@
                 </div> <!-- Closing Div Tag for Roof 2 -->
 
                 <!--Div Containing Attic 1 -->
-                <div id="attic1">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        <h3 class="tvt-group-title">Attic 1</h3>
-                    </div>
-
-
-
-                    <div class="col-sm-12 col-md-6 col-lg-6">
-
-                        <label class="tvt-field-label">Attic or Ceiling Type</label>
-
-                        <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticType1" onChange="toggleRequiredByInput(this,'Attic1Content');
-                    omniHide(this, '  None', 'Attic2Full'); omniHide(this, '  None', 'Attic1Content')">
-                            <option disabled selected value> -- select an option --</option>
-                            <option value="  None">None</option>
-                            <option value="cond_attic">Unconditioned Attic</option>
-                            <option value="vented_attic">Conditioned Attic</option>
-                            <option value="cath_ceiling">Cathedral Ceiling</option>
-                        </select>
-                    </div>
-
-                    <div class="Attic1Content">
-
-											<div class="col-sm-12 col-md-12 col-lg-12">
-											<label class="tvt-field-label">Attic Area</label>
-
-											<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticArea" type="text"
-														 value="<?php echo $formData['atticarea'][0]; ?>"/>
-											</div>
-
-                        <div class="col-sm-12 col-md-6 col-lg-6">
-
-                            <label class="tvt-field-label">Attic Floor Insulation</label>
-
-                            <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticFloorInsul1">
-                                <option disabled selected value> -- select an option --</option>
-                                <option value="  None">None</option>
-                                <option value="ecwf00">R-0</option>
-                                <option value="ecwf03">R-3</option>
-                                <option value="ecwf06">R-6</option>
-                                <option value="ecwf09">R-9</option>
-                                <option value="ecwf11">R-11</option>
-                                <option value="ecwf19">R-19</option>
-                                <option value="ecwf21">R-21</option>
-                                <option value="ecwf25">R-25</option>
-                                <option value="ecwf30">R-30</option>
-                                <option value="ecwf38">R-38</option>
-                                <option value="ecwf44">R-44</option>
-                                <option value="ecwf49">R-49</option>
-                                <option value="ecwf60">R-60</option>
-                            </select>
-
-                        </div>
-
-
-                        <div class="col-sm-12 col-md-6 col-lg-6 photo_and_title">
-                            <label class="tvt-field-label">Photo</label>
-
-                            <input class="tvt-field-input" name="Attic1Photo" type="file" accept="image/*"/>
-                        </div>
-
-                        <div class="col-sm-12 col-md-6 col-lg-6 photo_and_title">
-                            <label class="tvt-field-label">Photo Title</label>
-
-                            <input class="tvt-field-input" name="Attic1PhotoTitle" type="text" value="<?php echo $formData['attic1phototitle'][0]; ?>"/>
-                        </div>
-
-                        <div class="col-sm-12 col-md-12 col-lg-12">
-                            <label class="tvt-field-label">Assessor's Recommendation</label>
-
-                            <input class="tvt-field-input" name="Attic1Recom" type="text" value="<?php echo $formData['attic1recom'][0]; ?>"/>
-                        </div>
-                    </div>
-
-                </div> <!-- Closing Div Tag for Attic 1 -->
-                <!-- Div Containing Attic 2 -->
-                <div id="attic2" class="Attic2Full">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-
-                        <h3 class="tvt-group-title">Attic 2</h3>
-
-                    </div>
-
-
-
-                    <div class="col-sm-12 col-md-6 col-lg-6">
-
-                        <label class="tvt-field-label">Attic or Ceiling Type</label>
-
-                        <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticType2" id="AtticType2"
-                                onChange="toggleRequiredByInput(this,'Attic2Content');
-																omniHide(this, 'None', 'Attic2Content')">
-                            <option value="None" selected>None</option>
-														<option value="cond_attic">Unconditioned Attic</option>
-                            <option value="vented_attic">Conditioned Attic</option>
-                            <option value="cath_ceiling">Cathedral Ceiling</option>
-                        </select>
-
-                    </div>
-
-                    <div class="Attic2Content">
-
-											<div class="col-sm-12 col-md-12 col-lg-12">
-											<label class="tvt-field-label">Attic Area</label>
-
-											<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="Attic2Area" type="text"
-														 value="<?php echo $formData['attic2area'][0]; ?>"/>
-											</div>
-
-                        <div class="col-sm-12 col-md-6 col-lg-6">
-
-                            <label class="tvt-field-label">Attic Floor Insulation</label>
-
-                            <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticFloorInsul2">
-                                <option disabled selected value> -- select an option --</option>
-                                <option value="  None">None</option>
-                                <option value="ecwf00">R-0</option>
-                                <option value="ecwf03">R-3</option>
-                                <option value="ecwf06">R-6</option>
-                                <option value="ecwf09">R-9</option>
-                                <option value="ecwf11">R-11</option>
-                                <option value="ecwf19">R-19</option>
-                                <option value="ecwf21">R-21</option>
-                                <option value="ecwf25">R-25</option>
-                                <option value="ecwf30">R-30</option>
-                                <option value="ecwf38">R-38</option>
-                                <option value="ecwf44">R-44</option>
-                                <option value="ecwf49">R-49</option>
-                                <option value="ecwf60">R-60</option>
-                            </select>
-                        </div>
-
-                        <div class="col-sm-12 col-md-6 col-lg-6 photo_and_title">
-                            <label class="tvt-field-label">Photo</label>
-
-                            <input class="tvt-field-input" name="Attic2Photo" type="file" accept="image/*"/>
-                        </div>
-
-                        <div class="col-sm-12 col-md-6 col-lg-6 photo_and_title">
-                            <label class="tvt-field-label">Photo Title</label>
-
-                            <input class="tvt-field-input" name="Attic2PhotoTitle" type="text" value="<?php echo $formData['attic2phototitle'][0]; ?>"/>
-                        </div>
-
-                        <div class="col-sm-12 col-md-12 col-lg-12">
-                            <label class="tvt-field-label">Assessor's Recommendation</label>
-
-                            <input class="tvt-field-input" name="Attic2Recom" type="text" value="<?php echo $formData['attic2recom'][0]; ?>"/>
-                        </div>
-
-                    </div>
-                </div> <!-- Closing Div Tag for Attic 2 -->
+                <!--div id="attic1">
+           <!-- Closing Div Tag for Attic 2 -->
 
                 <!-- Walls and windows (General) are meant to be filled out if all four sides of the home are the same -->
 

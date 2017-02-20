@@ -788,7 +788,7 @@
                         </div>
 
 						<div class="col-sm-12 col-md-4 col-lg-4">
-							<label class="tvt-field-label">Roof Area (sq ft)</label>
+							<label class="tvt-field-label">Area (sq ft)</label>
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofArea1" type="number" value="<?php echo $formData['roofarea1'][0]; ?>"/>
 							&nbsp;
 						</div>
@@ -941,7 +941,7 @@
                         </div>
 
 						<div class="col-sm-12 col-md-4 col-lg-4">
-							<label class="tvt-field-label">Roof Area (sq ft)</label>
+							<label class="tvt-field-label">Area (sq ft)</label>
 							<input class="tvt-field-input" name="RoofArea2" type="number" value="<?php echo $formData['roofarea2'][0]; ?>"/>
 						</div>
 

@@ -1424,8 +1424,10 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 											echo "Vented Crawlspace";
 										} ?>
                   </label>
+
                   <label class="tvt-field-label">Area</label>
                   <label class="tvt-field-result"><?php echo $arrayName( $foundarea2 ) ?></label>
+
                   <label class="tvt-field-label">Floor Insulation</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['foundfloorinsul2'][0] == "efw00ca" ) {
@@ -1484,7 +1486,7 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 
             <div class="col-sm-12 col-md-12 col-lg-12">
 							<?php if ( $arrayName['roofconst1'][0] && $arrayName['roofconst1'][0] != "None" ) { ?>
-                  <label class="tvt-field-label">Type</label>
+                  <label class="tvt-field-label">Roof Type</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['roofconst1'][0] == "rfwf" ) {
 											echo "Standard Roof";
@@ -1495,6 +1497,9 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 										}
 										?>
                   </label>
+
+									<label class="tvt-field-label">Area</label>
+                  <label class="tvt-field-result"><?php echo $arrayName ['roofarea1'][0] ?></label>
 
                   <label class="tvt-field-label">Exterior Finish</label>
                   <label class="tvt-field-result">
@@ -1530,8 +1535,53 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 										}
 										?>
                   </label>
-                  <label class="tvt-field-label">Area</label>
-                  <label class="tvt-field-result"><?php echo $arrayname['roofarea1'][0] ?></label> 
+
+									<div class="col-sm-12 col-md-12 col-lg-12">
+										<?php if ( $arrayName['attictype1'][0] && $arrayName['attictype1'][0] != "None" ) { ?>
+			                  <label class="tvt-field-label">Attic Type</label>
+			                  <label class="tvt-field-result">
+													<?php if ( $arrayName['attictype1'][0] == "cond_attic" ) {
+														echo "Conditioned Attic";
+													} else if ( $arrayName['attictype1'][0] == "vented_attic" ) {
+														echo "Vented Attic";
+													} else if ( $arrayName['attictype1'][0] == "cath_ceiling" ) {
+														echo "Cathedral Ceiling";
+													}
+													?>
+			                  </label>
+			                  <label class="tvt-field-label">Atiic Floor Insulation</label>
+			                  <label class="tvt-field-result">
+													<?php if ( $arrayName['atticfloorinsul1'][0] == "ecwf00" ) {
+														echo "R-00";
+													} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf03" ) {
+														echo "R-03";
+													} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf06" ) {
+														echo "R-06";
+													} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf09" ) {
+														echo "R-09";
+													} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf11" ) {
+														echo "R-11";
+													} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf19" ) {
+														echo "R-19";
+													} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf21" ) {
+														echo "R-21";
+													} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf25" ) {
+														echo "R-25";
+													} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf30" ) {
+														echo "R-30";
+													} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf38" ) {
+														echo "R-38";
+													} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf44" ) {
+														echo "R-44";
+													} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf49" ) {
+														echo "R-49";
+													} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf60" ) {
+														echo "R-60";
+													}
+													?>
+			                  </label>
+
+
 
 								<?php if ( $arrayName['roof1recom'][0] ) { ?>
                       <label class="tvt-field-label">Assessor's Recommendation</label>
@@ -1565,7 +1615,7 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                 </div>
 						<?php } ?>
               <div class="col-sm-12 col-md-12 col-lg-12">
-                  <label class="tvt-field-label">Type</label>
+                  <label class="tvt-field-label">Roof Type</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['roofconst2'][0] == "rfwf" ) {
 											echo "Wood Frame";
@@ -1575,6 +1625,10 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 											echo "Wood Frame with Rigid Foam Sheathing";
 										}
 										?></label>
+
+										<label class="tvt-field-label">Area</label>
+	                  <label class="tvt-field-result"><?php echo $arrayname['roofarea2'][0] ?></label>
+
                   <label class="tvt-field-label">Exterior Finish</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['roofextfin2'][0] == "co" ) {
@@ -1609,8 +1663,52 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 										}
 										?>
                   </label>
-                  <label class="tvt-field-label">Area</label>
-                  <label class="tvt-field-result"><?php echo $arrayname['roofarea2'][0] ?></label>
+
+									<div class="col-sm-12 col-md-12 col-lg-12">
+		                  <label class="tvt-field-label">Attic Type</label>
+		                  <label class="tvt-field-result">
+												<?php if ( $arrayName['attictype2'][0] == "cond_attic" ) {
+													echo "Conditioned Attic";
+												} else if ( $arrayName['attictype2'][0] == "vented_attic" ) {
+													echo "Vented Attic";
+												} else if ( $arrayName['attictype2'][0] == "cath_ceiling" ) {
+													echo "Cathedral Ceiling";
+												}
+												?>
+		                  </label>
+		                  <label class="tvt-field-label">Attic Floor Insulation</label>
+		                  <label class="tvt-field-result">
+												<?php if ( $arrayName['atticfloorinsul2'][0] == "ecwf00" ) {
+													echo "R-00";
+												} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf03" ) {
+													echo "R-03";
+												} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf06" ) {
+													echo "R-06";
+												} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf09" ) {
+													echo "R-09";
+												} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf11" ) {
+													echo "R-11";
+												} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf19" ) {
+													echo "R-19";
+												} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf21" ) {
+													echo "R-21";
+												} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf25" ) {
+													echo "R-25";
+												} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf30" ) {
+													echo "R-30";
+												} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf38" ) {
+													echo "R-38";
+												} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf44" ) {
+													echo "R-44";
+												} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf49" ) {
+													echo "R-49";
+												} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf60" ) {
+													echo "R-60";
+												}
+												?>
+		                  </label>
+
+
 								<?php if ( $arrayName['roof2recom'][0] ) { ?>
                     <label class="tvt-field-label">Assessor's Recommendation</label>
                     <label class="tvt-field-result"><?php echo $arrayName['roof2recom'][0] ?></label>
@@ -1620,72 +1718,7 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 
 			<?php } ?>
 
-        <!-- Div Containing Attic 1 -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <h3 class="tvt-group-title">Attic <?php if ( $arrayName['attictype2'][0] && $arrayName['attictype2'][0] != "None" ) {
-										echo "1";
-									} ?></h3>
-            </div>
-					<?php if ( $arrayName['attic1photo'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
-                  <label class="tvt-field-label photo-title"><?php echo $arrayName['attic1phototitle'][0] ?></label>
-                  <img src="<?php echo $arrayName['attic1photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
-					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
-							<?php if ( $arrayName['attictype1'][0] && $arrayName['attictype1'][0] != "None" ) { ?>
-                  <label class="tvt-field-label">Type</label>
-                  <label class="tvt-field-result">
-										<?php if ( $arrayName['attictype1'][0] == "cond_attic" ) {
-											echo "Conditioned Attic";
-										} else if ( $arrayName['attictype1'][0] == "vented_attic" ) {
-											echo "Vented Attic";
-										} else if ( $arrayName['attictype1'][0] == "cath_ceiling" ) {
-											echo "Cathedral Ceiling";
-										}
-										?>
-                  </label>
-                  <label class="tvt-field-label">Floor Insulation</label>
-                  <label class="tvt-field-result">
-										<?php if ( $arrayName['atticfloorinsul1'][0] == "ecwf00" ) {
-											echo "R-00";
-										} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf03" ) {
-											echo "R-03";
-										} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf06" ) {
-											echo "R-06";
-										} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf09" ) {
-											echo "R-09";
-										} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf11" ) {
-											echo "R-11";
-										} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf19" ) {
-											echo "R-19";
-										} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf21" ) {
-											echo "R-21";
-										} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf25" ) {
-											echo "R-25";
-										} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf30" ) {
-											echo "R-30";
-										} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf38" ) {
-											echo "R-38";
-										} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf44" ) {
-											echo "R-44";
-										} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf49" ) {
-											echo "R-49";
-										} else if ( $arrayName['atticfloorinsul1'][0] == "ecwf60" ) {
-											echo "R-60";
-										}
-										?>
-                  </label>
-								<?php if ( $arrayName['attic1recom'][0] ) { ?>
-                      <label class="tvt-field-label">Assessor's Recommendation</label>
-                      <label class="tvt-field-result"><?php echo $arrayName['attic1recom'][0] ?></label>
-								<?php } ?>
-							<?php } else { ?>
-                  <label class="tvt-field-result">Attic not measured/recorded</label>
-							<?php } ?>
-            </div>
-        </div> <!-- Closing Div Tag for Attic 1 -->
+
 
         <!-- Attic 2 is optional to display -->
 			<?php if ( $arrayName['attictype2'][0] && $arrayName['attictype2'][0] != "None" ) { ?>
@@ -1701,49 +1734,7 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                     <img src="<?php echo $arrayName['attic2photo'][0]; ?>" alt="Photo of Air Leak Test"/>
                 </div>
 						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-                  <label class="tvt-field-label">Type</label>
-                  <label class="tvt-field-result">
-										<?php if ( $arrayName['attictype2'][0] == "cond_attic" ) {
-											echo "Conditioned Attic";
-										} else if ( $arrayName['attictype2'][0] == "vented_attic" ) {
-											echo "Vented Attic";
-										} else if ( $arrayName['attictype2'][0] == "cath_ceiling" ) {
-											echo "Cathedral Ceiling";
-										}
-										?>
-                  </label>
-                  <label class="tvt-field-label">Floor Insulation</label>
-                  <label class="tvt-field-result">
-										<?php if ( $arrayName['atticfloorinsul2'][0] == "ecwf00" ) {
-											echo "R-00";
-										} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf03" ) {
-											echo "R-03";
-										} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf06" ) {
-											echo "R-06";
-										} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf09" ) {
-											echo "R-09";
-										} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf11" ) {
-											echo "R-11";
-										} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf19" ) {
-											echo "R-19";
-										} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf21" ) {
-											echo "R-21";
-										} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf25" ) {
-											echo "R-25";
-										} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf30" ) {
-											echo "R-30";
-										} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf38" ) {
-											echo "R-38";
-										} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf44" ) {
-											echo "R-44";
-										} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf49" ) {
-											echo "R-49";
-										} else if ( $arrayName['atticfloorinsul2'][0] == "ecwf60" ) {
-											echo "R-60";
-										}
-										?>
-                  </label>
+
 								<?php if ( $arrayName['attic2recom'][0] ) { ?>
                     <label class="tvt-field-label">Assessor's Recommendation</label>
                     <label class="tvt-field-result"><?php echo $arrayName['attic2recom'][0] ?></label>

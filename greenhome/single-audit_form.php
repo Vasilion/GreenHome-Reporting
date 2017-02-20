@@ -731,7 +731,8 @@
 
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofConst1" id="RoofOne1"
                                 onChange="toggleRequiredByInput(this,'Roof1Content'); checkValidationForRoof(true, 'RoofOne1', 'RoofOne2', 'RoofOne3');
-                            omniHide(this, 'None', 'Roof2HideDiv'); omniHide(this, 'None', 'Roof1Content')">
+                            omniHide(this, 'None', 'Roof2HideDiv'); omniHide(this, 'None', 'Roof1Content')"
+														value="<?php echo $formData['roofconst1'][0]; ?>">
                             <option disabled selected value> -- select an option --</option>
                             <option value="None">None</option>
                             <option value="rfwf">Standard Roof</option>

@@ -810,12 +810,12 @@
 
 						<div class="Attic1Content">
 
-							<div class="col-sm-12 col-md-12 col-lg-12">
+							<!--div class="col-sm-12 col-md-12 col-lg-12">
 							<label class="tvt-field-label">Attic Area</label>
 
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticArea" type="text"
-										 value="<?php echo $formData['atticarea'][0]; ?>"/>
-							</div>
+										 value=""/>
+							</div-->
 
 								<div class="col-sm-12 col-md-6 col-lg-6">
 
@@ -963,12 +963,12 @@
 
 						<div class="Attic2Content">
 
-							<div class="col-sm-12 col-md-12 col-lg-12">
+							<!--div class="col-sm-12 col-md-12 col-lg-12">
 							<label class="tvt-field-label">Attic Area</label>
 
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="Attic2Area" type="text"
-										 value="<?php echo $formData['attic2area'][0]; ?>"/>
-							</div>
+										 value="
+							</div-->
 
 								<div class="col-sm-12 col-md-6 col-lg-6">
 

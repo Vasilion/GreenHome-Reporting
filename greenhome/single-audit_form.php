@@ -534,7 +534,8 @@
                         <label class="tvt-field-label">Type</label>
 
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundType1"
-                                onchange="omniHide(this, 'None', 'found1otherfields'); omniHide(this, 'None', 'Found2HideDiv')" name="FoundType1">
+                                onchange="omniHide(this, 'None', 'found1otherfields'); omniHide(this, 'None', 'Found2HideDiv')" name="FoundType1"
+																value="<?php echo $formData['foundtype1'][0]; ?>">
                             <!--<option disabled selected value> -- select an option --</option>-->
                             <option selected value="None">None</option>
                             <option value="slab_on_grade">Slab-on-Grade</option>

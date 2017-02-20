@@ -924,13 +924,7 @@ function submit_request( $xml, $isLabel = false ) {
 $arrayName = get_post_meta( $_GET['form_id'] );
 ?>
 
-/*	   NeSL  		*/
-/*							*/
-/*     HTML     */
-/* 	Strucuture  */
-/*							*/
-// HTML structure for the report
-// TONS of else if conditionals for echoing HTML
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -1331,7 +1325,7 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 					<?php } ?>
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <!-- always show at least foundation 1. But can mention not measured if is none -->
-							<?php if ( $arrayName['foundType1'][0] && $arrayName['foundType1'][0] != "None" ) { ?>
+							<?php if ( $arrayName['foundtype1'][0] && $arrayName['foundtype1'][0] != "None" ) { ?>
                   <label class="tvt-field-label">Foundation Type</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['foundtype1'][0] == "None" ) {
@@ -1349,7 +1343,8 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 										} ?>
                   </label>
                   <label class="tvt-field-label">Area</label>
-                  <label class="tvt-field-result"><?php echo $arrayName( $foundarea1 ) ?></label>
+                  <label class="tvt-field-result"><?php echo $arrayName ['foundarea1'][0] ?></label>
+
                   <label class="tvt-field-label">Floor Insulation</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['foundfloorinsul1'][0] == "efw00ca" ) {

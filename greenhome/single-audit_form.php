@@ -788,8 +788,9 @@
                         </div>
 
 						<div class="col-sm-12 col-md-4 col-lg-4">
-							<label class="tvt-field-label">Roof Area (sq ft)</label>
+							<label class="tvt-field-label">Area (sq ft)</label>
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofArea1" type="number" value="<?php echo $formData['roofarea1'][0]; ?>"/>
+							&nbsp;
 						</div>
 
 
@@ -809,12 +810,12 @@
 
 						<div class="Attic1Content">
 
-							<div class="col-sm-12 col-md-12 col-lg-12">
+							<!--div class="col-sm-12 col-md-12 col-lg-12">
 							<label class="tvt-field-label">Attic Area</label>
 
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticArea" type="text"
-										 value="<?php echo $formData['atticarea'][0]; ?>"/>
-							</div>
+										 value=""/>
+							</div-->
 
 								<div class="col-sm-12 col-md-6 col-lg-6">
 
@@ -860,6 +861,8 @@
                             <input class="tvt-field-input" name="Roof1Recom" type="text" value="<?php echo $formData['roof1recom'][0]; ?>"/>
                         </div>
                     </div>
+									</div>
+								</div>
                 </div> <!-- Closing Div Tag for Roof 1 -->
 
                 <!-- Div Containing Roof 2 -->
@@ -938,7 +941,7 @@
                         </div>
 
 						<div class="col-sm-12 col-md-4 col-lg-4">
-							<label class="tvt-field-label">Roof Area (sq ft)</label>
+							<label class="tvt-field-label">Area (sq ft)</label>
 							<input class="tvt-field-input" name="RoofArea2" type="number" value="<?php echo $formData['roofarea2'][0]; ?>"/>
 						</div>
 
@@ -960,12 +963,12 @@
 
 						<div class="Attic2Content">
 
-							<div class="col-sm-12 col-md-12 col-lg-12">
+							<!--div class="col-sm-12 col-md-12 col-lg-12">
 							<label class="tvt-field-label">Attic Area</label>
 
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="Attic2Area" type="text"
-										 value="<?php echo $formData['attic2area'][0]; ?>"/>
-							</div>
+										 value="
+							</div-->
 
 								<div class="col-sm-12 col-md-6 col-lg-6">
 
@@ -1495,10 +1498,6 @@
                                 <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="SkylightPanes" id="skylight1"
                                         onChange="checkValidationForWindows(true, false, 'skylight1', 'skylight3', 'skylight2')">
                                     <option disabled selected value> -- select an option --</option>
-<<<<<<< HEAD
-                                    <!--option value="  None">None</option-->
-=======
->>>>>>> refs/remotes/origin/Sezay
                                     <option value="s">Single-pane</option>
                                     <option value="d">Double-pane</option>
                                     <option value="thmabw">Triple-pane</option>
@@ -1629,10 +1628,6 @@
                                 <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsPanesGen" id="WinGen1"
                                         onChange="checkValidationForWindows(true, false, 'WinGen1', 'WinGen2', 'WinGen3')">
                                     <option disabled selected value> -- select an option --</option>
-<<<<<<< HEAD
-                                    <!--option value="  None">None</option-->
-=======
->>>>>>> refs/remotes/origin/Sezay
                                     <option value="s">Single-pane</option>
                                     <option value="d">Double-pane</option>
                                     <option value="thmabw">Triple-pane</option>
@@ -2174,6 +2169,7 @@
 
                         <input class="tvt-field-input" name="WindowsLeftRecom" type="text" value="<?php echo $formData['windowsleftrecom'][0]; ?>"/>
                     </div>
+
                 </div> <!-- Closing Div Tag for Windows (Left) -->
 
             </div> <!-- Closing Div Tag for Structure SECTION -->

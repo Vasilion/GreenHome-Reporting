@@ -1531,7 +1531,7 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 										?>
                   </label>
                   <label class="tvt-field-label">Area</label>
-                  <label class="tvt-field-result"><?php echo $arrayname['roofarea1'][0] ?></label> 
+                  <label class="tvt-field-result"><?php echo $arrayname['roofarea1'][0] ?></label>
 
 								<?php if ( $arrayName['roof1recom'][0] ) { ?>
                       <label class="tvt-field-label">Assessor's Recommendation</label>

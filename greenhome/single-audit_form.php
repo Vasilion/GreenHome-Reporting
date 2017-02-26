@@ -1506,7 +1506,6 @@
 
 														<div class="col-sm-12 col-md-6 col-lg-4">
 															<label class="tvt-field-label">Glazing Type</label>
-
 															<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="SkylightGlaze" id="skylight2"
 																			onChange="checkValidationForWindows(false, true, 'skylight1', 'skylight2', 'skylight3')">
 																	<option disabled selected value> -- select an option --</option>
@@ -1865,7 +1864,7 @@
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsPanesBack" id="WinBack1"
                                     onChange="checkValidationForWindows(true, false, 'WinBack1', 'WinBack2', 'WinBack3')">
                                 <option disabled selected value> -- select an option --</option>
-																<!--
+																<!-- Sezay test Commit
                                 <option value="  None">None</option>
 															-->
                                 <option value="s">Single-pane</option>
@@ -3130,8 +3129,8 @@
 														Yes</label>
 
 												<label class="tvt-input-option">
-														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" checked="checked" name="PV_1" value="No"
-																	 id="PV.1_1" onClick="omniHide(this, 'No', 'PVcontent')" />
+														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_1" value="No"
+																	 id="PV.1_1" onClick="omniHide(this, 'No', 'PVcontent'); checked="checked"" />
 														No</label>
 										</div>
 										<div class="PVcontent">
@@ -3186,38 +3185,16 @@
 												<label class="tvt-input-option">
 
 														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_2"
-																	 value="Yes" id="PV.2_0" onClick="omniHide(this, 'No', 'DCCapacity');
-															 omniHide(this, 'Yes', 'numbOfPanels')"/>
+																	 value="Yes" id="PV.2_0" onClick="omniHide(this, 'No', 'HotWaterEnergyFactor');
+															 omniHide(this, 'Yes', 'HotWaterYearInstalled')"/>
 														Yes</label>
 
 												<label class="tvt-input-option">
 														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_2" value="No"
-																	 id="PV.2_1" onClick="omniHide(this, 'No', 'DCCapacity');
-															 omniHide(this, 'Yes', 'numbOfPanels')" checked />
+																	 id="PV.2_1" onClick="omniHide(this, 'No', 'HotWaterEnergyFactor');
+															 omniHide(this, 'Yes', 'HotWaterYearInstalled')" checked />
 														No</label>
 										</div>
-
-										<div class="col-sm-12 col-md-12 col-lg-12">
-
-											<div class="DCCapacity">
-                        <label class="tvt-field-label">DC Capacity (KW)</label>
-
-                        <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="DCcapacity" type="text"
-                               value="<?php echo $formData['DCCapacity'][0]; ?>"/>
-
-												 </div>
-                    </div>
-
-										<div class="col-sm-12 col-md-12 col-lg-12">
-
-											<div class="numbOfPanels">
-                        <label class="tvt-field-label">Number of Pannels</label>
-
-                        <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="numbOfPanels" type="number"
-                               value="<?php echo $formData['numbOfPanels'][0]; ?>"/>
-
-												 </div>
-                    </div>
 
 									</div><!--Closing PVcontent-->
 								</div> <!-- Closing Div for PV -->

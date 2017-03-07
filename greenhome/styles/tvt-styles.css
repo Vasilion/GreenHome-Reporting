@@ -6,6 +6,15 @@ Description: This stylesheet is for the form and reporting of the Greenhome Inst
 Elements use the prefix tvt for Team VorTech to  not conflict other Greenhome styling.
 */
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
 /* Style the list */
 ul.tvt-tab {
     list-style-type: none;
@@ -391,7 +400,7 @@ border-radius: 3px;
     padding: 5px;
     width: calc(100% - 50px);
     margin: 0 25px;
-    display: inline-block;
+    display: none;
     text-align:left;
     position: relative;
     min-width:300px;

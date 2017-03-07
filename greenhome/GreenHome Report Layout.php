@@ -1342,32 +1342,36 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 											echo "Vented Crawlspace";
 										} ?>
                   </label>
-                  <label class="tvt-field-label">Area</label>
-                  <label class="tvt-field-result"><?php echo $arrayName ['foundarea1'][0] ?></label>
 
-                  <label class="tvt-field-label">Floor Insulation</label>
+
+									<label class="tvt-field-label">Floor Insulation</label>
                   <label class="tvt-field-result">
-										<?php if ( $arrayName['foundfloorinsul1'][0] == "efw00ca" ) {
-											echo "R-00";
-										} else if ( $arrayName['foundfloorinsul1'][0] == "efw11ca" ) {
+										<?php if ( $arrayName['foundfloorinsul1'][0] == "efwf00ca" ) {
+											echo "R-0";
+										} else if ( $arrayName['foundfloorinsul1'][0] == "efwf11ca" ) {
 											echo "R-11";
-										} else if ( $arrayName['foundfloorinsul1'][0] == "efw13ca" ) {
+										} else if ( $arrayName['foundfloorinsul1'][0] == "efwf13ca" ) {
 											echo "R-13";
-										} else if ( $arrayName['foundfloorinsul1'][0] == "efw15ca" ) {
+										} else if ( $arrayName['foundfloorinsul1'][0] == "efwf15ca" ) {
 											echo "R-15";
-										} else if ( $arrayName['foundfloorinsul1'][0] == "efw19ca" ) {
+										} else if ( $arrayName['foundfloorinsul1'][0] == "efwf19ca" ) {
 											echo "R-19";
-										} else if ( $arrayName['foundfloorinsul1'][0] == "efw21ca" ) {
+										} else if ( $arrayName['foundfloorinsul1'][0] == "efwf21ca" ) {
 											echo "R-21";
-										} else if ( $arrayName['foundfloorinsul1'][0] == "efw25ca" ) {
+										} else if ( $arrayName['foundfloorinsul1'][0] == "efwf25ca" ) {
 											echo "R-25";
-										} else if ( $arrayName['foundfloorinsul1'][0] == "efw30ca" ) {
+										} else if ( $arrayName['foundfloorinsul1'][0] == "efwf30ca" ) {
 											echo "R-30";
-										} else if ( $arrayName['foundfloorinsul1'][0] == "efw38ca" ) {
+										} else if ( $arrayName['foundfloorinsul1'][0] == "efwf38ca" ) {
 											echo "R-38";
 										}
 										?>
                   </label>
+
+                  <label class="tvt-field-label">Area</label>
+                  <label class="tvt-field-result"><?php echo $arrayName ['foundarea1'][0] ?></label>
+
+
                   <label class="tvt-field-label">Wall Insulation</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['foundwallinsul1'][0] == "0" ) {
@@ -2792,6 +2796,7 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   </label>
                   <label class="tvt-field-label">Percentage in this location</label>
                   <label class="tvt-field-result"> <?php echo $arrayName['ductsysperc1_1'][0] ?></label>
+
                   <label class="tvt-field-label">Was this location properly sealed?</label>
 								<?php if ( $arrayName['ductsysseal1_1'][0] == "Yes" ) { ?>
                       <label class="tvt-field-result">This location is properly sealed</label>

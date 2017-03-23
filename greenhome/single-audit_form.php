@@ -3121,24 +3121,63 @@
 
 								<!-- Closing Div Tag for PV System SECTION -->
 								<div class="col-sm-12 col-md-12 col-lg-12">
-                    <h3 class="tvt-group-title">PV System</h3>
+                    <h3 class="tvt-group-title">Solar PV System or Potential</h3>
                 </div>
 								<div class="PVALL">
 										<div class="col-sm-12 col-md-12 col-lg-12">
 												<label>Enter Photovoltaic (PV) System </label>
 
-												<label class="tvt-input-option">
+												
+														
+														<label class="tvt-input-option">
+                                        <input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_1"
+                                               value="Yes" id="PV.1_1" checked="checked" onClick="omniHide(this, 'Yes', 'PVcontent');
+                                                 omniHide(this, 'No', 'PVcontent')"/>
+                                        Yes</label>
 
-														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_1"
-																	 value="Yes" id="PV.1_0" onClick="omniHide(this, 'No', 'PVcontent')"/>
-														Yes</label>
-
-												<label class="tvt-input-option">
-														<input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_1" value="No"
-																	 id="PV.1_1" onClick="omniHide(this, 'No', 'PVcontent'); checked="checked"" />
-														No</label>
+                                    <label class="tvt-input-option">
+                                        <input class="tvt-field-input" type="radio" name="PV_1"
+                                               value="No" id="PV.1_1" onClick="omniHide(this, 'Yes', 'PVcontent');
+                                                 omniHide(this, 'No', 'PVcontent')" checked />
+                                        No</label>
+										
 										</div>
+										<br />
 										<div class="PVcontent">
+										<div class="col-sm-12 col-md-12 col-lg-12">
+                        <p>
+                            <label class="tvt-input-option">
+                                <input class="tvt-field-input" type="checkbox" name="SolarPV_1" value="Home appears to be shaded greatly"
+                                       id="SolarPV.1_0"/>
+                                Home appears to be shaded greatly</label>
+
+                            <label class="tvt-input-option">
+                                <input class="tvt-field-input" type="checkbox" name="SolarPV_1" value="Home may be shaded lightly"
+                                       id="SolarPV.1_1"/>
+                                Home may be shaded lightly</label>
+
+                            <label class="tvt-input-option">
+                                <input class="tvt-field-input" type="checkbox" name="SolarPV_1" value="No shading on the roof"
+                                       id="SolarPV.1_2"/>
+                                No shading on the roof</label>
+
+                            <label class="tvt-input-option">
+                                <input class="tvt-field-input" type="checkbox" name="SolarPV_1" value="Older roof - needs replacement"
+                                       id="SolarPV.1_3"/>
+                                Older roof - needs replacement</label>
+
+                            <label class="tvt-input-option">
+                                <input class="tvt-field-input" type="checkbox" name="SolarPV_1" value="Adequate spacing facing East, West or South"
+                                       id="SolarPV.1_4"/>
+                                Adequate spacing facing East, West or South</label>
+
+                            <label class="tvt-input-option">
+                                <input class="tvt-field-input" type="checkbox" name="SolarPV_1" value="N/A"
+                                       id="SolarPV.1_5"/>
+                                N/A</label>
+                        </p>
+                    </div>
+										
 										<div class="col-sm-12 col-md-12 col-lg-12">
 												<label class="tvt-field-label">Year Installed</label>
 
@@ -3172,7 +3211,7 @@
 												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="PVDirection">
 														<option disabled selected value> -- select an option --</option>
 														<option value="North">North</option>
-														<option value="NorthEast">NorthEash</option>
+														<option value="NorthEast">NorthEast</option>
 														<option value="East">East</option>
 														<option value="SouthEast">SouthEast</option>
 														<option value="South">South</option>
@@ -3787,47 +3826,7 @@
 
                 </div> <!-- Closing Div Tag for Lights SECTION -->
 
-                <!-- Div Containing Solar PV Potential SECTION -->
-                <div>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        <h3 class="tvt-group-title">Solar PV Potential</h3>
-                    </div>
-
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        <p>
-                            <label class="tvt-input-option">
-                                <input class="tvt-field-input" type="checkbox" name="SolarPV_1" value="Home appears to be shaded greatly"
-                                       id="SolarPV.1_0"/>
-                                Home appears to be shaded greatly</label>
-
-                            <label class="tvt-input-option">
-                                <input class="tvt-field-input" type="checkbox" name="SolarPV_1" value="Home may be shaded lightly"
-                                       id="SolarPV.1_1"/>
-                                Home may be shaded lightly</label>
-
-                            <label class="tvt-input-option">
-                                <input class="tvt-field-input" type="checkbox" name="SolarPV_1" value="No shading on the roof"
-                                       id="SolarPV.1_2"/>
-                                No shading on the roof</label>
-
-                            <label class="tvt-input-option">
-                                <input class="tvt-field-input" type="checkbox" name="SolarPV_1" value="Older roof - needs replacement"
-                                       id="SolarPV.1_3"/>
-                                Older roof - needs replacement</label>
-
-                            <label class="tvt-input-option">
-                                <input class="tvt-field-input" type="checkbox" name="SolarPV_1" value="Adequate spacing facing East, West or South"
-                                       id="SolarPV.1_4"/>
-                                Adequate spacing facing East, West or South</label>
-
-                            <label class="tvt-input-option">
-                                <input class="tvt-field-input" type="checkbox" name="SolarPV_1" value="N/A"
-                                       id="SolarPV.1_5"/>
-                                N/A</label>
-                        </p>
-                    </div>
-
-                </div> <!-- Closing Div Tag for Solar PV Potential SECTION -->
+                
 
             </div> <!-- Closing Div Tag for Electric SECTION -->
 

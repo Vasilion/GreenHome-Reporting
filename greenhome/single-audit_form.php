@@ -24,6 +24,12 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="../wp-content/themes/greenhome/scripts/javascript/jquery-ui.min.js"></script>
+		<script>
+		function saveForm()
+		{
+			document.form[0].submit;
+		}
+		</script>
 
 </head>
 <!-- greenhome green = #0b9444 -->
@@ -3127,8 +3133,8 @@
 										<div class="col-sm-12 col-md-12 col-lg-12">
 												<label>Enter Photovoltaic (PV) System </label>
 
-												
-														
+
+
 														<label class="tvt-input-option">
                                         <input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="PV_1"
                                                value="Yes" id="PV.1_1" checked="checked" onClick="omniHide(this, 'Yes', 'PVcontent');
@@ -3140,7 +3146,7 @@
                                                value="No" id="PV.1_1" onClick="omniHide(this, 'Yes', 'PVcontent');
                                                  omniHide(this, 'No', 'PVcontent')" checked />
                                         No</label>
-										
+
 										</div>
 										<br />
 										<div class="PVcontent">
@@ -3177,7 +3183,7 @@
                                 N/A</label>
                         </p>
                     </div>
-										
+
 										<div class="col-sm-12 col-md-12 col-lg-12">
 												<label class="tvt-field-label">Year Installed</label>
 
@@ -3826,7 +3832,7 @@
 
                 </div> <!-- Closing Div Tag for Lights SECTION -->
 
-                
+
 
             </div> <!-- Closing Div Tag for Electric SECTION -->
 

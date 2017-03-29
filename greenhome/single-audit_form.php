@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/tvt-styles.css">
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/tvt-bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/tvt-naved-bootstrap.min.css">
+		<link rel="icon" href="https://greenhomeinstitute.org/wp-content/uploads/2015/03/favicon.png" type="image/png">
     <link rel="stylesheet" href="../wp-content/themes/greenhome/styles/jquery-ui.min.css">
     <link rel="stylesheet" href="../wp-content/themes/greenhome/styles/jquery-ui.structure.min.css">
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/tvt-print-layout.css">

@@ -2175,8 +2175,12 @@
                         <input class="tvt-field-input" name="WindowsLeftRecom" type="text" value="<?php echo $formData['windowsleftrecom'][0]; ?>"/>
                     </div>
                 </div> <!-- Closing Div Tag for Windows (Left) -->
+            </div>
+        </div>
 
             </div> <!-- Closing Div Tag for Structure SECTION -->
+        
+    
 
         </div> <!-- Closing Div Tag for Structure TAB SECTION -->
 

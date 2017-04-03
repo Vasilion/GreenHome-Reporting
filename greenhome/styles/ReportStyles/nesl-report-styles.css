@@ -1,0 +1,92 @@
+.center{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    display:table;
+}
+.tvt{
+    padding-left:0;
+    padding-right:0;
+    margin:0;
+    width:100%;
+}
+.tvt-field-label{
+    color:#464646 !important;
+}
+.tvt-field-result{
+    font-weight: 300 !important;
+    color:#2f2f2f !important;
+}
+.tvt-section-group div{
+    overflow:auto;
+}
+.tvt-section-group{
+    padding-left:15%;
+    padding-right:15%;
+    padding-bottom:20px;
+}
+div.tvt-section-group:nth-of-type(odd) {
+    background: #f8f8f8 !important;
+}
+.col-sm-12,.col-md-12,.col-lg-6{
+    overflow:auto !important;
+}
+h2.tvt-section-title{
+    width:100%;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:10px;
+    font-size:2.5em;
+    font-weight:800 !important;
+    text-align:center;
+    border:none;
+}
+h3{
+    text-align:center;
+}
+.navigation{
+    display:none;
+    z-index:2;
+    position:fixed;
+    text-transform:uppercase;
+    font-weight:bold;
+    text-decoration:none;
+    margin:10px;
+}
+ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+a:hover{
+    text-decoration:none;
+    color:#a2a8ac;
+    cursor:pointer;
+}
+a{
+    padding:4px;
+    text-decoration:none;
+    color:black;
+}
+#assessment{
+    
+}
+#safteyhealth{
+    
+}
+#electric{
+    
+}
+#water{
+    
+}
+#structure{
+    
+}
+#system{
+    
+}
+#vent{
+    
+}

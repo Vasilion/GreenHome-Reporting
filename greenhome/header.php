@@ -52,6 +52,18 @@ wp_head();
 
 <body id="top" <?php body_class($style." ".$avia_config['font_stack']." ".$blank." ".$sidebar_styling); avia_markup_helper(array('context' => 'body')); ?>>
 
+<!-- GOOGLE ANALYTICS SCRIPT :) -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-69032611-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- END OF GOOGLE ANALYTICS SCRIPT. No need to write in all caps. Sorry. -->
+
 	<?php 
 		
 	if("av-preloader-active av-preloader-enabled" === $preloader)

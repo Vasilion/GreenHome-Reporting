@@ -10,24 +10,30 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Targets mobile devices to set width to screen size -->
     <title>GreenHome Inspection Form</title>
+		<!-- Bootstrap JS -->
+		<script src="../wp-content/themes/greenhome/scripts/javascript/bootstrap.min.js"></script>
     <!-- linking to styles -->
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/tvt-styles.css">
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/tvt-bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/tvt-naved-bootstrap.min.css">
 		<link rel="icon" href="https://greenhomeinstitute.org/wp-content/uploads/2015/03/favicon.png" type="image/png">
-    <link rel="stylesheet" href="../wp-content/themes/greenhome/styles/jquery-ui.min.css">
+    <link rel="stylesheet" href="../wp-content/themes/greenhome/styles/jquery-ui.css">
     <link rel="stylesheet" href="../wp-content/themes/greenhome/styles/jquery-ui.structure.min.css">
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/tvt-print-layout.css">
+
     <link rel='dns-prefetch' href='//code.jquery.com'/>
 
     <!--JQuery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="../wp-content/themes/greenhome/scripts/javascript/jquery-ui.min.js"></script>
+
 		<script>
 		$(document).ready(function(){
-			$('[data-toggle="tooltip"]').tooltip();
+			$('[data-toggle="tooltip"]').tooltip({html:true});
+			$("[data-toggle=popover]").popover({html:true})
 		});
+
 		</script>
 
 
@@ -343,6 +349,7 @@
                         <label class="tvt-field-label">
 													Year Built
 													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title="Enter the year the building was built. The value must be between 1600 and the present year"></span>
+												</label>
                         <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HomeYear" type="number" maxlength="4" min="1600"
                                value="<?php echo $formData['homeyear'][0]; ?>"/>
 
@@ -375,8 +382,10 @@
 
                     <!-- Number of Floors 1-4 -->
                     <div class="col-sm-12 col-md-6 col-lg-12">
-                        <label class="tvt-field-label">Stories Above Ground Level<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
-													title="Select a value between 1 and 4. For houses built into a hillside, (e.g., one floor above ground level on one side, two floors above ground level on the other side or a walk-out basement) treat the house as if it had one floor above ground level and a conditioned basement. For Cape Cod and Split Level houses the "half" floor should be counted as an above grade floor, e.g. a typical Cape Cod with conditioned 2nd floor should be entered as 2 stories."></span></label>
+                        <label class="tvt-field-label">Stories Above Ground Level
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="Select a value between 1 and 4. For houses built into a hillside, (e.g., one floor above ground level on one side, two floors above ground level on the other side or a walk-out basement) treat the house as if it had one floor above ground level and a conditioned basement. For Cape Cod and Split Level houses the 'half' floor should be counted as an above grade floor, e.g. a typical Cape Cod with conditioned 2nd floor should be entered as 2 stories."></span>
+												</label>
 
 												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="Stories" id="Stories"
 																onChange="toggleRequiredFields(true)">
@@ -390,7 +399,11 @@
 
                     <!-- Avg Ceiling 6-12 -->
                     <div class="col-sm-12 col-md-6 col-lg-12">
-                        <label class="tvt-field-label">Average Ceiling Height (ft)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                        <label class="tvt-field-label">Average Ceiling Height (ft)
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="Select the ceiling height in feet, rounded to the nearest foot. If different parts of the home have different ceiling heights,
+													calculate the weighted average ceiling height based on floor areas. For example, if 800 ft2 has 8 foot ceilings, 300 ft2 has 9 foot ceilings and 500 ft2 has 10 foot ceilings, then choose 9 feet from the drop down menu, given that 800*8+300*9+500*10/1600 = 8.8 ft."></span>
+												</label>
 
 												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AvgCHeight" id="AvgCHeight"
 																onChange="toggleRequiredFields(true)">
@@ -407,7 +420,10 @@
 
                     <!-- Floor Area 250-25000 -->
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Conditioned Floor Area (sq ft)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                        <label class="tvt-field-label">Conditioned Floor Area (sq ft)
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="This is the total floor area that is intentionally heated and/or cooled, including conditioned basements. Do not use commas in the entry. Unconditioned spaces should NOT be part of the total, including all crawlspaces, as well as garages, unconditioned basements, etc. To calculate conditioned floor area, include the total ft2 floor area for all stories of the home. For example, if the house has a 40 x 30 ft. conditioned 1st floor, a 30 x 20 ft. conditioned 2nd floor, and a 20 x 30 ft. unconditioned garage, the number to enter would be 1800 ft2 (40*30 + 30*20 = 1200+600 = 1800) - the garage is excluded. If this house had a conditioned basement with the same footprint as the first floor, the number to enter would be 3000. The conditioned floor area should not include any crawlspace area, conditioned or otherwise."></span>
+												</label>
 
                         <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HomeFloorArea" type="number" step="1" min="250"
                                value="<?php echo $formData['homefloorarea'][0]; ?>"/>
@@ -415,8 +431,8 @@
 
                     <!-- Values need to be changed -->
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">What Kind of Home is This?<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
-
+                        <label class="tvt-field-label">What Kind of Home is This?
+												</label>
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" id="HomeTownDup" name="HomeTownDup"
                                 onchange="omniHide(this, 'Detached Single Family Home', 'PositionInfo')">
                             <option selected value="Detached Single Family Home">Detached Single Family Home</option>
@@ -441,8 +457,11 @@
 
                     </div>
                     <div class="col-sm-6 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Direction Faced by Front of House<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
-
+                        <label class="tvt-field-label">Direction Faced by Front of House
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="From the drop-down menu select the closest compass direction that the front of the house faces (the front of the house being the side with the main entrance).">
+													</span>
+												</label>
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HomeFrontDirection">
                             <option disabled selected value> -- select an option --</option>
                             <option value="N">N</option>
@@ -477,30 +496,40 @@
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Was a Blower Door test conducted on this house?<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                        <label class="tvt-field-label">Was a Blower Door test conducted on this house?
+												</label>
                         <p>
                             <label class="tvt-input-option">
 
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="BlowerDoorTest"
                                        value="Yes" id="BlowerDoorTest_0" onclick="omniHide(this, 'No', 'AirLeakageRate', undefined, true)"/>
-                                Yes<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                                Yes</label>
 
                             <label class="tvt-input-option">
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="BlowerDoorTest"
                                        value="No" id="BlowerDoorTest_1" onclick="omniHide(this, 'No', 'AirLeakageRate', undefined, true)" checked  />
-                                No/Don't Know<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                                No/Don't Know</label>
                         </p>
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12 AirLeakageRate">
-                        <label class="tvt-field-label">Air Leakage Rate (cfm50)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                        <label class="tvt-field-label">Air Leakage Rate (cfm50)
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="If a blower door test was conducted enter the measured air leakage rate in cubic feet per minute at 50 Pascals pressure (CFM50), between 1 and 25000 (no commas). If this number is not available then the Blower Door test question should be changed to 'No'.">
+													</span>
+												</label>
 
                         <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AirLeakRate" type="number" step="1" min="0"
                                value="<?php echo $formData['airleakrate'][0]; ?>"/>
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Has the house been professionally air sealed?<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                        <label class="tvt-field-label">Has the house been professionally air sealed?
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="Answer 'No' unless
+													 specific efforts have been made to seal the majority of the air leaks (thermal bypasses) in the home.">
+													</span>
+												</label>
 
                         <p>
                             <label class="tvt-input-option">
@@ -544,7 +573,16 @@
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                        <label class="tvt-field-label">Type<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                        <label class="tvt-field-label">Type
+													<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/FoundationType.pdf">
+														<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																		title="If different parts of the home have different foundation types, select the type that underlies the largest floor area.
+																		 If the home is a split-level or tri-level, select the type for the part of the home that is at ground level.
+																		  			***For more info click the 'i'
+																		to open a pdf with detailed explanations***">
+														</span>
+													</a>
+												</label>
 
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundType1"
                                 onchange="omniHide(this, 'None', 'found1otherfields'); omniHide(this, 'None', 'Found2HideDiv')" name="FoundType1"
@@ -562,14 +600,33 @@
 
                     <div class="found1otherfields">
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Foundation Area (sq ft)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                            <label class="tvt-field-label">Foundation Area (sq ft)
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/FoundationArea.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																				title="The foundation floor area (sq. ft.) must be entered for the house.
+																				 In many houses this will be the same size as the lower floor 'footprint' you measured to calculate the conditioned floor area, taking into consideration any cantilevered areas and/or bump-outs, etc.
+																				 If there is more than one foundation type, check mark 'Enter a second foundation / floor'. 		***For more info click the 'i'
+																				to open a pdf with detailed explanations***">
+																</span>
+															</a>
+														</label>
                             <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundArea1" type="number" min="0" max="25000"
                                    value="<?php echo $formData['foundarea1'][0]; ?>"/>
                             &nbsp; <!-- Fixes mysterious blank space -->
                         </div>
 
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Floor Insulation over Basement or Crawlspace<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                            <label class="tvt-field-label">Floor Insulation over Basement or Crawlspace
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/FloorInsulation.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																				title="Floor insulation is the insulation installed to the underside of the floor over unconditioned spaces.
+																				There are 2 insulation entries under the Foundation heading. Both must have a value entered for the tool to run - enter R-0 for the field that does not apply.
+																				If there are different insulation R-values in multiple floor spaces, perform a UA calculation
+																									***For more info click the 'i'
+																				to open a pdf with detailed explanations***">
+																</span>
+															</a>
+														</label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundFloorInsul1">
                                 <option disabled selected value> -- select an option --</option>
@@ -588,7 +645,16 @@
                         </div>
 
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Foundation Wall Insulation<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                            <label class="tvt-field-label">Foundation Wall Insulation
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/FoundationWallsInsulLevel.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																				title="Foundation insulation is insulation added to the foundation walls (conditioned crawlspace or conditioned basement) or slab edge to reduce the amount of heat transferred through it. Most houses do not have foundation insulation.
+																				 If you don't know whether the house has it, answer 'no.''
+																									***For more info click the 'i'
+																				to open a pdf with detailed explanations***">
+																</span>
+															</a>
+														</label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundWallInsul1">
                                 <option disabled selected value> -- select an option --</option>
@@ -644,7 +710,16 @@
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                        <label class="tvt-field-label">Type<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                        <label class="tvt-field-label">Type
+													<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/FoundationType.pdf">
+														<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																		title="If different parts of the home have different foundation types, select the type that underlies the largest floor area.
+																		 If the home is a split-level or tri-level, select the type for the part of the home that is at ground level.
+																		  			***For more info click the 'i'
+																		to open a pdf with detailed explanations***">
+														</span>
+													</a>
+												</label>
 
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundType2" id="FoundType2"
                                 onchange="toggleRequiredByInput(this, 'Foundation2Content'); omniHide(this, 'None', 'Foundation2Content')">
@@ -659,7 +734,16 @@
 
                     <div class="Foundation2Content">
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Foundation Area (sq ft)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                            <label class="tvt-field-label">Foundation Area (sq ft)
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/FoundationArea.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																				title="The foundation floor area (sq. ft.) must be entered for the house.
+																				 In many houses this will be the same size as the lower floor 'footprint' you measured to calculate the conditioned floor area, taking into consideration any cantilevered areas and/or bump-outs, etc.
+																				 If there is more than one foundation type, check mark 'Enter a second foundation / floor'. 		***For more info click the 'i'
+																				to open a pdf with detailed explanations***">
+																</span>
+															</a>
+														</label>
 
                             <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundArea2" type="number" min="0" step="1"
                                    value="<?php echo $formData['foundarea2'][0]; ?>"/>
@@ -667,7 +751,17 @@
                         </div>
 
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Floor Insulation over Basement or Crawlspace<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                            <label class="tvt-field-label">Floor Insulation over Basement or Crawlspace
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/FloorInsulation.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																				title="Floor insulation is the insulation installed to the underside of the floor over unconditioned spaces.
+																				There are 2 insulation entries under the Foundation heading. Both must have a value entered for the tool to run - enter R-0 for the field that does not apply.
+																				If there are different insulation R-values in multiple floor spaces, perform a UA calculation
+																									***For more info click the 'i'
+																				to open a pdf with detailed explanations***">
+																</span>
+															</a>
+														</label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundFloorInsul2">
                                 <option disabled selected value> -- select an option --</option>
@@ -685,7 +779,16 @@
                         </div>
 
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Foundation Wall Insulation<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                            <label class="tvt-field-label">Foundation Wall Insulation
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/FoundationWallsInsulLevel.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																				title="Foundation insulation is insulation added to the foundation walls (conditioned crawlspace or conditioned basement) or slab edge to reduce the amount of heat transferred through it. Most houses do not have foundation insulation.
+																				 If you don't know whether the house has it, answer 'no.''
+																									***For more info click the 'i'
+																				to open a pdf with detailed explanations***">
+																</span>
+															</a>
+														</label>
 
                             <select class="tvt-field-input" name="FoundWallInsul2">
                                 <option disabled selected value> -- select an option --</option>
@@ -787,7 +890,14 @@
                         </div>
 
                         <div class="col-sm-6 col-md-4 col-lg-4">
-                            <label class="tvt-field-label">Roof Color<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                            <label class="tvt-field-label">Roof Color
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/RoofColor.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																title="Enter the predominant color of the roof. 				***For detailed information click the 'i'
+																to open a pdf in a new window***">
+																</span>
+															</a>
+														</label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofColor1">
                                 <option disabled selected value> -- select an option --</option>
@@ -808,7 +918,8 @@
 
 						<div class="col-sm-12 col-md-6 col-lg-6">
 
-								<label class="tvt-field-label">Attic or Ceiling Type<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+								<label class="tvt-field-label">Attic or Ceiling Type
+								</label>
 
 								<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticType1" onChange="toggleRequiredByInput(this,'Attic1Content');
 						omniHide(this, '  None', 'Attic2Full'); omniHide(this, '  None', 'Attic1Content')">
@@ -823,7 +934,15 @@
 						<div class="Attic1Content">
 
 							<div class="col-sm-12 col-md-12 col-lg-12">
-							<label class="tvt-field-label">Attic Area<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+							<label class="tvt-field-label">Attic Area
+								<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/AtticArea.pdf">
+									<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+									title="The attic floor area (sq. ft.) must be entered for the house. In many houses this will be the same size as the upper floor 'footprint' you measured in order to calculate the conditioned floor area. If there is more than one roof or attic type, check mark 'Enter a second roof / attic'.
+									 Additional fields will be displayed so that the characteristics of a second roof/attic type can be entered.
+									 ***for more info click the 'i' to open a pdf in a new window***">
+									</span>
+								</a>
+							</label>
 
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticArea" type="text"
 										 value="<?php echo $formData['atticarea'][0]; ?>"/>
@@ -831,7 +950,14 @@
 
 								<div class="col-sm-12 col-md-6 col-lg-6">
 
-										<label class="tvt-field-label">Attic Floor Insulation<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+										<label class="tvt-field-label">Attic Floor Insulation
+											<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/AtticFloorInsulation.pdf">
+												<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																title="Enter the insulation level on the attic floor. 		***For more info click the 'i'
+																to open a pdf with diagrams/explanations***">
+												</span>
+											</a>
+										</label>
 
 										<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticFloorInsul1">
 												<option disabled selected value> -- select an option --</option>
@@ -935,7 +1061,14 @@
 
                         <div class="col-sm-6 col-md-4 col-lg-4">
 
-                            <label class="tvt-field-label">Roof Color<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+                            <label class="tvt-field-label">Roof Color
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/RoofColor.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																title="Enter the predominant color of the roof. 				***For detailed information click the 'i'
+																to open a pdf in a new window***">
+																</span>
+															</a>
+														</label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofColor2">
                                 <option disabled selected value> -- select an option --</option>
@@ -958,7 +1091,9 @@
 
 						<div class="col-sm-12 col-md-6 col-lg-6">
 
-								<label class="tvt-field-label">Attic or Ceiling Type<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+								<label class="tvt-field-label">Attic or Ceiling Type
+
+								</label>
 
 								<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticType2" id="AtticType2"
 												onChange="toggleRequiredByInput(this,'Attic2Content');
@@ -974,7 +1109,15 @@
 						<div class="Attic2Content">
 
 							<div class="col-sm-12 col-md-12 col-lg-12">
-							<label class="tvt-field-label">Attic Area<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+							<label class="tvt-field-label">Attic Area
+								<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/AtticArea.pdf">
+									<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+									title="The attic floor area (sq. ft.) must be entered for the house. In many houses this will be the same size as the upper floor 'footprint' you measured in order to calculate the conditioned floor area. If there is more than one roof or attic type, check mark 'Enter a second roof / attic'.
+									 Additional fields will be displayed so that the characteristics of a second roof/attic type can be entered.
+									 ***for more info click the 'i' to open a pdf in a new window***">
+									</span>
+								</a>
+							</label>
 
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="Attic2Area" type="text"
 										 value="<?php echo $formData['attic2area'][0]; ?>"/>
@@ -982,7 +1125,14 @@
 
 								<div class="col-sm-12 col-md-6 col-lg-6">
 
-										<label class="tvt-field-label">Attic Floor Insulation<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+										<label class="tvt-field-label">Attic Floor Insulation
+											<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/AtticFloorInsulation.pdf">
+												<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																title="Enter the insulation level on the attic floor. 		***For more info click the 'i'
+																to open a pdf with diagrams/explanations***">
+												</span>
+											</a>
+										</label>
 
 										<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticFloorInsul2">
 												<option disabled selected value> -- select an option --</option>
@@ -1041,7 +1191,14 @@
 
 
 										<div class="col-sm-12 col-md-6 col-lg-4">
-												<label class="tvt-field-label">Townhouse Position<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+												<label class="tvt-field-label">Townhouse Position
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="If the home is a stand-alone single family residence select 'No'.
+													Choose the position of the unit as one is observing the front (main entrance side) of the home from the street.
+													The selections are 'Middle' for non-end units, and 'Left' and 'Right' for end units.
+													 Depending on the selections, the appropriate wall construction entries will become available.">
+													</span>
+												</label>
 
 												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsConstructGen" id="WallsGen1"
 																onChange="checkValidationForAPI(true, 'WallsGen1', 'WallsGen2', 'WallsGen3');
@@ -1057,7 +1214,11 @@
 										</div>
 
 										<div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Is the exterior wall construction the same on all sides?</label>
+                        <label class="tvt-field-label">Is the exterior wall construction the same on all sides?
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="Selecting 'Yes' sets all the walls to the single type chosen below. Selecting 'No' allows up to four different wall types to be chosen.">
+													</span>
+												</label>
                         <p>
                             <label class="tvt-input-option">
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="WallsCharacGen2"
@@ -1078,7 +1239,13 @@
 											<div class ="samewalls">
 
 	                        <div class="col-sm-12 col-md-6 col-lg-4">
-	                            <label class="tvt-field-label">Construction</label>
+	                            <label class="tvt-field-label">Construction
+																<a target="_blank" href="#">
+																	<span class="glyphicon glyphicon-warning-sign" data-toggle="tooltip" data-container: 'body'
+																	title="tooltip comming soon">
+																	</span>
+																</a>
+															</label>
 
 	                            <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsConstructGen" id="WallsGen1"
 	                                    >
@@ -1447,7 +1614,10 @@
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Does the home have a skylight?</label>
+                        <label class="tvt-field-label">Does the home have a skylight?
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="If the home has skylights select 'yes', otherwise select 'no'."></span>
+												</label>
 
                         <p>
                             <label class="tvt-input-option HomeEnergyScoreReq HollandReq">
@@ -1466,7 +1636,12 @@
                     <div class="Skylight">
 
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label"> Total Skylight Area (sq ft)</label>
+                            <label class="tvt-field-label"> Total Skylight Area (sq ft)
+															<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+															 title="Enter a value between 0 and 300 square feet.
+															 To calculate total skylight area, multiply the length of each skylight by its width, such as 3.5 feet X 2.00 feet, then add together all the individual skylight areas to obtain the total skylight size. Include skylight frames as part of the area in your calculation.
+ 														 		Round your entry to the nearest square foot."></span>
+														</label>
 
                             <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="SkylightArea" type="number"
                                    value="<?php echo $formData['skylightarea'][0]; ?>"/>
@@ -1480,7 +1655,16 @@
                         </div>
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <label class="tvt-field-label">Is the U-Factor and SHGC known?</label>
+                            <label class="tvt-field-label">Is the U-Factor and SHGC known?
+
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																title="If you know the actual specifications (U-Factor and SHGC) for the skylights click 'Yes'.
+																 The skylight specifications are printed on the NFRC label attached to the skylight by the manufacturer
+																  and cannot be determined by any type of assessment in the field.
+																			">
+																</span>
+
+														</label>
                             <p>
                                 <label class="tvt-input-option">
 
@@ -1546,7 +1730,11 @@
                         <div class="SkylightSpecificInfo">
                             <div class="col-sm-12 col-md-6 col-lg-6">
 
-                                <label class="tvt-field-label">U-Factor (from 0.01-5)</label>
+                                <label class="tvt-field-label">U-Factor (from 0.01-5)
+																	<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' data-html="true"
+																	title="Enter a value between 0.01 and 5.0. The U-Factor can be found on the NFRC label, and often on the window purchase documents.">
+																	</span>
+																</label>
 
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" id="UFactor" name="SkylightUFact" type="number"
                                        value="<?php echo $formData['skylightufact'][0]; ?>"
@@ -1554,7 +1742,11 @@
                             </div>
 
                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                <label class="tvt-field-label">SHGC (from 0-1)</label>
+                                <label class="tvt-field-label">SHGC (from 0-1)
+																	<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' data-html="true"
+																	title="Enter a value between 0 and 1. Found on the NFRC label, and often on the window purchase documents.">
+																	</span>
+																</label>
 
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" id="SHGC" name="SkylightSHGC" type="number"
                                        value="<?php echo $formData['skylightshgc'][0]; ?>"
@@ -1606,7 +1798,18 @@
 
                     <div class="GeneralWindowContent">
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <label class="tvt-sub-group">Window Area (sq ft)</label>
+                            <label class="tvt-sub-group">Window Area (sq ft)
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/WindowArea.pdf">
+																															<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																															title="Enter the total window area (in square feet) for each side of the home. Include glass doors as windows.
+																															It is not necessary to measure every single window individually. Most houses have only a small variety of differing window sizes, so the measurement of one window
+ 																															representative of a group of similarly sized windows can be multiplied by the number of windows in the group.
+
+																															***For detailed information click the 'i'
+																															to open a pdf in a new window***">
+																															</span>
+															</a>
+														</label>
 
                             <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsAreaGen1" type="number"max="340" min="1"
                                    value="<?php echo $formData['windowsareagen1'][0]; ?>"/>

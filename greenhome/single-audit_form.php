@@ -25,16 +25,16 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="../wp-content/themes/greenhome/scripts/javascript/jquery-ui.min.js"></script>
 		<script>
-		function saveForm()
-		{
-			document.form[0].submit;
-		}
+		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip();
+		});
 		</script>
+
 
 </head>
 <!-- greenhome green = #0b9444 -->
 <!-- greenhome blue  = #20419a -->
-<body bgcolor="#CCCCCC">
+<body bgcolor="#CCCCCC" >
 
 
 <script><?php
@@ -70,7 +70,7 @@
     </div> <!-- Closing Div Tag for Page Tabs -->
 
     <!-- Form Element Containing Entire Form -->
-    <form id="form1" name="form1" method="post" action="../Audit-Report?form_id=<?php echo $formId ?>" class="tvt" enctype="multipart/form-data">
+    <form id="form1" name="form1" method="post" action="../Audit-+Report?form_id=<?php echo $formId ?>" class="tvt" enctype="multipart/form-data">
         <input id="formId" name="form_id" type="text" value="<?php echo $formId ?>" hidden/>
         <div style="text-align:center;">
             <div id="legend">
@@ -113,7 +113,7 @@
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label class="tvt-field-label">First Name</label>
 
-                        <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AssessFName" type="text"
+                        <input title="Tooltip" alt="Tooltip" class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AssessFName" type="text"
                                value="<?php echo $formData['assessfname'][0]; ?>"/>
                     </div>
 
@@ -340,14 +340,19 @@
 
 
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                        <label class="tvt-field-label">Year Built</label>
+                        <label class="tvt-field-label">
+													Year Built
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title="Enter the year the building was built. The value must be between 1600 and the present year"></span>
                         <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HomeYear" type="number" maxlength="4" min="1600"
                                value="<?php echo $formData['homeyear'][0]; ?>"/>
+
                     </div>
 
                     <!-- Number of bedrooms 1-10 -->
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                        <label class="tvt-field-label">Number of Bedrooms</label>
+                        <label class="tvt-field-label">Number of Bedrooms<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="Select a number between 1 and 10. A bedroom is a room purposely built
+													 as such and defined as such by local ordinance."></span></label>
 
 												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="NumOfBedrooms" id="NumOfBedrooms"
 																onChange="toggleRequiredFields(true)">
@@ -370,7 +375,8 @@
 
                     <!-- Number of Floors 1-4 -->
                     <div class="col-sm-12 col-md-6 col-lg-12">
-                        <label class="tvt-field-label">Stories Above Ground Level</label>
+                        <label class="tvt-field-label">Stories Above Ground Level<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="Select a value between 1 and 4. For houses built into a hillside, (e.g., one floor above ground level on one side, two floors above ground level on the other side or a walk-out basement) treat the house as if it had one floor above ground level and a conditioned basement. For Cape Cod and Split Level houses the "half" floor should be counted as an above grade floor, e.g. a typical Cape Cod with conditioned 2nd floor should be entered as 2 stories."></span></label>
 
 												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="Stories" id="Stories"
 																onChange="toggleRequiredFields(true)">
@@ -384,7 +390,7 @@
 
                     <!-- Avg Ceiling 6-12 -->
                     <div class="col-sm-12 col-md-6 col-lg-12">
-                        <label class="tvt-field-label">Average Ceiling Height (ft)</label>
+                        <label class="tvt-field-label">Average Ceiling Height (ft)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
 												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AvgCHeight" id="AvgCHeight"
 																onChange="toggleRequiredFields(true)">
@@ -401,7 +407,7 @@
 
                     <!-- Floor Area 250-25000 -->
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Conditioned Floor Area (sq ft)</label>
+                        <label class="tvt-field-label">Conditioned Floor Area (sq ft)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                         <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HomeFloorArea" type="number" step="1" min="250"
                                value="<?php echo $formData['homefloorarea'][0]; ?>"/>
@@ -409,7 +415,7 @@
 
                     <!-- Values need to be changed -->
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">What Kind of Home is This?</label>
+                        <label class="tvt-field-label">What Kind of Home is This?<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" id="HomeTownDup" name="HomeTownDup"
                                 onchange="omniHide(this, 'Detached Single Family Home', 'PositionInfo')">
@@ -423,7 +429,7 @@
                     <div class="PositionInfo">
 
                         <div class="col-sm-6 col-md-12 col-lg-12">
-                            <label class="tvt-field-label">Position of Unit</label>
+                            <label class="tvt-field-label">Position of Unit<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HomePosUnit">
                                 <option disabled selected value> -- select an option --</option>
@@ -435,7 +441,7 @@
 
                     </div>
                     <div class="col-sm-6 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Direction Faced by Front of House</label>
+                        <label class="tvt-field-label">Direction Faced by Front of House<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HomeFrontDirection">
                             <option disabled selected value> -- select an option --</option>
@@ -471,30 +477,30 @@
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Was a Blower Door test conducted on this house?</label>
+                        <label class="tvt-field-label">Was a Blower Door test conducted on this house?<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
                         <p>
                             <label class="tvt-input-option">
 
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="BlowerDoorTest"
                                        value="Yes" id="BlowerDoorTest_0" onclick="omniHide(this, 'No', 'AirLeakageRate', undefined, true)"/>
-                                Yes</label>
+                                Yes<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <label class="tvt-input-option">
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" type="radio" name="BlowerDoorTest"
                                        value="No" id="BlowerDoorTest_1" onclick="omniHide(this, 'No', 'AirLeakageRate', undefined, true)" checked  />
-                                No/Don't Know</label>
+                                No/Don't Know<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
                         </p>
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12 AirLeakageRate">
-                        <label class="tvt-field-label">Air Leakage Rate (cfm50)</label>
+                        <label class="tvt-field-label">Air Leakage Rate (cfm50)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                         <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AirLeakRate" type="number" step="1" min="0"
                                value="<?php echo $formData['airleakrate'][0]; ?>"/>
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Has the house been professionally air sealed?</label>
+                        <label class="tvt-field-label">Has the house been professionally air sealed?<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                         <p>
                             <label class="tvt-input-option">
@@ -538,7 +544,7 @@
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                        <label class="tvt-field-label">Type</label>
+                        <label class="tvt-field-label">Type<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundType1"
                                 onchange="omniHide(this, 'None', 'found1otherfields'); omniHide(this, 'None', 'Found2HideDiv')" name="FoundType1"
@@ -556,14 +562,14 @@
 
                     <div class="found1otherfields">
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Foundation Area (sq ft)</label>
+                            <label class="tvt-field-label">Foundation Area (sq ft)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
                             <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundArea1" type="number" min="0" max="25000"
                                    value="<?php echo $formData['foundarea1'][0]; ?>"/>
                             &nbsp; <!-- Fixes mysterious blank space -->
                         </div>
 
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Floor Insulation over Basement or Crawlspace</label>
+                            <label class="tvt-field-label">Floor Insulation over Basement or Crawlspace<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundFloorInsul1">
                                 <option disabled selected value> -- select an option --</option>
@@ -582,7 +588,7 @@
                         </div>
 
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Foundation Wall Insulation</label>
+                            <label class="tvt-field-label">Foundation Wall Insulation<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundWallInsul1">
                                 <option disabled selected value> -- select an option --</option>
@@ -596,7 +602,7 @@
                         </div>
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <label class="tvt-field-label">Rim Band Joist Detail</label>
+                            <label class="tvt-field-label">Rim Band Joist Detail<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RimBandJoistFound1">
                                 <option disabled selected value> -- select an option --</option>
@@ -638,7 +644,7 @@
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                        <label class="tvt-field-label">Type</label>
+                        <label class="tvt-field-label">Type<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundType2" id="FoundType2"
                                 onchange="toggleRequiredByInput(this, 'Foundation2Content'); omniHide(this, 'None', 'Foundation2Content')">
@@ -653,7 +659,7 @@
 
                     <div class="Foundation2Content">
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Foundation Area (sq ft)</label>
+                            <label class="tvt-field-label">Foundation Area (sq ft)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundArea2" type="number" min="0" step="1"
                                    value="<?php echo $formData['foundarea2'][0]; ?>"/>
@@ -661,7 +667,7 @@
                         </div>
 
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Floor Insulation over Basement or Crawlspace</label>
+                            <label class="tvt-field-label">Floor Insulation over Basement or Crawlspace<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="FoundFloorInsul2">
                                 <option disabled selected value> -- select an option --</option>
@@ -679,7 +685,7 @@
                         </div>
 
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Foundation Wall Insulation</label>
+                            <label class="tvt-field-label">Foundation Wall Insulation<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input" name="FoundWallInsul2">
                                 <option disabled selected value> -- select an option --</option>
@@ -692,7 +698,7 @@
                         </div>
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <label class="tvt-field-label">Rim Band Joist Detail</label>
+                            <label class="tvt-field-label">Rim Band Joist Detail<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RimBandJoistFound2">
                                 <option disabled selected value> -- select an option --</option>
@@ -706,7 +712,7 @@
                         </div>
 
                         <div class="col-sm-12 col-md-6 col-lg-6 photo_and_title">
-                            <label class="tvt-field-label">Photo</label>
+                            <label class="tvt-field-label">Photo<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <input class="tvt-field-input" name="Found2Photo" type="file" accept="image/*"/>
                         </div>
@@ -734,7 +740,7 @@
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                        <label class="tvt-field-label">Roof Construction</label>
+                        <label class="tvt-field-label">Roof Construction<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofConst1" id="RoofOne1"
                                 onChange="toggleRequiredByInput(this,'Roof1Content'); checkValidationForRoof(true, 'RoofOne1', 'RoofOne2', 'RoofOne3');
@@ -750,7 +756,7 @@
 
                     <div class="Roof1Content">
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label class="tvt-field-label">Exterior Finish</label>
+                            <label class="tvt-field-label">Exterior Finish<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofExtFin1" id="RoofOne3"
                                     onChange="checkValidationForRoof(false, 'RoofOne1', 'RoofOne2', 'RoofOne3')">
@@ -764,7 +770,7 @@
                         </div>
 
                         <div class="col-sm-6 col-md-4 col-lg-4">
-                            <label class="tvt-field-label">Insulation Level</label>
+                            <label class="tvt-field-label">Insulation Level<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofInsulLev1" id="RoofOne2"
                                     onChange="checkValidationForRoof(false, 'RoofOne1', 'RoofOne2', 'RoofOne3')">
@@ -781,7 +787,7 @@
                         </div>
 
                         <div class="col-sm-6 col-md-4 col-lg-4">
-                            <label class="tvt-field-label">Roof Color</label>
+                            <label class="tvt-field-label">Roof Color<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofColor1">
                                 <option disabled selected value> -- select an option --</option>
@@ -795,14 +801,14 @@
                         </div>
 
 						<div class="col-sm-12 col-md-4 col-lg-4">
-							<label class="tvt-field-label">Roof Area (sq ft)</label>
+							<label class="tvt-field-label">Roof Area (sq ft)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofArea1" type="number" value="<?php echo $formData['roofarea1'][0]; ?>"/>
 						</div>
 
 
 						<div class="col-sm-12 col-md-6 col-lg-6">
 
-								<label class="tvt-field-label">Attic or Ceiling Type</label>
+								<label class="tvt-field-label">Attic or Ceiling Type<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
 								<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticType1" onChange="toggleRequiredByInput(this,'Attic1Content');
 						omniHide(this, '  None', 'Attic2Full'); omniHide(this, '  None', 'Attic1Content')">
@@ -817,7 +823,7 @@
 						<div class="Attic1Content">
 
 							<div class="col-sm-12 col-md-12 col-lg-12">
-							<label class="tvt-field-label">Attic Area</label>
+							<label class="tvt-field-label">Attic Area<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticArea" type="text"
 										 value="<?php echo $formData['atticarea'][0]; ?>"/>
@@ -825,7 +831,7 @@
 
 								<div class="col-sm-12 col-md-6 col-lg-6">
 
-										<label class="tvt-field-label">Attic Floor Insulation</label>
+										<label class="tvt-field-label">Attic Floor Insulation<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
 										<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticFloorInsul1">
 												<option disabled selected value> -- select an option --</option>
@@ -877,7 +883,7 @@
 
                     <div class="col-sm-12 col-md-6 col-lg-6">
 
-                        <label class="tvt-field-label">Roof Construction</label>
+                        <label class="tvt-field-label">Roof Construction<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                         <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofConst2" id="RoofConst2"
                                 onChange="toggleRequiredByInput(this,'Roof2Content');
@@ -894,7 +900,7 @@
                     <div class="Roof2Content">
                         <div class="col-sm-12 col-md-6 col-lg-6">
 
-                            <label class="tvt-field-label">Exterior Finish</label>
+                            <label class="tvt-field-label">Exterior Finish<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofExtFin2" id="RoofTwo3"
                                     onChange="checkValidationForRoof(false, 'RoofConst2', 'RoofTwo2', 'RoofTwo3')">
@@ -910,7 +916,7 @@
 
                         <div class="col-sm-6 col-md-4 col-lg-4">
 
-                            <label class="tvt-field-label">Insulation Level</label>
+                            <label class="tvt-field-label">Insulation Level<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofInsulLev2" id="RoofTwo2"
                                     onChange="checkValidationForRoof(false, 'RoofConst2', 'RoofTwo2', 'RoofTwo3')">
@@ -929,7 +935,7 @@
 
                         <div class="col-sm-6 col-md-4 col-lg-4">
 
-                            <label class="tvt-field-label">Roof Color</label>
+                            <label class="tvt-field-label">Roof Color<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofColor2">
                                 <option disabled selected value> -- select an option --</option>
@@ -945,14 +951,14 @@
                         </div>
 
 						<div class="col-sm-12 col-md-4 col-lg-4">
-							<label class="tvt-field-label">Roof Area (sq ft)</label>
+							<label class="tvt-field-label">Roof Area (sq ft)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 							<input class="tvt-field-input" name="RoofArea2" type="number" value="<?php echo $formData['roofarea2'][0]; ?>"/>
 						</div>
 
 
 						<div class="col-sm-12 col-md-6 col-lg-6">
 
-								<label class="tvt-field-label">Attic or Ceiling Type</label>
+								<label class="tvt-field-label">Attic or Ceiling Type<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
 								<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticType2" id="AtticType2"
 												onChange="toggleRequiredByInput(this,'Attic2Content');
@@ -968,7 +974,7 @@
 						<div class="Attic2Content">
 
 							<div class="col-sm-12 col-md-12 col-lg-12">
-							<label class="tvt-field-label">Attic Area</label>
+							<label class="tvt-field-label">Attic Area<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="Attic2Area" type="text"
 										 value="<?php echo $formData['attic2area'][0]; ?>"/>
@@ -976,7 +982,7 @@
 
 								<div class="col-sm-12 col-md-6 col-lg-6">
 
-										<label class="tvt-field-label">Attic Floor Insulation</label>
+										<label class="tvt-field-label">Attic Floor Insulation<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
 										<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AtticFloorInsul2">
 												<option disabled selected value> -- select an option --</option>
@@ -1035,7 +1041,7 @@
 
 
 										<div class="col-sm-12 col-md-6 col-lg-4">
-												<label class="tvt-field-label">Townhouse Position</label>
+												<label class="tvt-field-label">Townhouse Position<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
 
 												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsConstructGen" id="WallsGen1"
 																onChange="checkValidationForAPI(true, 'WallsGen1', 'WallsGen2', 'WallsGen3');
@@ -1075,7 +1081,7 @@
 	                            <label class="tvt-field-label">Construction</label>
 
 	                            <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsConstructGen" id="WallsGen1"
-	                                    onChange="checkValidationForAPI(true, 'WallsGen1', 'WallsGen2', 'WallsGen3')">
+	                                    >
 
 	                                <option disabled selected value> -- select an option --</option>
 	                                <option value="  None">None</option>
@@ -1095,7 +1101,7 @@
 
 
 	                            <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsExtFinGen" id="WallsGen3"
-	                                    onChange="checkValidationForAPI(false, 'WallsGen1', 'WallsGen2', 'WallsGen3')">
+	                                    >
 
 	                                <option disabled selected value> -- select an option --</option>
 	                                <option value="wo">Wood Siding</option>
@@ -1110,8 +1116,7 @@
 	                        <div class="col-sm-12 col-md-12 col-lg-4">
 	                            <label class="tvt-field-label">Wall Insulation</label>
 
-	                            <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsInsulGen" id="WallsGen2"
-	                                    onChange="checkValidationForAPI(false, 'WallsGen1', 'WallsGen2', 'WallsGen3')">
+	                            <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsInsulGen" id="WallsGenn">
 
 	                                <option disabled selected value> -- select an option --</option>
 	                                <option value="00">R-0</option>
@@ -1170,10 +1175,7 @@
                         <div class="col-sm-12 col-md-12 col-lg-4">
                             <label class="tvt-field-label">Wall Insulation</label>
 
-                            <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsInsulGen" id="WallsGen2"
-                                    onChange="checkValidationForAPI(false, 'WallsGen1', 'WallsGen2', 'WallsGen3')">
-
-                                <option disabled selected value> -- select an option --</option>
+                            <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsInsulGen" id="WallsGen2" >                              <option disabled selected value> -- select an option --</option>
                                 <option value="00">R-0</option>
                                 <option value="03">R-3</option>
                                 <option value="07">R-7</option>
@@ -1229,8 +1231,7 @@
 	                        <div class="col-sm-12 col-md-12 col-lg-4">
 	                            <label class="tvt-field-label">Wall Insulation</label>
 
-	                            <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsInsulGen" id="WallsGen2"
-	                                    onChange="checkValidationForAPI(false, 'WallsGen1', 'WallsGen2', 'WallsGen3')">
+	                            <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsInsulGen" id="WallsGen2"	                                    >
 
 	                                <option disabled selected value> -- select an option --</option>
 	                                <option value="00">R-0</option>
@@ -1290,7 +1291,7 @@
 																<label class="tvt-field-label">Wall Insulation</label>
 
 																<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsInsulGen" id="WallsGen2"
-																				onChange="checkValidationForAPI(false, 'WallsGen1', 'WallsGen2', 'WallsGen3')">
+																				>
 
 																		<option disabled selected value> -- select an option --</option>
 																		<option value="00">R-0</option>
@@ -1351,7 +1352,7 @@
 																	<label class="tvt-field-label">Wall Insulation</label>
 
 																	<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsInsulGen" id="WallsGen2"
-																					onChange="checkValidationForAPI(false, 'WallsGen1', 'WallsGen2', 'WallsGen3')">
+																					>
 
 																			<option disabled selected value> -- select an option --</option>
 																			<option value="00">R-0</option>
@@ -2165,7 +2166,8 @@
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-6 photo_and_title">
-                        <label class="tvt-field-label">Photo</label>
+                        <label class="tvt-field-label">Photo
+												</label>
 
                         <input class="tvt-field-input" name="WindowsLeftPhoto" type="file" accept="image/*"/>
                     </div>
@@ -2182,8 +2184,12 @@
                         <input class="tvt-field-input" name="WindowsLeftRecom" type="text" value="<?php echo $formData['windowsleftrecom'][0]; ?>"/>
                     </div>
                 </div> <!-- Closing Div Tag for Windows (Left) -->
+            </div>
+        </div>
 
             </div> <!-- Closing Div Tag for Structure SECTION -->
+
+
 
         </div> <!-- Closing Div Tag for Structure TAB SECTION -->
 
@@ -2209,7 +2215,7 @@
                             <label class="tvt-field-label">Type of Heating System</label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysType1" id="heatType1"
-                                    onchange="omniHide(this, 'None', 'Heating1'); omniHide(this, 'None', 'Heating2Div'); ">
+                                    onchange="omniHide(this, 'None', 'Heating1'); omniHide(this, 'None', 'Heating2Div');">
                                 <option value="None">None</option>
                                 <option value="central_furnace:natural_gas">Central Gas Furnace</option>
                                 <option value="wall_furnace:natural_gas">Room (Through-the-wall) Gas Furnace</option>
@@ -2290,7 +2296,7 @@
                     </div> <!-- Closing Div Tag for Heating (System 1) -->
 
                     <!-- Div Containing Heating (System 2) -->
-                    <div class="Heating2Div">
+                    <div class="Heating2Div" style="display:none;">
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <h3 class="tvt-group-title">Heating (System 2)</h3>
@@ -2300,8 +2306,8 @@
 
                             <label class="tvt-field-label">Type of Heating System</label>
 
-														<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysType1" id="heatType1"
-	                                    onchange="omniHide(this, 'None', 'Heating1'); omniHide(this, 'None', 'Heating2'); ">
+														<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysType2" id="heatType2"
+	                                    onchange="omniHide(this, 'None', 'Heating2'); omniHide(this, 'None', 'Heating1Div'); ">
 	                                <option selected value="None">None</option>
 	                                <option value="central_furnace:natural_gas">Central Gas Furnace</option>
 	                                <option value="wall_furnace:natural_gas">Room (Through-the-wall) Gas Furnace</option>
@@ -2321,7 +2327,7 @@
 
                         </div>
 
-                        <div class="Heating2">
+                        <div class="Heating2" >
 
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <label class="tvt-field-label">Do you know the heating system's
@@ -3840,7 +3846,7 @@
 
         <!-- Div Containing Form Submit Button -->
         <div class="row" id="button_row">
-            <button id="submit-btn" class="btn btn-success pull-right" onClick="submitForm();">Generate Report</button>
+            <button id="submit-btn" class="btn btn-success pull-right" onClick="submitForm();">Save & Submit</button>
         </div>
 
     </form> <!-- Closing Form Element Containing Entire Form -->

@@ -10,8 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Targets mobile devices to set width to screen size -->
     <title>GreenHome Inspection Form</title>
-		<!-- Bootstrap JS -->
-		<script src="../wp-content/themes/greenhome/scripts/javascript/bootstrap.min.js"></script>
+
     <!-- linking to styles -->
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/tvt-styles.css">
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/tvt-bootstrap.min.css">
@@ -20,6 +19,7 @@
     <link rel="stylesheet" href="../wp-content/themes/greenhome/styles/jquery-ui.css">
     <link rel="stylesheet" href="../wp-content/themes/greenhome/styles/jquery-ui.structure.min.css">
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/tvt-print-layout.css">
+
 
     <link rel='dns-prefetch' href='//code.jquery.com'/>
 
@@ -31,7 +31,6 @@
 		<script>
 		$(document).ready(function(){
 			$('[data-toggle="tooltip"]').tooltip({html:true});
-			$("[data-toggle=popover]").popover({html:true})
 		});
 
 		</script>
@@ -186,7 +185,7 @@
 
 										<div class="col-sm-12 col-md-6 col-lg-4">
 										<label class="tvt-field-label">Assessment Type</label>
-										<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AssessmentType" id="AssessmentType"
+										<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="assessmenttype" id="assessmenttype"
 														onChange="toggleRequiredFields(true)">
 												<option disabled selected value> -- select an option --</option>
 												<option value="Home Energy Score">Initial</option>
@@ -361,7 +360,7 @@
 													title="Select a number between 1 and 10. A bedroom is a room purposely built
 													 as such and defined as such by local ordinance."></span></label>
 
-												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="NumOfBedrooms" id="NumOfBedrooms"
+												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="homebed" id="homebed"
 																onChange="toggleRequiredFields(true)">
 														<option disabled selected value> -- select an option --</option>
 														<option value="Home Energy Score">1</option>
@@ -387,7 +386,7 @@
 													title="Select a value between 1 and 4. For houses built into a hillside, (e.g., one floor above ground level on one side, two floors above ground level on the other side or a walk-out basement) treat the house as if it had one floor above ground level and a conditioned basement. For Cape Cod and Split Level houses the 'half' floor should be counted as an above grade floor, e.g. a typical Cape Cod with conditioned 2nd floor should be entered as 2 stories."></span>
 												</label>
 
-												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="Stories" id="Stories"
+												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="homestories" id="homestories"
 																onChange="toggleRequiredFields(true)">
 														<option disabled selected value> -- select an option --</option>
 														<option value="1">1</option>
@@ -405,7 +404,7 @@
 													calculate the weighted average ceiling height based on floor areas. For example, if 800 ft2 has 8 foot ceilings, 300 ft2 has 9 foot ceilings and 500 ft2 has 10 foot ceilings, then choose 9 feet from the drop down menu, given that 800*8+300*9+500*10/1600 = 8.8 ft."></span>
 												</label>
 
-												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="AvgCHeight" id="AvgCHeight"
+												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="homeavgceiling" id="homeavgceiling"
 																onChange="toggleRequiredFields(true)">
 														<option disabled selected value> -- select an option --</option>
 														<option value="6">6 feet</option>
@@ -1199,9 +1198,16 @@
 													 Depending on the selections, the appropriate wall construction entries will become available.">
 													</span>
 												</label>
-
+												<!--
 												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsConstructGen" id="WallsGen1"
 																onChange="checkValidationForAPI(true, 'WallsGen1', 'WallsGen2', 'WallsGen3');
+																 omniHide(this, 'RightUnit', 'leftth');
+																 omniHide(this, 'LeftUnit', 'rightth');
+																 omniHide(this, 'CenterUnit', 'leftc'); omniHide(this, 'CenterUnit', 'rightc');">
+												-->
+
+												<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsConstructGen" id="WallsGen1"
+																onChange="
 																 omniHide(this, 'RightUnit', 'leftth');
 																 omniHide(this, 'LeftUnit', 'rightth');
 																 omniHide(this, 'CenterUnit', 'leftc'); omniHide(this, 'CenterUnit', 'rightc');">
@@ -1240,9 +1246,14 @@
 
 	                        <div class="col-sm-12 col-md-6 col-lg-4">
 	                            <label class="tvt-field-label">Construction
-																<a target="_blank" href="#">
-																	<span class="glyphicon glyphicon-warning-sign" data-toggle="tooltip" data-container: 'body'
-																	title="tooltip comming soon">
+																<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/WallConstruction.pdf">
+																	<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																	title="Select the appropriate wall construction from the drop down choices. For a log house, choose 'Wood Frame'.
+																				 Choose the appropriate exterior wall finish or cladding from the drop down list. If the exterior wall finish or cladding is not listed select the entry that is most similar in characteristics.
+																				 Wall insulation should include attic knee walls if the attic area is finished and included in the conditioned floor area calculation.
+																				 For a log house, the insulation level should be equal to R-1 per inch of wall thickness.
+																				 *		*		*For more info click the 'i'
+				 																to open a pdf with diagrams/explanations*		*		*">
 																	</span>
 																</a>
 															</label>
@@ -1304,7 +1315,18 @@
 											<div class="unequalwalls">
 												<div class="front">
                         <div class="col-sm-12 col-md-6 col-lg-4">
-                            <label class="tvt-field-label">Construction Front</label>
+                            <label class="tvt-field-label">Construction Front
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/WallConstruction.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																title="Select the appropriate wall construction from the drop down choices. For a log house, choose 'Wood Frame'.
+																			 Choose the appropriate exterior wall finish or cladding from the drop down list. If the exterior wall finish or cladding is not listed select the entry that is most similar in characteristics.
+																			 Wall insulation should include attic knee walls if the attic area is finished and included in the conditioned floor area calculation.
+																			 For a log house, the insulation level should be equal to R-1 per inch of wall thickness.
+																			 *		*		*For more info click the 'i'
+																			to open a pdf with diagrams/explanations*		*		*">
+																</span>
+															</a>
+														</label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsConstructGen" id="WallsGen1"
                                     onChange="checkValidationForAPI(true, 'WallsGen1', 'WallsGen2', 'WallsGen3')">
@@ -1360,7 +1382,18 @@
 
 													<div class="back">
 	                        <div class="col-sm-12 col-md-6 col-lg-4">
-	                            <label class="tvt-field-label">Construction Back</label>
+	                            <label class="tvt-field-label">Construction Back
+																<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/WallConstruction.pdf">
+																	<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																	title="Select the appropriate wall construction from the drop down choices. For a log house, choose 'Wood Frame'.
+																				 Choose the appropriate exterior wall finish or cladding from the drop down list. If the exterior wall finish or cladding is not listed select the entry that is most similar in characteristics.
+																				 Wall insulation should include attic knee walls if the attic area is finished and included in the conditioned floor area calculation.
+																				 For a log house, the insulation level should be equal to R-1 per inch of wall thickness.
+																				 *		*		*For more info click the 'i'
+				 																to open a pdf with diagrams/explanations*		*		*">
+																	</span>
+																</a>
+															</label>
 
 	                            <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsConstructGen" id="WallsGen1"
 	                                    onChange="checkValidationForAPI(true, 'WallsGen1', 'WallsGen2', 'WallsGen3')">
@@ -1419,7 +1452,18 @@
 														<div class="leftc">
 														<div class="leftth" name="leftth">
 														<div class="col-sm-12 col-md-6 col-lg-4">
-																<label class="tvt-field-label">Construction Left</label>
+																<label class="tvt-field-label">Construction Left
+																	<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/WallConstruction.pdf">
+																		<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																		title="Select the appropriate wall construction from the drop down choices. For a log house, choose 'Wood Frame'.
+																					 Choose the appropriate exterior wall finish or cladding from the drop down list. If the exterior wall finish or cladding is not listed select the entry that is most similar in characteristics.
+																					 Wall insulation should include attic knee walls if the attic area is finished and included in the conditioned floor area calculation.
+																					 For a log house, the insulation level should be equal to R-1 per inch of wall thickness.
+																					 *		*		*For more info click the 'i'
+					 																to open a pdf with diagrams/explanations*		*		*">
+																		</span>
+																	</a>
+																</label>
 
 																<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsConstructGen" id="WallsGen1"
 																				onChange="checkValidationForAPI(true, 'WallsGen1', 'WallsGen2', 'WallsGen3')">
@@ -1480,7 +1524,18 @@
 															<div class="rightc">
 															<div class="rightth" name="rightth">
 															<div class="col-sm-12 col-md-6 col-lg-4">
-																	<label class="tvt-field-label">Construction Right</label>
+																	<label class="tvt-field-label">Construction Right
+																		<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/WallConstruction.pdf">
+																			<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																			title="Select the appropriate wall construction from the drop down choices. For a log house, choose 'Wood Frame'.
+																						 Choose the appropriate exterior wall finish or cladding from the drop down list. If the exterior wall finish or cladding is not listed select the entry that is most similar in characteristics.
+																						 Wall insulation should include attic knee walls if the attic area is finished and included in the conditioned floor area calculation.
+																						 For a log house, the insulation level should be equal to R-1 per inch of wall thickness.
+																						 *		*		*For more info click the 'i'
+						 																to open a pdf with diagrams/explanations*		*		*">
+																			</span>
+																		</a>
+																	</label>
 
 																	<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WallsConstructGen" id="WallsGen1"
 																					onChange="checkValidationForAPI(true, 'WallsGen1', 'WallsGen2', 'WallsGen3')">
@@ -1816,7 +1871,14 @@
                         </div>
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <label class="tvt-field-label">Is the U-Factor and SHGC known?</label>
+                            <label class="tvt-field-label">Is the U-Factor and SHGC known?
+															<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+															title="If you know the actual specifications (U-Factor and SHGC) for the window click 'Yes'.
+															 The window specifications are printed on the NFRC label attached to the window by the manufacturer
+																and cannot be determined by any type of assessment in the field.
+																		">
+															</span>
+														</label>
                             <p>
 
                                 <label class="tvt-input-option">
@@ -1932,14 +1994,32 @@
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Window Area (sq ft)</label>
+                        <label class="tvt-field-label">Window Area (sq ft)
+													<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/WindowArea.pdf">
+																													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																													title="Enter the total window area (in square feet) for each side of the home. Include glass doors as windows.
+																													It is not necessary to measure every single window individually. Most houses have only a small variety of differing window sizes, so the measurement of one window
+																													representative of a group of similarly sized windows can be multiplied by the number of windows in the group.
+
+																													***For detailed information click the 'i'
+																													to open a pdf in a new window***">
+																													</span>
+													</a>
+												</label>
 
                         <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsAreaFront" type="number" max="340" min="1"
                                value="<?php echo $formData['windowsareafront'][0]; ?>"/>
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Is the U-Factor and SHGC known?</label>
+                        <label class="tvt-field-label">Is the U-Factor and SHGC known?
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="If you know the actual specifications (U-Factor and SHGC) for the window click 'Yes'.
+													 The window specifications are printed on the NFRC label attached to the window by the manufacturer
+														and cannot be determined by any type of assessment in the field.
+																">
+													</span>
+												</label>
                         <p>
                             <label class="tvt-input-option">
 
@@ -2049,14 +2129,32 @@
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Window Area (sq ft)</label>
+                        <label class="tvt-field-label">Window Area (sq ft)
+													<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/WindowArea.pdf">
+																													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																													title="Enter the total window area (in square feet) for each side of the home. Include glass doors as windows.
+																													It is not necessary to measure every single window individually. Most houses have only a small variety of differing window sizes, so the measurement of one window
+																													representative of a group of similarly sized windows can be multiplied by the number of windows in the group.
+
+																													***For detailed information click the 'i'
+																													to open a pdf in a new window***">
+																													</span>
+													</a>
+												</label>
 
                         <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsAreaBack" type="number"max="340" min="1"
                                value="<?php echo $formData['windowsareaback'][0]; ?>"/>
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Is the U-Factor and SHGC known?</label>
+                        <label class="tvt-field-label">Is the U-Factor and SHGC known?
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="If you know the actual specifications (U-Factor and SHGC) for the skylights click 'Yes'.
+													 The skylight specifications are printed on the NFRC label attached to the skylight by the manufacturer
+														and cannot be determined by any type of assessment in the field.
+																">
+													</span>
+												</label>
                         <p>
                             <label class="tvt-input-option">
 
@@ -2165,14 +2263,32 @@
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Window Area (sq ft)</label>
+                        <label class="tvt-field-label">Window Area (sq ft)
+													<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/WindowArea.pdf">
+																													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																													title="Enter the total window area (in square feet) for each side of the home. Include glass doors as windows.
+																													It is not necessary to measure every single window individually. Most houses have only a small variety of differing window sizes, so the measurement of one window
+																													representative of a group of similarly sized windows can be multiplied by the number of windows in the group.
+
+																													***For detailed information click the 'i'
+																													to open a pdf in a new window***">
+																													</span>
+													</a>
+												</label>
 
                         <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsAreaRight" type="number" max="340" min="1"
                                value="<?php echo $formData['windowsarearight'][0]; ?>"/>
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Is the U-Factor and SHGC known?</label>
+                        <label class="tvt-field-label">Is the U-Factor and SHGC known?
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="If you know the actual specifications (U-Factor and SHGC) for the skylights click 'Yes'.
+													 The skylight specifications are printed on the NFRC label attached to the skylight by the manufacturer
+														and cannot be determined by any type of assessment in the field.
+																">
+													</span>
+												</label>
                         <p>
                             <label class="tvt-input-option">
 
@@ -2282,14 +2398,32 @@
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Window Area (sq ft)</label>
+                        <label class="tvt-field-label">Window Area (sq ft)
+													<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/WindowArea.pdf">
+																													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																													title="Enter the total window area (in square feet) for each side of the home. Include glass doors as windows.
+																													It is not necessary to measure every single window individually. Most houses have only a small variety of differing window sizes, so the measurement of one window
+																													representative of a group of similarly sized windows can be multiplied by the number of windows in the group.
+
+																													***For detailed information click the 'i'
+																													to open a pdf in a new window***">
+																													</span>
+													</a>
+												</label>
 
                         <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="WindowsAreaLeft" type="number" max="340" min="1"
                                value="<?php echo $formData['windowsarealeft'][0]; ?>"/>
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label class="tvt-field-label">Is the U-Factor and SHGC known?</label>
+                        <label class="tvt-field-label">Is the U-Factor and SHGC known?
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+													title="If you know the actual specifications (U-Factor and SHGC) for the skylights click 'Yes'.
+													 The skylight specifications are printed on the NFRC label attached to the skylight by the manufacturer
+														and cannot be determined by any type of assessment in the field.
+																">
+													</span>
+												</label>
                         <p>
                             <label class="tvt-input-option">
 
@@ -2415,7 +2549,15 @@
                         </div>
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <label class="tvt-field-label">Type of Heating System</label>
+                            <label class="tvt-field-label">Type of Heating System
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/HeatingSystem.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																				title="If the system installed is not listed here, choose the most appropriate system and assign the proper efficiency in the Efficiency value field.
+																				***For more info click the 'i'
+																				to open a pdf with detailed explanations***">
+																</span>
+															</a>
+														</label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysType1" id="heatType1"
                                     onchange="omniHide(this, 'None', 'Heating1'); omniHide(this, 'None', 'Heating2Div');">
@@ -2441,7 +2583,13 @@
 
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <label class="tvt-field-label">Do you know the heating system's
-                                    AFUE?</label><!--todo: make this hide the effic value input below if no. COPY what is done for Cooling System 2-->
+                                    AFUE?
+																		<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																						title="If you know the rated efficiency of the heating system equipment select 'Yes'.
+																						Only select 'No' if you do not know the efficiency and you do not have access to the calculator. The year of manufacture can often be determined from the manufacture's data label/tag.
+																						">
+																		</span>
+																	</label><!--todo: make this hide the effic value input below if no. COPY what is done for Cooling System 2-->
 
                                 <p>
                                     <label class="tvt-input-option">
@@ -2460,7 +2608,16 @@
                             </div>
 
                             <div class="col-sm-12 col-md-12 col-lg-12 Heat1EfficencyVal">
-                                <label class="tvt-field-label">Efficiency Value (AFUE)</label>
+                                <label class="tvt-field-label">Efficiency Value (AFUE)
+																	<a target="_blank" href="https://www.ahridirectory.org/ahridirectory/pages/home.aspx">
+																	<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																					title="The heating efficiency value for a furnace or boiler is AFUE (typical range 60% - 99%) and must be entered as a decimal (i.e. .60 - .99).
+																									The heating efficiency value for a heat pump is HSPF (typical range 7 - 9).
+																									For closed loop ground-source heat pumps enter the ARI-330 32F COP rating.
+																									*	*	* click the 'i' to go to the AHRI directory for more information*	*	*">
+																	</span>
+																	</a>
+																</label>
 
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysEfficVal1" type="number" step=".01" min=".1"
                                        max=".967"
@@ -2468,7 +2625,17 @@
                             </div>
 
                             <div class="col-sm-12 col-md-12 col-lg-12 Heat1YearInstalled">
-                                <label class="tvt-field-label">Year Installed</label>
+                                <label class="tvt-field-label">Year Installed
+																	<a target="_blank" href="http://www.buildingcenter.org/">
+																	<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																					title="The 'Year installed' should only be entered as a last resort.The year can often be determined by the manufacturer's data label/tag on the equipment.
+																					 If the date is coded in the serial number it can be looked up by clicking the 'i' to open the
+																					 buildingcenter HVAC resource.
+
+																					 Choose 1970 for systems manufactured prior to 1970.">
+																	</span>
+																	</a>
+																</label>
 
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysYearInst1" type="number" min="1970"
                                        value="<?php echo $formData['heatsysyearinst1'][0]; ?>"/>
@@ -2507,7 +2674,15 @@
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
 
-                            <label class="tvt-field-label">Type of Heating System</label>
+                            <label class="tvt-field-label">Type of Heating System
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/HeatingSystem.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																				title="If the system installed is not listed here, choose the most appropriate system and assign the proper efficiency in the Efficiency value field.
+																				***For more info click the 'i'
+																				to open a pdf with detailed explanations***">
+																</span>
+															</a>
+														</label>
 
 														<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysType2" id="heatType2"
 	                                    onchange="omniHide(this, 'None', 'Heating2'); omniHide(this, 'None', 'Heating1Div'); ">
@@ -2534,7 +2709,13 @@
 
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <label class="tvt-field-label">Do you know the heating system's
-                                    AFUE?</label>
+                                    AFUE?
+																			<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																							title="If you know the rated efficiency of the heating system equipment select 'Yes'.
+																							Only select 'No' if you do not know the efficiency and you do not have access to the calculator. The year of manufacture can often be determined from the manufacture's data label/tag.
+																							">
+																			</span>
+																	</label>
 
                                 <p>
                                     <label class="tvt-input-option">
@@ -2552,7 +2733,16 @@
                             </div>
 
                             <div class="col-sm-12 col-md-12 col-lg-12 Heat2EfficencyVal">
-                                <label class="tvt-field-label">Efficiency Value (AFUE)</label>
+                                <label class="tvt-field-label">Efficiency Value (AFUE)
+																	<a target="_blank" href="https://www.ahridirectory.org/ahridirectory/pages/home.aspx">
+																	<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																					title="The heating efficiency value for a furnace or boiler is AFUE (typical range 60% - 99%) and must be entered as a decimal (i.e. .60 - .99).
+																									The heating efficiency value for a heat pump is HSPF (typical range 7 - 9).
+																									For closed loop ground-source heat pumps enter the ARI-330 32F COP rating.
+																									*	*	* click the 'i' to go to the AHRI directory for more information*	*	*">
+																	</span>
+																	</a>
+																</label>
 
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysEfficVal2" type="number" step=".01" min=".1"
                                        max=".967"
@@ -2560,7 +2750,17 @@
                             </div>
 
                             <div class="col-sm-12 col-md-12 col-lg-12 Heat2YearInstalled">
-                                <label class="tvt-field-label">Year Installed</label>
+                                <label class="tvt-field-label">Year Installed
+																	<a target="_blank" href="http://www.buildingcenter.org/">
+																	<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																					title="The 'Year installed' should only be entered as a last resort.The year can often be determined by the manufacturer's data label/tag on the equipment.
+																					 If the date is coded in the serial number it can be looked up by clicking the 'i' to open the
+																					 buildingcenter HVAC resource.
+
+																					 Choose 1970 for systems manufactured prior to 1970.">
+																	</span>
+																	</a>
+																</label>
 
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysYearInst2" type="number" min="1970"
                                        value="<?php echo $formData['heatsysyearinst2'][0]; ?>"/>
@@ -2604,11 +2804,20 @@
                         </div>
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <label class="tvt-field-label">Type of Cooling System</label>
+                            <label class="tvt-field-label">Type of Cooling System
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/CoolingSystem.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																				title="If the system installed is not listed here, choose the most appropriate system and assign the proper efficiency in the Cooling System Efficiency field.
+																				***For more info click the 'i'
+																				to open a pdf with detailed explanations***">
+																</span>
+															</a>
+														</label>
 
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="CoolSysType1" id="coolType1"
                                     onchange="omniHide(this, 'None', 'Cooling1'); omniHide(this, 'None', 'Cooling2Div')" ;>
+                                <option disabled selected value> -- select an option --</option>
                                 <option value="None">None</option>
                                 <option value="packaged_dx">Central Air Conditioner</option>
                                 <option value="split_dx">Room Air Conditioner</option>
@@ -2623,7 +2832,13 @@
 
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <label class="tvt-field-label">Do you know the cooling system's
-                                    SEER?</label>
+                                    SEER?
+																		<a target="_blank" href="http://www.buildingcenter.org/">
+																		<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																						title="click the 'i' to open the buildingcenter resources to find the SEER">
+																		</span>
+																	</a>
+																	</label>
 
                                 <p>
                                     <label class="tvt-input-option">
@@ -2641,14 +2856,32 @@
                             </div>
 
                             <div class="col-sm-12 col-md-12 col-lg-12 Cooling1EfficencyVal">
-                                <label class="tvt-field-label">Efficiency Value (SEER)</label>
+                                <label class="tvt-field-label">Efficiency Value (SEER)
+																	<a target="_blank" href="http://www.ahridirectory.org">
+																		<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																						title="The cooling efficiency value for a central air conditioner or heat pump is SEER (typical range range 8 - 21). The cooling efficiency value for a room air conditioner is EER (typical range 8 - 21).
+																						For ground-source heat pumps using a closed loop, enter the ARI-330 77F EER rating.
+																						Note: The AHRI Directory can be opened by clicking the 'i'">
+																		</span>
+																	</a>
+																</label>
 
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="CoolSysEfficVal1" type="number" step="1" min="1" max="30"
                                        value="<?php echo $formData['coolsysefficval1'][0]; ?>"/>
                             </div>
 
                             <div class="col-sm-12 col-md-12 col-lg-12 Cooling1YearInstalled">
-                                <label class="tvt-field-label">Year Installed</label>
+                                <label class="tvt-field-label">Year Installed
+																	<a target="_blank" href="http://www.buildingcenter.org/">
+																	<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																					title="The 'Year installed' should only be entered as a last resort.The year can often be determined by the manufacturer's data label/tag on the equipment.
+																					 If the date is coded in the serial number it can be looked up by clicking the 'i' to open the
+																					 buildingcenter HVAC resource.
+
+																					 Choose 1970 for systems manufactured prior to 1970.">
+																	</span>
+																	</a>
+																</label>
 
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="CoolSysYearInst1" type="number" min="1970"
                                        value="<?php echo $formData['coolsysyearinst1'][0]; ?>"/>
@@ -2682,7 +2915,15 @@
                         </div>
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <label class="tvt-field-label">Type of Cooling System</label>
+                            <label class="tvt-field-label">Type of Cooling System
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/CoolingSystem.pdf">
+																<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																				title="If the system installed is not listed here, choose the most appropriate system and assign the proper efficiency in the Cooling System Efficiency field.
+																				***For more info click the 'i'
+																				to open a pdf with detailed explanations***">
+																</span>
+															</a>
+														</label>
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="CoolSysType2" id="coolType2"
                                     onChange="omniHide(this, 'None', 'Cooling2')">
@@ -2698,7 +2939,13 @@
 
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <label class="tvt-field-label">Do you know the cooling system's
-                                    SEER?</label>
+                                    SEER?
+																	<a target="_blank" href="http://www.buildingcenter.org/">
+																		<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																						title="click the 'i' to open the buildingcenter resources to find the SEER">
+																		</span>
+																	</a>
+																</label>
 
                                 <p>
                                     <label class="tvt-input-option">
@@ -2716,14 +2963,32 @@
                             </div>
 
                             <div class="col-sm-12 col-md-12 col-lg-12 Cooling2EfficencyVal">
-                                <label class="tvt-field-label">Efficiency Value (SEER)</label>
+                                <label class="tvt-field-label">Efficiency Value (SEER)
+																	<a target="_blank" href="http://www.ahridirectory.org">
+																		<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																						title="The cooling efficiency value for a central air conditioner or heat pump is SEER (typical range range 8 - 21). The cooling efficiency value for a room air conditioner is EER (typical range 8 - 21).
+																						For ground-source heat pumps using a closed loop, enter the ARI-330 77F EER rating.
+																						Note: The AHRI Directory can be opened by clicking the 'i'">
+																		</span>
+																	</a>
+																</label>
 
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="CoolSysEfficVal2" type="number" step="1" min="1" max="30"
                                        value="<?php echo $formData['coolsysefficval2'][0]; ?>"/>
                             </div>
 
                             <div class="col-sm-12 col-md-12 col-lg-12 Cooling2YearInstalled">
-                                <label class="tvt-field-label">Year Installed</label>
+                                <label class="tvt-field-label">Year Installed
+																	<a target="_blank" href="http://www.buildingcenter.org/">
+																	<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																					title="The 'Year installed' should only be entered as a last resort.The year can often be determined by the manufacturer's data label/tag on the equipment.
+																					 If the date is coded in the serial number it can be looked up by clicking the 'i' to open the
+																					 buildingcenter HVAC resource.
+
+																					 Choose 1970 for systems manufactured prior to 1970.">
+																	</span>
+																	</a>
+																</label>
 
                                 <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="CoolSysYearInst2" type="number" min="1970"
                                        value="<?php echo $formData['coolsysyearinst2'][0]; ?>"/>
@@ -2765,7 +3030,13 @@
                         </div>
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <label class="tvt-field-label HomeEnergyScoreReq HollandReq">Does the home have a duct system?</label>
+                            <label class="tvt-field-label HomeEnergyScoreReq HollandReq">Does the home have a duct system?
+															<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																			title="The total percentage for ducts entered must equal 100.
+																			For each duct location selection there are choices for sealed and/or insulated.
+																			Do not enter any data here if the house does not have ducts.">
+															</span>
+														</label>
 
                             <p>
                                 <label class="tvt-input-option">
@@ -2798,7 +3069,7 @@
                                 <div class="col-sm-12 col-md-12 col-lg-6">
                                     <label class="tvt-field-label">Percentage of Duct in this location</label>
 
-                                    <input class="tvt-field-input HomeEnergyScoreReq HollandReq" id="ductSysPerc1.1" tvt-percent="1" name="DuctSysPerc1_1"
+                                    <input class="tvt-field-input HomeEnergyScoreReq HollandReq" id="ductsysperc1.1" tvt-percent="1" name="ductsysperc1_1"
                                            type="number"
                                            min="0" max="100"
                                            value="<?php echo $formData['ductsysperc1_1'][0]; ?>" onchange="verifyDuctPercentage(1)"/>
@@ -3231,7 +3502,16 @@
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label>Water Heater Type</label>
+                        <label>Water Heater Type
+													<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/WaterHeaterType.pdf">
+													<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																	title="From the drop down menu select the type that most closely matches the installed water heating system.
+																	If the heating system is a boiler, options for combined types will be included in the menu. The efficiency of the combined water heater will be based on that of the boiler so the inputs for year installed
+ 																and water heater efficiency will be hidden if one of these is selected.
+																*** click the 'i' to open a pdf with more information ***">
+													</span>
+													</a>
+												</label>
 
                         <select class="HomeEnergyScoreReq HollandReq" name="WaterHeatType" onChange="omniHide(this, 'None','HotWaterContent')">
                             <option disabled selected value> -- select an option --</option>
@@ -3245,7 +3525,15 @@
                     </div>
                     <div class="HotWaterContent">
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <label> Do you know the actual water heater energy factor?</label>
+                            <label> Do you know the actual water heater energy factor?
+															<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/WaterHeaterEnergyFactor.pdf">
+															<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+																			title="If you know the Energy Factor (EF) for the water heater select 'Yes'
+																			(check the EnergyGuide label on the water heater). If you don't know the Energy Factor
+																			click the 'i' to refer to the pdf with more information ">
+															</span>
+															</a>
+														</label>
 
                             <label class="tvt-input-option">
 
@@ -3269,7 +3557,13 @@
                         </div>
 
                         <div class="col-sm-12 col-md-12 col-lg-12 HotWaterYearInstalled">
-                            <label>Year Installed</label>
+                            <label>Year Installed
+															<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+															title="If the efficiency value for the water heater is unknown, the year of installation or manufacture should be
+															entered into the year installed field.The year can often be determined by the manufacturerâ€™s data label or tag on the equipment, although sometimes the date is coded in the serial number.
+															Enter 1972 for systems manufactured prior to 1972.">
+															</span>
+														</label>
                             <input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HotWaterYearIns" type="number" min="1970"
                                    value="<?php echo $formData['hotwateryearins'][0]; ?>"/>
                         </div>
@@ -4107,6 +4401,9 @@
 	if ( isset( $formData['ductsysinsul1_1'][0] ) ) {
 		echo 'DuctSysInsul1_1 : \'' . $formData['ductsysinsul1_1'][0] . '\',';
 	}
+    if ( isset( $formData['ductsysperc1_1'][0] ) ) {
+		echo 'ductsysperc1_1 : \'' . $formData['ductsysperc1_1'][0] . '\',';
+	}
 	if ( isset( $formData['ductsysinsul2_1'][0] ) ) {
 		echo 'DuctSysInsul2_1 : \'' . $formData['ductsysinsul2_1'][0] . '\',';
 	}
@@ -4179,9 +4476,24 @@
 	if ( isset( $formData['audittype'][0] ) ) {
 		echo 'AuditType :' . '"' . $formData['audittype'][0] . '"';
 	}
+    if ( isset( $formData['assessmenttype'][0] ) ) {
+		echo 'assessmenttype :' . '"' . $formData['assessmenttype'][0] . '"';
+	}
 	if ( isset( $formData['homestate'][0] ) ) {
 		echo ',';
 		echo 'HomeState:' . '"' . $formData['homestate'][0] . '"';
+	}
+    if ( isset( $formData['homestories'][0] ) ) {
+		echo ',';
+		echo 'homestories:' . '"' . $formData['homestories'][0] . '"';
+	}
+    if ( isset( $formData['homebed'][0] ) ) {
+		echo ',';
+		echo 'homebed:' . '"' . $formData['homebed'][0] . '"';
+	}
+    if ( isset( $formData['homeavgceiling'][0] ) ) {
+		echo ',';
+		echo 'homeavgceiling:' . '"' . $formData['homeavgceiling'][0] . '"';
 	}
 	if ( isset( $formData['homeposunit'][0] ) ) {
 		echo ',';

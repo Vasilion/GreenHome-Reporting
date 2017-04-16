@@ -164,6 +164,10 @@ $townHouse      = convToBool( $query['townhouse'][0] );//BOOLEAN
 $homePosUnit    = $query['homeposunit'][0];
 $blowerDoorTest = convToBool( $query['blowerdoortest'][0] );//BOOLEAN
 $airleakrate    = $query['airleakrate'][0];
+$AuditType      = $query['AuditType'][0];
+$AssessmentType = $query['assessmentype'][0];
+
+
 
 $profAirSeal = convToBool( $query['profairseal'][0] );
 

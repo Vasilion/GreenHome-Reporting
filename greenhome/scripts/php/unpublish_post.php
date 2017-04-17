@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-require('../../../../../../wp-load.php');
+require('../../../../../../../post.php');
 
 $postid = $_POST['postId'];
 wp_update_post(array(

@@ -85,9 +85,14 @@ function Init() {
 }
 
 function submitForm(){
-    if(confirm("Are you ready to generate your Audit Report?"))
+    //if(confirm("Are you ready to generate your Audit Report?"))
         $('form').submit();
 
+}
+
+function saveForm(){
+        $('form').submit();
+        window.location = "https://greenhomeinstitute.org/audit-dashboard/";
 }
 
 function setSelectField(name, value) {

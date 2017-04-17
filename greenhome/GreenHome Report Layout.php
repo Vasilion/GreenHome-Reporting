@@ -164,6 +164,10 @@ $townHouse      = convToBool( $query['townhouse'][0] );//BOOLEAN
 $homePosUnit    = $query['homeposunit'][0];
 $blowerDoorTest = convToBool( $query['blowerdoortest'][0] );//BOOLEAN
 $airleakrate    = $query['airleakrate'][0];
+$AuditType      = $query['AuditType'][0];
+$AssessmentType = $query['assessmentype'][0];
+
+
 
 $profAirSeal = convToBool( $query['profairseal'][0] );
 
@@ -329,9 +333,9 @@ $rimbandjoistdetleft = $query['rimbandjoistdetleft'][0];
 
 
 // HEATING (system 1)
-$heatsystype1     = $query['heatsystype1'][0];
-$heatfueltype1    = explode( ":", $heatsystype1 )[1];
-$heatsystype1     = explode( ":", $query['heatsystype1'][0] )[0];
+$HeatSysType1     = $query['HeatSysType1'][0];
+$heatfueltype1    = explode( ":", $HeatSysType1 )[1];
+$HeatSysType1     = explode( ":", $query['HeatSysType1'][0] )[0];
 $heatsyseffic1    = convToBool( $query['heatsyseffic?1'][0] );//boolean heatsyseffic?1
 $heatsysefficval1 = $query['heatsysefficval1'][0];
 $heatsysyearinst1 = $query['heatsysyearinst1'][0];
@@ -540,7 +544,7 @@ if ( $heatsystype2 != "None" ) {
 	$heatfraction1 = '1.00';
 }
 
-if ( $heatsystype1 != "None" ) {
+if ( $HeatSysType1 != "None" ) {
 
 
 	if ( $coolsystype1 != "None" ) {
@@ -580,7 +584,7 @@ if ( $heatsystype1 != "None" ) {
             <ser:hvac_name>hvac1</ser:hvac_name>
             <ser:hvac_fraction>{$heatfraction1}</ser:hvac_fraction>
             <ser:heating>
-               <ser:type>{$heatsystype1}</ser:type>
+               <ser:type>{$HeatSysType1}</ser:type>
                <ser:fuel_primary>{$heatfueltype1}</ser:fuel_primary>
                <ser:efficiency_method>user</ser:efficiency_method>
                <ser:efficiency>{$heatsysefficval1}</ser:efficiency>
@@ -925,7 +929,6 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 ?>
 
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -933,13 +936,17 @@ $arrayName = get_post_meta( $_GET['form_id'] );
     <title>GreenHome Institute Report</title>
 
     <!-- linking to styles -->
-    <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/ReportStyles/tvt-styles.css"
+<link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/ReportStyles/tvt-styles.css">
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/ReportStyles/tvt-bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/ReportStyles/tvt-naved-bootstrap.min.css">
     <link rel="stylesheet" href="../wp-content/themes/greenhome/styles/ReportStyles/jquery-ui.min.css">
     <link rel="stylesheet" href="../wp-content/themes/greenhome/styles/ReportStyles/jquery-ui.structure.min.css">
     <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/tvt-print-layout.css">
     <link rel='dns-prefetch' href='//code.jquery.com'/>
+
+    <link rel="stylesheet" type="text/css" href="../wp-content/themes/greenhome/styles/ReportStyles/nesl-report-styles.css">
+
+
     <style type="text/css">
         body {
             background-color: #FFFFFF;
@@ -948,25 +955,45 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 </head>
 
 <body>
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#assessment">Assessment</a>
+            </li>
+            <li>
+                <a href="#safteyhealth">Saftey & Health</a>
+            </li>
+            <li>
+                <a href="#electric">Electric</a>
+            </li>
+            <li>
+                <a href="#water">Water</a>
+            </li>
+            <li>
+                <a href="#structure">Structure</a>
+            </li>
+            <li>
+                <a href="#system">System</a>
+            </li>
+            <li>
+                <a href="#vent">Ventilation</a>
+            </li>
+        </ul>
+    </div>
 <!-- Div Containing Entire Page -->
 <div id="RepBod" class="tvt">
-
     <!-- Div Containing GreenHome Logo -->
     <div width="auto">
-        <img src="http://cis.gvsu.edu/~vortech/wp-content/uploads/2016/11/GHI_LOGO.png" alt="GreenHome Institute Logo" class="img-responsive"/>
+        <img src="http://cis.gvsu.edu/~vortech/wp-content/uploads/2016/11/GHI_LOGO.png" alt="GreenHome Institute Logo" class="img-responsive center"/>
     </div>
 
     <!-- Div Containing Assessment Information SECTION -->
-    <div class="tvt-section-group pagebreakhere">
+    <div id="assessment" class="tvt-section-group pagebreakhere">
         <h2 class="tvt-section-title">Assessment Information</h2>
 
         <!-- Div Containing Home Owner Information -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Location</h3>
-            </div>
-
-            <div class="col-sm-12 col-md-12 col-lg-12">
 
                 <label class="tvt-field-label">Address</label>
                 <label class="tvt-field-result"> <?php echo $arrayName['homeaddress'][0] ?></label>
@@ -984,21 +1011,16 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                 <label class="tvt-field-label">Zip</label>
                 <label class="tvt-field-result"> <?php echo $arrayName['homezip'][0] ?></label>
 
-            </div>
-        </div> <!-- Closing Div Tag for Home Owner Information -->
+            </div><!-- Closing Div Tag for Home Owner Information -->
 
         <!-- Div Containing Assessment Information -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Assessment Information</h3>
-            </div>
-
-            <div class="col-sm-12 col-md-12 col-lg-12">
                 <label class="tvt-field-label">Assessment Date</label>
                 <label class="tvt-field-result"> <?php echo $arrayName['auditdate'][0] ?></label>
 
                 <label class="tvt-field-label">Assessor Name</label>
-                <label class="tvt-field-result"> <?php echo $arrayName['assessfname'][0] ?><?php echo $arrayName['assesslname'][0] ?></label>
+                <label class="tvt-field-result"> <?php echo $arrayName['assessfname'][0] ?><?php echo " "?><?php echo $arrayName['assesslname'][0] ?></label>
 
                 <label class="tvt-field-label">Assessor Email</label>
                 <label class="tvt-field-result">
@@ -1010,14 +1032,10 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 									}
 									?>
                 </label>
-            </div>
-        </div> <!-- Closing Div Tag for Assessment Information -->
-
+            </div><!-- Closing Div Tag for Assessment Information -->
 			<?php if ( $arrayName['reportingpng'][0] ) { ?>
-          <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="col-sm-12 col-md-12 col-lg-6">
               <h3 class="tvt-group-title">DOE Home Energy Score</h3>
-          </div>
-          <div class="col-sm-12 col-md-12 col-lg-12">
               <img class="report-snapshot" src="<?php echo $arrayName['reportpng'][0] ?>"/>
               <label class="tvt-field-label">
                   <a href="<?php echo $arrayName['reportpdf'][0] ?>">Click</a> to see the rest of the report.
@@ -1025,13 +1043,8 @@ $arrayName = get_post_meta( $_GET['form_id'] );
           </div>
 			<?php } ?>
         <!-- Div Containing Home Details -->
-        <div>
-
-            <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Home Details</h3>
-            </div>
-
-            <div class="col-sm-12 col-md-12 col-lg-12">
                 <label class="tvt-field-label">Year Built</label>
                 <label class="tvt-field-result"> <?php echo $arrayName['homeyear'][0] ?></label>
                 <label class="tvt-field-label">Number of Bedrooms</label>
@@ -1043,27 +1056,25 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                 <label class="tvt-field-label">Conditioned Floor Area</label>
                 <label class="tvt-field-result"><?php echo $arrayName['homefloorarea'][0], ' Square feet' ?></label>
                 <!-- note: skipped townhouse/duplex as well as position of unit cause what? -->
-            </div>
-        </div> <!-- Closing Div Tag for Home Details -->
+            </div><!-- Closing Div Tag for Home Details -->
+ <!-- Closing Div Tag for Assessment Information SECTION -->
+    </div>
 
-    </div> <!-- Closing Div Tag for Assessment Information SECTION -->
+
+
+
 
     <!-- Div Containing Safety and Health Information SECTION-->
-    <div class="tvt-section-group pagebreakhere">
+    <div id="safteyhealth" class="tvt-section-group pagebreakhere">
         <h2 class="tvt-section-title">Safety and Health Information</h2>
 
         <!-- Div Containing Air Quality -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Air Quality</h3>
-            </div>
 					<?php if ( $arrayName['airqualphoto'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['airqualphototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['airqualphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
                 <label class="tvt-field-label">Asbestos</label>
                 <label class="tvt-field-result"><?php echo $arrayName['asbestos_1'][0] ?></label>
                 <label class="tvt-field-label">Ambient Carbon monoxide</label>
@@ -1099,26 +1110,18 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   <label class="tvt-field-label">Assessor's Recommendation</label>
                   <label class="tvt-field-result"><?php echo $arrayName['airqualrecom'][0] ?></label>
 							<?php } ?>
-            </div>
-        </div> <!-- Closing Div Tag for Air Quality -->
+            </div><!-- Closing Div Tag for Air Quality -->
 
         <!-- Div Containing Wiring -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Wiring</h3>
-            </div>
 					<?php if ( $arrayName['wiringphoto'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['wiringphototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['wiringphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
 					<?php } ?>
 
-            <div class="col-sm-12 col-md-12 col-lg-12">
                 <label class="tvt-field-label">Smoke and CO Detectors</label>
                 <label class="tvt-field-result"><?php echo $arrayName['smokeandco'][0] ?></label>
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
                 <label class="tvt-field-label"> Knob and tube Wiring</label>
                 <label class="tvt-field-result">
 									<?php if ( $arrayName['knobtubewiring'][0] == "Yes" ) {
@@ -1134,21 +1137,18 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   <label class="tvt-field-label">Assessor's Recommendation</label>
                   <label class="tvt-field-result"><?php echo $arrayName['wiringrecom'][0] ?></label>
 							<?php } ?>
-            </div>
-        </div> <!-- Closing Div Tag for Wiring -->
-
+            </div> <!-- Closing Div Tag for Wiring -->
         <!-- Div Containing Kitchen -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Kitchen</h3>
-            </div>
+
 					<?php if ( $arrayName['hoodrangephoto'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['hoodrangephototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['hoodrangephoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
+
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
                 <label class="tvt-field-label">Hoodrange Details</label>
                 <label class="tvt-field-result">
 									<?php if ( $arrayName['hoodrangedetails'][0] == "Recirculating" ) {
@@ -1170,36 +1170,31 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   <label class="tvt-field-label">Assessor's Recommendations</label>
                   <label class="tvt-field-result"><?php echo $arrayName['hoodrangerecom'][0] ?></label>
 							<?php } ?>
-            </div>
-        </div> <!-- Closing Div Tag for Kitchen -->
+            </div> <!-- Closing Div Tag for Kitchen -->
 
     </div> <!-- Closing Div Tag for Safety and Health Information SECTION -->
 
+
+
+
+
     <!-- Div Containing Electric SECTION -->
-    <div class="tvt-section-group pagebreakhere">
+    <div id="electric" class="tvt-section-group pagebreakhere">
         <h2 class="tvt-section-title">Electric</h2>
 
         <!-- Div Containing Lights -->
         <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Lights</h3>
-            </div>
-
-            <div class="col-sm-12 col-md-12 col-lg-12">
                 <label class="tvt-field-label">Lighting type in high traffic areas</label>
                 <label class="tvt-field-result"><?php echo $arrayName['lightingtype'][0] ?></label>
                 <label class="tvt-field-label">Lighting Upgrade</label>
                 <label class="tvt-field-result"><?php echo $arrayName['lightingupgrade'][0] ?></label>
-            </div>
-        </div> <!-- Closing Div Tag for Lights -->
+            </div><!-- Closing Div Tag for Lights -->
 
         <!-- Div Containing Appliances -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Appliances</h3>
-            </div>
-
-            <div class="col-sm-12 col-md-12 col-lg-12">
 							<?php if ( $arrayName['appliances_1'][0] ) { ?>
                   <label class="tvt-field-label">The following are recommended appliance upgrades</label>
 								<?php
@@ -1215,45 +1210,24 @@ $arrayName = get_post_meta( $_GET['form_id'] );
             </div>
         </div> <!-- Closing Div Tag for Appliances -->
 
-        <!-- Div Containing Solar PV Potential -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <h3 class="tvt-group-title">Solar PV Potential</h3>
-            </div>
-
-            <div class="col-sm-12 col-md-12 col-lg-12">
-							<?php if ( $arrayName['solarpv_1'][0] ) { ?>
-                  <label class="tvt-field-label">The following are attributes of the homes solar potential</label>
-								<?php
-								$variable3 = $arrayName['solarpv_1'][0];
-								$var3      = explode( '|', $variable3 );
-								foreach ( $var3 as $row3 ) { ?>
-                    <label class="tvt-field-result tvt-field-result-item"> <?php echo $row3 ?> </label>
-								<?php } ?>
-							<?php } else { ?>
-                  <label class="tvt-field-result">Solar potential not measured/recorded</label>
-							<?php } ?>
-            </div>
-        </div> <!-- Closing Div Tag for Solar PV Potential -->
+       
 
     </div> <!-- Closing Div Tag for Electric SECTION -->
 
+
+
     <!-- Div Containing Water Conservation SECTION -->
-    <div class="tvt-section-group pagebreakhere">
+    <div id="water"class="tvt-section-group pagebreakhere">
         <h2 class="tvt-section-title">Water Conservation</h2>
 
         <!-- Div containing Bathroom -->
         <div>
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <h3 class="tvt-group-title">Bathroom</h3>
-            </div>
 					<?php if ( $arrayName['watconsbathphoto'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['watconsbathphototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['watconsbathphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
                 <label class="tvt-field-label">Shower Flow Rate</label>
                 <label class="tvt-field-result">
 									<?php echo $arrayName['showerflowrate'][0], " GPM" ?>
@@ -1279,21 +1253,17 @@ $arrayName = get_post_meta( $_GET['form_id'] );
     </div> <!-- Closing Div Tag for Water Conservation SECTION -->
 
     <!-- Div Containing Structure SECTION -->
-    <div class="tvt-section-group pagebreakhere">
+    <div id="structure" class="tvt-section-group pagebreakhere">
         <h2 class="tvt-section-title">Structure</h2>
 
         <!-- Div Containing Air Tightness -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Air Tightness</h3>
-            </div>
 					<?php if ( $arrayName['airleakphoto'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['airphototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['airleakphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
 							<?php if ( $arrayName['blowerdoortest'][0] == "Yes" ) { ?>
                   <label class="tvt-field-label">Air Leakage Rate(cfm50)</label>
                   <label class="tvt-field-result"><?php echo $arrayName['airleakrate'][0] ?></label>
@@ -1308,22 +1278,22 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   <label class="tvt-field-result"><?php echo $arrayName['airtightrecom'][0] ?></label>
 							<?php } ?>
             </div>
-        </div> <!-- Closing Div Tag for Air Tightness -->
+        <!-- Closing Div Tag for Air Tightness -->
 
         <!-- Div Containing Foundation 1 -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Foundation <?php if ( $arrayName['foundType2'][0] && $arrayName['foundType2'][0] != "None" ) {
 										echo '1';
 									} ?></h3>
-            </div>
+
 					<?php if ( $arrayName['found1photo'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['found1phototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['found1photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
+
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
                 <!-- always show at least foundation 1. But can mention not measured if is none -->
 							<?php if ( $arrayName['foundtype1'][0] && $arrayName['foundtype1'][0] != "None" ) { ?>
                   <label class="tvt-field-label">Foundation Type</label>
@@ -1395,23 +1365,18 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   <label class="tvt-field-result">Foundation not measured/recorded</label>
 							<?php } ?>
             </div>
-        </div> <!-- Closing Div Tag for Foundation 1 -->
+     <!-- Closing Div Tag for Foundation 1 -->
 
         <!-- Foundation 2 is optional to display -->
 			<?php if ( $arrayName['foundType2'][0] && $arrayName['foundType2'][0] != "None" ) { ?>
 
           <!-- Div Containing Foundation 2 -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="col-sm-12 col-md-12 col-lg-6">
                   <h3 class="tvt-group-title">Foundation 2</h3>
-              </div>
 						<?php if ( $arrayName['found2photo'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
                     <label class="tvt-field-label photo-title"><?php echo $arrayName['found2phototitle'][0] ?></label>
                     <img src="<?php echo $arrayName['found2photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
 						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
                   <label class="tvt-field-label">Foundation Type</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['foundtype2'][0] == "None" ) {
@@ -1472,21 +1437,16 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                     <label class="tvt-field-label">Assessor's Recommendation</label>
                     <label class="tvt-field-result"><?php echo $arrayName['found2recom'][0] ?></label>
 								<?php } ?>
-              </div>
-          </div> <!-- Closing Div Tag for Foundation 2 -->
+              </div> <!-- Closing Div Tag for Foundation 2 -->
 
 			<?php } ?>
 
         <!-- Div Containing Roof 1 -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Roof <?php if ( $arrayName['roofconst2'][0] && $arrayName['roofconst2'][0] != "None" ) {
 										echo "1";
 									} ?></h3>
-            </div>
-
-
-            <div class="col-sm-12 col-md-12 col-lg-12">
 							<?php if ( $arrayName['roofconst1'][0] && $arrayName['roofconst1'][0] != "None" ) { ?>
                   <label class="tvt-field-label">Type</label>
                   <label class="tvt-field-result">
@@ -1535,7 +1495,7 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 										?>
                   </label>
                   <label class="tvt-field-label">Area</label>
-                  <label class="tvt-field-result"><?php echo $arrayname['roofarea1'][0] ?></label>
+                  <label class="tvt-field-result"><?php echo $arrayName['roofarea1'][0] ?></label>
 
 								<?php if ( $arrayName['roof1recom'][0] ) { ?>
                       <label class="tvt-field-label">Assessor's Recommendation</label>
@@ -1546,98 +1506,22 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 							<?php } ?>
 
 							<?php if ( $arrayName['roof1photo'][0] ) { ?>
-		              <div class="col-sm-12 col-md-12 col-lg-12 centered">
+		              <div class="col-sm-12 col-md-12 col-lg-6 centered">
 		                  <label class="tvt-field-label photo-title"><?php echo $arrayName['roof1phototitle'][0] ?></label>
 		                  <img src="<?php echo $arrayName['roof1photo'][0]; ?>" alt="Photo of Air Leak Test"/>
 		              </div>
 							<?php } ?>
             </div>
-        </div> <!-- Closing Div Tag for Roof 1 -->
 
-        <!-- Roof 2 is optional to display -->
-			<?php if ( $arrayName['roofconst2'][0] && $arrayName['roofconst2'][0] != "None" ) { ?>
-
-          <!-- Div Containing Roof 2 -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-                  <h3 class="tvt-group-title">Roof 2</h3>
-              </div>
-						<?php if ( $arrayName['roof2photo'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
-                    <label class="tvt-field-label photo-title"><?php echo $arrayName['roof2phototitle'][0] ?></label>
-                    <img src="<?php echo $arrayName['roof2photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
-						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-                  <label class="tvt-field-label">Type</label>
-                  <label class="tvt-field-result">
-										<?php if ( $arrayName['roofconst2'][0] == "rfwf" ) {
-											echo "Wood Frame";
-										} else if ( $arrayName['roofconst2'][0] == "rfrb" ) {
-											echo "Wood Frame with Radiant Barrier";
-										} else if ( $arrayName['roofconst2'][0] == "rfps" ) {
-											echo "Wood Frame with Rigid Foam Sheathing";
-										}
-										?></label>
-                  <label class="tvt-field-label">Exterior Finish</label>
-                  <label class="tvt-field-result">
-										<?php if ( $arrayName['roofextfin2'][0] == "co" ) {
-											echo "Composition Shingles or Metal";
-										} else if ( $arrayName['roofextfin2'][0] == "wo" ) {
-											echo "Wooden Shingles";
-										} else if ( $arrayName['roofextfin2'][0] == "rc" ) {
-											echo "Clay Tile";
-										} else if ( $arrayName['roofextfin2'][0] == "lc" ) {
-											echo "Concrete Tile";
-										} else if ( $arrayName['roofextfin2'][0] == "tg" ) {
-											echo "Tar and Gravel";
-										}
-										?>
-                  </label>
-                  <label class="tvt-field-label">Insulation Level</label>
-                  <label class="tvt-field-result"><?php echo "R-", $arrayName['roofinsullev2'][0] ?></label>
-                  <label class="tvt-field-label">Color</label>
-                  <label class="tvt-field-result">
-										<?php if ( $arrayName['roofcolor2'][0] == "white" ) {
-											echo "White";
-										} else if ( $arrayName['roofcolor2'][0] == "light" ) {
-											echo "Light";
-										} else if ( $arrayName['roofcolor2'][0] == "medium" ) {
-											echo "Medium";
-										} else if ( $arrayName['roofcolor2'][0] == "medium_dark" ) {
-											echo "Medium Dark";
-										} else if ( $arrayName['roofcolor2'][0] == "dark" ) {
-											echo "Dark";
-										} else if ( $arrayName['roofcolor2'][0] == "cool_color" ) {
-											echo "Cool Color";
-										}
-										?>
-                  </label>
-                  <label class="tvt-field-label">Area</label>
-                  <label class="tvt-field-result"><?php echo $arrayname['roofarea2'][0] ?></label>
-								<?php if ( $arrayName['roof2recom'][0] ) { ?>
-                    <label class="tvt-field-label">Assessor's Recommendation</label>
-                    <label class="tvt-field-result"><?php echo $arrayName['roof2recom'][0] ?></label>
-								<?php } ?>
-              </div>
-          </div> <!-- Closing Div Tag for Roof 2 -->
-
-			<?php } ?>
-
-        <!-- Div Containing Attic 1 -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+             <!-- Div Containing Attic 1 -->
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Attic <?php if ( $arrayName['attictype2'][0] && $arrayName['attictype2'][0] != "None" ) {
 										echo "1";
 									} ?></h3>
-            </div>
 					<?php if ( $arrayName['attic1photo'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['attic1phototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['attic1photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
 							<?php if ( $arrayName['attictype1'][0] && $arrayName['attictype1'][0] != "None" ) { ?>
                   <label class="tvt-field-label">Type</label>
                   <label class="tvt-field-result">
@@ -1688,24 +1572,90 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 							<?php } else { ?>
                   <label class="tvt-field-result">Attic not measured/recorded</label>
 							<?php } ?>
-            </div>
-        </div> <!-- Closing Div Tag for Attic 1 -->
+            </div><!-- Closing Div Tag for Attic 1 -->
+        <!-- Closing Div Tag for Roof 1 -->
+
+
+        <!-- Roof 2 is optional to display -->
+			<?php if ( $arrayName['roofconst2'][0] && $arrayName['roofconst2'][0] != "None" ) { ?>
+
+          <!-- Div Containing Roof 2 -->
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                  <h3 class="tvt-group-title">Roof 2</h3>
+						<?php if ( $arrayName['roof2photo'][0] ) { ?>
+                    <label class="tvt-field-label photo-title"><?php echo $arrayName['roof2phototitle'][0] ?></label>
+                    <img src="<?php echo $arrayName['roof2photo'][0]; ?>" alt="Photo of Air Leak Test"/>
+						<?php } ?>
+                  <label class="tvt-field-label">Type</label>
+                  <label class="tvt-field-result">
+										<?php if ( $arrayName['roofconst2'][0] == "rfwf" ) {
+											echo "Wood Frame";
+										} else if ( $arrayName['roofconst2'][0] == "rfrb" ) {
+											echo "Wood Frame with Radiant Barrier";
+										} else if ( $arrayName['roofconst2'][0] == "rfps" ) {
+											echo "Wood Frame with Rigid Foam Sheathing";
+										}
+										?></label>
+                  <label class="tvt-field-label">Exterior Finish</label>
+                  <label class="tvt-field-result">
+										<?php if ( $arrayName['roofextfin2'][0] == "co" ) {
+											echo "Composition Shingles or Metal";
+										} else if ( $arrayName['roofextfin2'][0] == "wo" ) {
+											echo "Wooden Shingles";
+										} else if ( $arrayName['roofextfin2'][0] == "rc" ) {
+											echo "Clay Tile";
+										} else if ( $arrayName['roofextfin2'][0] == "lc" ) {
+											echo "Concrete Tile";
+										} else if ( $arrayName['roofextfin2'][0] == "tg" ) {
+											echo "Tar and Gravel";
+										}
+										?>
+                  </label>
+                  <label class="tvt-field-label">Insulation Level</label>
+                  <label class="tvt-field-result"><?php echo "R-", $arrayName['roofinsullev2'][0] ?></label>
+                  <label class="tvt-field-label">Color</label>
+                  <label class="tvt-field-result">
+										<?php if ( $arrayName['roofcolor2'][0] == "white" ) {
+											echo "White";
+										} else if ( $arrayName['roofcolor2'][0] == "light" ) {
+											echo "Light";
+										} else if ( $arrayName['roofcolor2'][0] == "medium" ) {
+											echo "Medium";
+										} else if ( $arrayName['roofcolor2'][0] == "medium_dark" ) {
+											echo "Medium Dark";
+										} else if ( $arrayName['roofcolor2'][0] == "dark" ) {
+											echo "Dark";
+										} else if ( $arrayName['roofcolor2'][0] == "cool_color" ) {
+											echo "Cool Color";
+										}
+										?>
+                  </label>
+                  <label class="tvt-field-label">Area</label>
+                  <label class="tvt-field-result"><?php echo $arrayName['roofarea2'][0] ?></label>
+								<?php if ( $arrayName['roof2recom'][0] ) { ?>
+                    <label class="tvt-field-label">Assessor's Recommendation</label>
+                    <label class="tvt-field-result"><?php echo $arrayName['roof2recom'][0] ?></label>
+								<?php } ?>
+              </div><!-- Closing Div Tag for Roof 2 -->
+
+			<?php } ?>
+
+
 
         <!-- Attic 2 is optional to display -->
 			<?php if ( $arrayName['attictype2'][0] && $arrayName['attictype2'][0] != "None" ) { ?>
 
           <!-- Div Containing Attic 2 -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+
+              <div class="col-sm-12 col-md-12 col-lg-6">
                   <h3 class="tvt-group-title">Attic 2</h3>
-              </div>
+
 						<?php if ( $arrayName['attic2photo'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
                     <label class="tvt-field-label photo-title"><?php echo $arrayName['attic2phototitle'][0] ?></label>
                     <img src="<?php echo $arrayName['attic2photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
+
 						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+
                   <label class="tvt-field-label">Type</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['attictype2'][0] == "cond_attic" ) {
@@ -1752,8 +1702,7 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                     <label class="tvt-field-label">Assessor's Recommendation</label>
                     <label class="tvt-field-result"><?php echo $arrayName['attic2recom'][0] ?></label>
 								<?php } ?>
-              </div>
-          </div> <!-- Closing Div Tag for Attic 2 -->
+              </div> <!-- Closing Div Tag for Attic 2 -->
 
 			<?php } ?>
 
@@ -1761,20 +1710,16 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 			<?php if ( $arrayName['wallscharacgen'][0] == 'Yes' ) { ?>
 
           <!-- Div Containing Walls (General) -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-                  <h3 class="tvt-group-title">Walls</h3>
-              </div>
 
-              <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                  <h3 class="tvt-group-title">Walls</h3>
+
 								<?php if ( $arrayName['wallsconstructgen'][0] && $arrayName['wallsconstructgen'][0] != "None" ) { ?>
                     <h4 class="tvt-group-subtitle">These apply to all walls in home</h4>
 
 									<?php if ( $arrayName['wallsgenphoto'][0] ) { ?>
-                        <div class="col-sm-12 col-md-12 col-lg-12 centered">
                             <label class="tvt-field-label photo-title"><?php echo $arrayName['wallsgenphototitle'][0] ?></label>
                             <img src="<?php echo $arrayName['wallsgenphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-                        </div>
 									<?php } ?>
 
                     <label class="tvt-field-label">Construction</label>
@@ -1824,240 +1769,52 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                     <label class="tvt-field-result">Walls not measured/recorded</label>
 								<?php } ?>
               </div>
-          </div> <!-- Closing Div Tag for Walls (General) -->
+          <!-- Closing Div Tag for Walls (General) -->
 
           <!-- If walls are not generic -->
 			<?php } else { ?>
 
-          <!-- Div Containing Walls (Front) -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-                  <h3 class="tvt-group-title">Wall (Front)</h3>
-              </div>
-						<?php if ( $arrayName['wallsfrontphoto'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
-                    <label class="tvt-field-label photo-title"><?php echo $arrayName['wallsfrontphototitle'][0] ?></label>
-                    <img src="<?php echo $arrayName['wallsfrontphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
-						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-								<?php if ( $arrayName['wallsconstructfront'][0] && $arrayName['wallsconstructfront'][0] != "None" ) { ?>
-                    <label class="tvt-field-label">Construction</label>
-                    <label class="tvt-field-result">
-											<?php if ( $arrayName['wallsconstructfront'][0] == "ewwf" ) {
-												echo "Wood Frame";
-											} else if ( $arrayName['wallsconstructfront'][0] == "ewps" ) {
-												echo "Wood Frame with Rigid Foam Sheathing";
-											} else if ( $arrayName['wallsconstructfront'][0] == "ewov" ) {
-												echo "Wood frame with Optimum Value Engineering";
-											} else if ( $arrayName['wallsconstructfront'][0] == "ewbr" ) {
-												echo "Structural Brick";
-											} else if ( $arrayName['wallsconstructfront'][0] == "ewcb" ) {
-												echo "Concrete Block or Stone";
-											} else if ( $arrayName['wallsconstructfront'][0] == "ewsb" ) {
-												echo "Straw Bale";
-											}
-											?>
-                    </label>
-                    <label class="tvt-field-label">Exterior Finish</label>
-                    <label class="tvt-field-result">
-											<?php if ( $arrayName['wallsextfinfront'][0] == "wo" ) {
-												echo "Wood Siding";
-											} else if ( $arrayName['wallsextfinfront'][0] == "st" ) {
-												echo "Stucco";
-											} else if ( $arrayName['wallsextfinfront'][0] == "vi" ) {
-												echo "Vinyl Siding";
-											} else if ( $arrayName['wallsextfinfront'][0] == "al" ) {
-												echo "Aluminum Siding";
-											} else if ( $arrayName['wallsextfinfront'][0] == "br" ) {
-												echo "Brick Veneer";
-											} else if ( $arrayName['wallsextfinfront'][0] == "nn" ) {
-												echo "No finish";
-											} else {
-												echo "Exterior Finish not measured/recorded";
-											}
-											?>
-                    </label>
-                    <label class="tvt-field-label">Insulation</label>
-                    <label class="tvt-field-result"><?php echo "R", $arrayName['wallsinsulfront'][0] ?></label>
-									<?php if ( $arrayName['wallsfrontrecom'][0] ) { ?>
-                        <label class="tvt-field-label">Assessor's Recommendation</label>
-                        <label class="tvt-field-result"><?php echo $arrayName['wallsfrontrecom'][0] ?></label>
-									<?php } ?>
-								<?php } else { ?>
-                    <!-- if generic walls are constructed = "None" || null -->
-                    <label class="tvt-field-result">Front Wall not measured/recorded</label>
-								<?php } ?>
-              </div>
-          </div> <!-- Closing Div Tag for Walls (Front) -->
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                  <h3 class="tvt-group-title">Walls</h3>
 
-                 <!-- Div Containing Walls (Back) -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-                  <h3 class="tvt-group-title">Wall (Back)</h3>
-              </div>
-						<?php if ( $arrayName['wallsbackphoto'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
-                    <label class="tvt-field-label photo-title"><?php echo $arrayName['wallsbackphototitle'][0] ?></label>
-                    <img src="<?php echo $arrayName['wallsbackphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
-						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-								<?php if ( $arrayName['wallsconstructback'][0] && $arrayName['wallsconstructback'][0] != "None" ) { ?>
-                    <label class="tvt-field-label">Construction</label>
-                    <label class="tvt-field-result">
-											<?php if ( $arrayName['wallsconstructback'][0] == "ewwf" ) {
-												echo "Wood Frame";
-											} else if ( $arrayName['wallsconstructback'][0] == "ewps" ) {
-												echo "Wood Frame with Rigid Foam Sheathing";
-											} else if ( $arrayName['wallsconstructback'][0] == "ewov" ) {
-												echo "Wood frame with Optimum Value Engineering";
-											} else if ( $arrayName['wallsconstructback'][0] == "ewbr" ) {
-												echo "Structural Brick";
-											} else if ( $arrayName['wallsconstructback'][0] == "ewcb" ) {
-												echo "Concrete Block or Stone";
-											} else if ( $arrayName['wallsconstructback'][0] == "ewsb" ) {
-												echo "Straw Bale";
-											}
-											?>
-                    </label>
-                    <label class="tvt-field-label">Exterior Finish</label>
-                    <label class="tvt-field-result">
-											<?php if ( $arrayName['wallsextfinback'][0] == "wo" ) {
-												echo "Wood Siding";
-											} else if ( $arrayName['wallsextfinback'][0] == "st" ) {
-												echo "Stucco";
-											} else if ( $arrayName['wallsextfinback'][0] == "vi" ) {
-												echo "Vinyl Siding";
-											} else if ( $arrayName['wallsextfinback'][0] == "al" ) {
-												echo "Aluminum Siding";
-											} else if ( $arrayName['wallsextfinback'][0] == "br" ) {
-												echo "Brick Veneer";
-											} else if ( $arrayName['wallsextfinback'][0] == "nn" ) {
-												echo "No finish";
-											} else {
-												echo "Exterior Finish not measured/recorded";
-											}
-											?>
-                    </label>
-                    <label class="tvt-field-label">Insulation</label>
-                    <label class="tvt-field-result"><?php echo "R-", $arrayName['wallsinsulback'][0] ?></label>
-									<?php if ( $arrayName['wallsbackrecom'][0] ) { ?>
-                        <label class="tvt-field-label">Assessor's Recommendation</label>
-                        <label class="tvt-field-result"><?php echo $arrayName['wallsbackrecom'][0] ?></label>
-									<?php } ?>
-								<?php } else { ?>
-                    <!-- if generic walls are constructed = "None" || null -->
-                    <label class="tvt-field-result">Back Wall not measured/recorded</label>
-								<?php } ?>
-              </div>
-          </div> <!-- Closing Div Tag for Walls (Back) -->
+								<?php if ( $arrayName['wallsconstructgen'][0] && $arrayName['wallsconstructgen'][0] != "None" ) { ?>
+                   
 
-                 <!-- Div Containing Walls (Right) -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-                  <h3 class="tvt-group-title">Wall (Right)</h3>
-              </div>
-						<?php if ( $arrayName['wallsrightphoto'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
-                    <label class="tvt-field-label photo-title"><?php echo $arrayName['wallsrightphototitle'][0] ?></label>
-                    <img src="<?php echo $arrayName['wallsrightphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
-						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-								<?php if ( $arrayName['wallsconstructright'][0] && $arrayName['wallsconstructright'][0] != "None" ) { ?>
-                    <label class="tvt-field-label">Construction</label>
-                    <label class="tvt-field-result">
-											<?php if ( $arrayName['wallsconstructright'][0] == "ewwf" ) {
-												echo "Wood Frame";
-											} else if ( $arrayName['wallsconstructright'][0] == "ewps" ) {
-												echo "Wood Frame with Rigid Foam Sheathing";
-											} else if ( $arrayName['wallsconstructright'][0] == "ewov" ) {
-												echo "Wood frame with Optimum Value Engineering";
-											} else if ( $arrayName['wallsconstructright'][0] == "ewbr" ) {
-												echo "Structural Brick";
-											} else if ( $arrayName['wallsconstructright'][0] == "ewcb" ) {
-												echo "Concrete Block or Stone";
-											} else if ( $arrayName['wallsconstructright'][0] == "ewsb" ) {
-												echo "Straw Bale";
-											}
-											?>
-                    </label>
-                    <label class="tvt-field-label">Exterior Finish</label>
-                    <label class="tvt-field-result">
-											<?php if ( $arrayName['wallsextfinright'][0] == "wo" ) {
-												echo "Wood Siding";
-											} else if ( $arrayName['wallsextfinright'][0] == "st" ) {
-												echo "Stucco";
-											} else if ( $arrayName['wallsextfinright'][0] == "vi" ) {
-												echo "Vinyl Siding";
-											} else if ( $arrayName['wallsextfinright'][0] == "al" ) {
-												echo "Aluminum Siding";
-											} else if ( $arrayName['wallsextfinright'][0] == "br" ) {
-												echo "Brick Veneer";
-											} else if ( $arrayName['wallsextfinright'][0] == "nn" ) {
-												echo "No finish";
-											} else {
-												echo "Exterior Finish not measured/recorded";
-											}
-											?>
-                    </label>
-                    <label class="tvt-field-label">Insulation</label>
-                    <label class="tvt-field-result"><?php echo "R-", $arrayName['wallsinsulright'][0] ?></label>
-									<?php if ( $arrayName['wallsrightrecom'][0] ) { ?>
-                        <label class="tvt-field-label">Assessor's Recommendation</label>
-                        <label class="tvt-field-result"><?php echo $arrayName['wallsrightrecom'][0] ?></label>
+									<?php if ( $arrayName['wallsgenphoto'][0] ) { ?>
+                            <label class="tvt-field-label photo-title"><?php echo $arrayName['wallsgenphototitle'][0] ?></label>
+                            <img src="<?php echo $arrayName['wallsgenphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
 									<?php } ?>
-								<?php } else { ?>
-                    <!-- if generic walls are constructed = "None" || null -->
-                    <label class="tvt-field-result">Right Wall not measured/recorded</label>
-								<?php } ?>
-              </div>
-          </div> <!-- Closing Div Tag for Walls (Right) -->
 
-                 <!-- Div Containing Walls (Left) -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-                  <h3 class="tvt-group-title">Wall (Left)</h3>
-              </div>
-						<?php if ( $arrayName['wallsleftphoto'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
-                    <label class="tvt-field-label photo-title"><?php echo $arrayName['wallsleftphototitle'][0] ?></label>
-                    <img src="<?php echo $arrayName['wallsleftphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
-						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-								<?php if ( $arrayName['wallsconstructleft'][0] && $arrayName['wallsconstructleft'][0] != "None" ) { ?>
                     <label class="tvt-field-label">Construction</label>
                     <label class="tvt-field-result">
-											<?php if ( $arrayName['wallsconstructleft'][0] == "ewwf" ) {
+											<?php if ( $arrayName['wallsconstructgen'][0] == "ewwf" ) {
 												echo "Wood Frame";
-											} else if ( $arrayName['wallsconstructleft'][0] == "ewps" ) {
+											} else if ( $arrayName['wallsconstructgen'][0] == "ewps" ) {
 												echo "Wood Frame with Rigid Foam Sheathing";
-											} else if ( $arrayName['wallsconstructleft'][0] == "ewov" ) {
+											} else if ( $arrayName['wallsconstructgen'][0] == "ewov" ) {
 												echo "Wood frame with Optimum Value Engineering";
-											} else if ( $arrayName['wallsconstructleft'][0] == "ewbr" ) {
+											} else if ( $arrayName['wallsconstructgen'][0] == "ewbr" ) {
 												echo "Structural Brick";
-											} else if ( $arrayName['wallsconstructleft'][0] == "ewcb" ) {
+											} else if ( $arrayName['wallsconstructgen'][0] == "ewcb" ) {
 												echo "Concrete Block or Stone";
-											} else if ( $arrayName['wallsconstructleft'][0] == "ewsb" ) {
+											} else if ( $arrayName['wallsconstructgen'][0] == "ewsb" ) {
 												echo "Straw Bale";
 											}
 											?>
                     </label>
                     <label class="tvt-field-label">Exterior Finish</label>
                     <label class="tvt-field-result">
-											<?php if ( $arrayName['wallsextfinleft'][0] == "wo" ) {
+											<?php if ( $arrayName['wallsextfingen'][0] == "wo" ) {
 												echo "Wood Siding";
-											} else if ( $arrayName['wallsextfinleft'][0] == "st" ) {
+											} else if ( $arrayName['wallsextfingen'][0] == "st" ) {
 												echo "Stucco";
-											} else if ( $arrayName['wallsextfinleft'][0] == "vi" ) {
+											} else if ( $arrayName['wallsextfingen'][0] == "vi" ) {
 												echo "Vinyl Siding";
-											} else if ( $arrayName['wallsextfinleft'][0] == "al" ) {
+											} else if ( $arrayName['wallsextfingen'][0] == "al" ) {
 												echo "Aluminum Siding";
-											} else if ( $arrayName['wallsextfinleft'][0] == "br" ) {
+											} else if ( $arrayName['wallsextfingen'][0] == "br" ) {
 												echo "Brick Veneer";
-											} else if ( $arrayName['wallsextfinleft'][0] == "nn" ) {
+											} else if ( $arrayName['wallsextfingen'][0] == "nn" ) {
 												echo "No finish";
 											} else {
 												echo "Exterior Finish not measured/recorded";
@@ -2065,17 +1822,18 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 											?>
                     </label>
                     <label class="tvt-field-label">Insulation</label>
-                    <label class="tvt-field-result"><?php echo "R-", $arrayName['wallsinsulleft'][0] ?></label>
-									<?php if ( $arrayName['wallsleftrecom'][0] ) { ?>
+                    <label class="tvt-field-result"><?php echo "R-", $arrayName['wallsinsulgen'][0] ?></label>
+									<?php if ( $arrayName['wallsgenrecom'][0] ) { ?>
                         <label class="tvt-field-label">Assessor's Recommendation</label>
-                        <label class="tvt-field-result"><?php echo $arrayName['wallsleftrecom'][0] ?></label>
+                        <label class="tvt-field-result"><?php echo $arrayName['wallsgenrecom'][0] ?></label>
 									<?php } ?>
 								<?php } else { ?>
                     <!-- if generic walls are constructed = "None" || null -->
-                    <label class="tvt-field-result">Left Wall not measured/recorded</label>
+                    <label class="tvt-field-result">Walls not measured/recorded</label>
 								<?php } ?>
               </div>
-          </div> <!-- Closing Div Tag for Walls (Left) -->
+
+                
 
 			<?php } ?>
 
@@ -2083,19 +1841,15 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 			<?php if ( $arrayName['windowscharacgen'][0] == 'Yes' ) { ?>
 
           <!-- Div Containing Windows (General) -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-                  <h3 class="tvt-group-title">Windows</h3>
-              </div>
 
-              <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                  <h3 class="tvt-group-title">Windows</h3>
                   <h4 class="tvt-group-subtitle">These apply to all windows in home</h4>
 
 								<?php if ( $arrayName['windowsgenphoto'][0] ) { ?>
-                    <div class="col-sm-12 col-md-12 col-lg-12 centered">
                         <label class="tvt-field-label photo-title"><?php echo $arrayName['windowsgenphototitle'][0] ?></label>
                         <img src="<?php echo $arrayName['windowsgenphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-                    </div>
+
 								<?php } ?>
                   <!-- NOTE: windows are not optional, a "Windows not measured/recorded" case not applicable -->
                   <label class="tvt-field-label">Area</label>
@@ -2157,23 +1911,20 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                     <label class="tvt-field-result"><?php echo $arrayName['windowsgenrecom'][0] ?></label>
 								<?php } ?>
               </div>
-          </div> <!-- Closing Div Tag for Windows (General) -->
+         <!-- Closing Div Tag for Windows (General) -->
 
           <!-- If windows are not generic -->
 			<?php } else { ?>
 
           <!-- Div Containing Windows (Front) -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="col-sm-12 col-md-12 col-lg-6">
                   <h3 class="tvt-group-title">Windows (Front)</h3>
-              </div>
 						<?php if ( $arrayName['windowsfrontphoto'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
                     <label class="tvt-field-label photo-title"><?php echo $arrayName['windowsfrontphototitle'][0] ?></label>
                     <img src="<?php echo $arrayName['windowsfrontphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
+
 						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+
                   <label class="tvt-field-label">Area</label>
                   <label class="tvt-field-result"><?php echo $arrayName['windowsareafront'][0] ?></label>
 								<?php if ( $arrayName['winfrontknownuandshgc'][0] ) { ?>
@@ -2233,20 +1984,20 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                     <label class="tvt-field-result"><?php echo $arrayName['windowsfrontrecom'][0] ?></label>
 								<?php } ?>
               </div>
-          </div> <!-- Closing Div Tag for Windows (Front) -->
+      <!-- Closing Div Tag for Windows (Front) -->
 
                  <!-- Div Containing Windows (Back) -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+
+              <div class="col-sm-12 col-md-12 col-lg-6">
                   <h3 class="tvt-group-title">Windows (Back)</h3>
-              </div>
+
 						<?php if ( $arrayName['windowsbackphoto'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                     <label class="tvt-field-label photo-title"><?php echo $arrayName['windowsbackphototitle'][0] ?></label>
                     <img src="<?php echo $arrayName['windowsbackphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
+
 						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+
                   <label class="tvt-field-label">Area</label>
                   <label class="tvt-field-result"><?php echo $arrayName['windowsareaback'][0] ?></label>
 								<?php if ( $arrayName['winbackknownuandshgc'][0] ) { ?>
@@ -2306,20 +2057,20 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                     <label class="tvt-field-result"><?php echo $arrayName['windowsbackrecom'][0] ?></label>
 								<?php } ?>
               </div>
-          </div> <!-- Closing Div Tag for Windows (Back) -->
+           <!-- Closing Div Tag for Windows (Back) -->
 
                  <!-- Div Containing Windows (Right) -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+
+              <div class="col-sm-12 col-md-12 col-lg-6">
                   <h3 class="tvt-group-title">Windows (Right)</h3>
-              </div>
+
 						<?php if ( $arrayName['windowsrightphoto'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                     <label class="tvt-field-label photo-title"><?php echo $arrayName['windowsrightphototitle'][0] ?></label>
                     <img src="<?php echo $arrayName['windowsrightphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
+
 						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+
                   <label class="tvt-field-label">Area</label>
                   <label class="tvt-field-result"><?php echo $arrayName['windowsarearight'][0] ?></label>
 								<?php if ( $arrayName['winrightknownuandshgc'][0] ) { ?>
@@ -2379,20 +2130,18 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                     <label class="tvt-field-result"><?php echo $arrayName['windowsrightrecom'][0] ?></label>
 								<?php } ?>
               </div>
-          </div> <!-- Closing Div Tag for Windows (Right) -->
+           <!-- Closing Div Tag for Windows (Right) -->
 
                  <!-- Div Containing Windows (Left) -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+
+              <div class="col-sm-12 col-md-12 col-lg-6">
                   <h3 class="tvt-group-title">Windows (Left)</h3>
-              </div>
+
 						<?php if ( $arrayName['windowsleftphoto'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
                     <label class="tvt-field-label photo-title"><?php echo $arrayName['windowsleftphototitle'][0] ?></label>
                     <img src="<?php echo $arrayName['windowsleftphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
+
 						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
                   <label class="tvt-field-label">Area</label>
                   <label class="tvt-field-result"><?php echo $arrayName['windowsarealeft'][0] ?></label>
 								<?php if ( $arrayName['winleftknownuandshgc'][0] ) { ?>
@@ -2452,22 +2201,22 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                     <label class="tvt-field-result"><?php echo $arrayName['windowsleftrecom'][0] ?></label>
 								<?php } ?>
               </div>
-          </div> <!-- Closing Div Tag for Windows (Left) -->
+           <!-- Closing Div Tag for Windows (Left) -->
 
 			<?php } ?>
 
         <!-- Div Containing Skylight -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Skylight</h3>
-            </div>
+
 					<?php if ( $arrayName['skylightphoto'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['skylightphototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['skylightphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
+
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
 							<?php if ( $arrayName['skylighthave'][0] == "Yes" ) { ?>
                   <label class="tvt-field-label">Total Area</label>
                   <label class="tvt-field-result"><?php echo $arrayName['skylightarea'][0], " square feet" ?></label>
@@ -2534,56 +2283,56 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   <label class="tvt-field-result">Home did not have a skylight</label>
 							<?php } ?>
             </div>
-        </div> <!-- Closing Div Tag for Skylight -->
+<!-- Closing Div Tag for Skylight -->
     </div> <!-- Closing Div Tag for Structure SECTION -->
 
     <!-- Div Containing System SECTION -->
-    <div class="tvt-section-group pagebreakhere">
+    <div id="system" class="tvt-section-group pagebreakhere">
         <h2 class="tvt-section-title">System</h2>
 
         <!-- Div Containing Heating 1 -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Heating <?php if ( $arrayName['heatsystype2'][0] && $arrayName['heatsystype2'][0] != "None" ) {
 										echo " 1";
 									} ?></h3>
-            </div>
+
 					<?php if ( $arrayName['heatingsystem1photo'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['heatingsys1phototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['heatingsystem1photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
+
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
                 <label class="tvt-field-label">Type</label>
                 <label class="tvt-field-result">
-									<?php if ( $arrayName['heatsystype1'][0] == "central_furnance:natural_gas" ) {
+									<?php if ( $arrayName['HeatSysType1'][0] == "central_furnance:natural_gas" ) {
 										echo "Central Gas Furnance";
-									} else if ( $arrayName['heatsystype1'][0] == "None" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "None" ) {
 										echo "No Heating systems";
-									} else if ( $arrayName['heatsystype1'][0] == "wall_furnance:natural_gas" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "wall_furnance:natural_gas" ) {
 										echo "Room (Through-the-wall) Gas Furnance";
-									} else if ( $arrayName['heatsystype1'][0] == "central_furnance:lpg" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "central_furnance:lpg" ) {
 										echo "Propane (LPG) Furnance";
-									} else if ( $arrayName['heatsystype1'][0] == "central_furnance:fuel_oil" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "central_furnance:fuel_oil" ) {
 										echo "Oil Furnance";
-									} else if ( $arrayName['heatsystype1'][0] == "central_furnance:electric" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "central_furnance:electric" ) {
 										echo "Electric Furnance";
-									} else if ( $arrayName['heatsystype1'][0] == "heat_pump:electric" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "heat_pump:electric" ) {
 										echo "Electric Heat Pump";
-									} else if ( $arrayName['heatsystype1'][0] == "baseboard:electric" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "baseboard:electric" ) {
 										echo "Electric Baseboard Heater";
-									} else if ( $arrayName['heatsystype1'][0] == "boiler:natural_gas" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "boiler:natural_gas" ) {
 										echo "Gas Boiler";
-									} else if ( $arrayName['heatsystype1'][0] == "boiler:fuel_oil" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "boiler:fuel_oil" ) {
 										echo "Oil Boiler";
-									} else if ( $arrayName['heatsystype1'][0] == "boiler:lpg" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "boiler:lpg" ) {
 										echo "Propane (LPG) Boiler";
-									} else if ( $arrayName['heatsystype1'][0] == "gchp" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "gchp" ) {
 										echo "Ground Coupled Heat Pump";
-									} else if ( $arrayName['heatsystype1'][0] == "wood_stove" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "wood_stove" ) {
 										echo "Wood Stove";
-									} else if ( $arrayName['heatsystype1'][0] == "wood_stove:pellet_wood" ) {
+									} else if ( $arrayName['HeatSysType1'][0] == "wood_stove:pellet_wood" ) {
 										echo "Pellet Stove";
 									} else {
 										echo "Heat type not found";
@@ -2602,23 +2351,23 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   <label class="tvt-field-result"><?php echo $arrayName['heatingsystem1recom'][0] ?></label>
 							<?php } ?>
             </div>
-        </div> <!-- Closing Div Tag for Heating 1 -->
+       <!-- Closing Div Tag for Heating 1 -->
 
         <!-- Heating 2 is optional to display -->
 			<?php if ( $arrayName['heatsystype2'][0] && $arrayName['heatsystype2'][0] != "None" ) { ?>
 
           <!-- Div Containing Heating 2 -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+
+              <div class="col-sm-12 col-md-12 col-lg-6">
                   <h3 class="tvt-group-title">Heating 2</h3>
-              </div>
+
 						<?php if ( $arrayName['heatingsystem2photo'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                     <label class="tvt-field-label photo-title"><?php echo $arrayName['heatingsys2phototitle'][0] ?></label>
                     <img src="<?php echo $arrayName['heatingsystem2photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
+
 						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+
                   <label class="tvt-field-label">Type</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['heatsystype2'][0] == "central_furnance:natural_gas" ) {
@@ -2666,24 +2415,22 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                     <label class="tvt-field-result"><?php echo $arrayName['heatingsystem2recom'][0] ?></label>
 								<?php } ?>
               </div>
-          </div> <!-- Closing Div Tag for Heating 2 -->
+        <!-- Closing Div Tag for Heating 2 -->
 
 			<?php } ?>
 
         <!-- Div Containing Cooling 1 -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Cooling <?php if ( $arrayName['coolsystype2'][0] && $arrayName['coolsystype2'][0] != "None" ) {
 										echo " 1";
 									} ?></h3>
-            </div>
 					<?php if ( $arrayName['coolingsys1photo'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['coolingsys1phototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['coolingsys1photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
+
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
                 <label class="tvt-field-label">Type</label>
                 <label class="tvt-field-result">
 									<?php if ( $arrayName['coolsystype1'][0] == "None" ) {
@@ -2713,23 +2460,23 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   <label class="tvt-field-result"><?php echo $arrayName['coolsys1recom'][0] ?></label>
 							<?php } ?>
             </div>
-        </div> <!-- Closing Div Tag for Cooling 1 -->
+        <!-- Closing Div Tag for Cooling 1 -->
 
         <!-- Cooling 2 is optional to display -->
 			<?php if ( $arrayName['coolSysType2'][0] && $arrayName['coolSysType2'][0] != "None" ) { ?>
 
           <!-- Div Containing Cooling 2 -->
-          <div>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+
+              <div class="col-sm-12 col-md-12 col-lg-6">
                   <h3 class="tvt-group-title">Cooling 2</h3>
-              </div>
+
 						<?php if ( $arrayName['coolingsys2photo'][0] ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                     <label class="tvt-field-label photo-title"><?php echo $arrayName['coolingsys2phototitle'][0] ?></label>
                     <img src="<?php echo $arrayName['coolingsys2photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-                </div>
+
 						<?php } ?>
-              <div class="col-sm-12 col-md-12 col-lg-12">
+
                   <label class="tvt-field-label">Type</label>
                   <label class="tvt-field-result">
 										<?php if ( $arrayName['coolsystype2'][0] == "None" ) {
@@ -2759,24 +2506,24 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                     <label class="tvt-field-result"><?php echo $arrayName['coolsys2recom'][0] ?></label>
 								<?php } ?>
               </div>
-          </div> <!-- Closing Div Tag for Cooling 2 -->
+       <!-- Closing Div Tag for Cooling 2 -->
 
 			<?php } ?>
 
         <!-- Div containing Duct 1 -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Duct <?php if ( $arrayName['duct1have'][0] == "Yes" && $arrayName['duct2have'][0] == "Yes" ) {
 										echo " 1";
 									} ?></h3>
-            </div>
+
 					<?php if ( $arrayName['ductsys1photo'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['ductsys1phototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['ductsys1photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
+
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
                 <!-- duct 1 location 1 -->
 							<?php if ( $arrayName['duct1have'][0] ) { ?>
                   <label class="tvt-field-label">Location</label>
@@ -2885,23 +2632,23 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   <label class="tvt-field-result">No Duct System</label>
 							<?php } ?>
             </div>
-        </div> <!-- Closing Div Tag for Duct 1 -->
+     <!-- Closing Div Tag for Duct 1 -->
 
         <!-- Duct 2 is optional to display -->
 			<?php if ( $arrayName['duct2have'][0] && $arrayName['duct2have'][0] != "None" ){ ?>
 
         <!-- Div Containing Duct 2 -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Duct 2</h3>
-            </div>
+
 					<?php if ( $arrayName['ductsys2photo'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['ductsys2phototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['ductsys2photo'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
+
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
                 <!-- duct 2 location 1 -->
 							<?php if ( $arrayName['duct2have'][0] ) { ?>
                 <label class="tvt-field-label">Location</label>
@@ -3005,22 +2752,22 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   <label class="tvt-field-result"><?php echo $arrayName['ductsys2recom'][0] ?></label>
 							<?php } ?>
             </div>
-        </div> <!-- Closing Div Tag for Duct 2 -->
+     <!-- Closing Div Tag for Duct 2 -->
 
 		<?php } ?>
 
         <!-- Div Containing Duct Other -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Duct Other</h3>
-            </div>
+
 					<?php if ( $arrayName['ductsysotherphoto'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['ductsysotherphototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['ductsysotherphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
+
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
                 <label class="tvt-field-label">Dryer Vented</label>
 							<?php if ( $arrayName['dryervented_1'][0] == "Yes" ) { ?>
                   <label class="tvt-field-result">Dryer is properly vented</label>
@@ -3033,20 +2780,20 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                 <label class="tvt-field-result"><?php echo $arrayName['ductsysotherrecom'][0] ?></label>
 							<?php } ?>
             </div>
-        </div> <!-- Closing Div Tag for Duct Other -->
+         <!-- Closing Div Tag for Duct Other -->
 
         <!-- Div Containing Hot Water -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="tvt-group-title">Hot Water</h3>
-            </div>
+
 					<?php if ( $arrayName['hotwatsysphoto'][0] ) { ?>
-              <div class="col-sm-12 col-md-12 col-lg-12 centered">
+
                   <label class="tvt-field-label photo-title"><?php echo $arrayName['hotwatsysphototitle'][0] ?></label>
                   <img src="<?php echo $arrayName['hotwatsysphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-              </div>
+
 					<?php } ?>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+
                 <label class="tvt-field-label">Water Heater Type</label>
                 <label class="tvt-field-result">
 									<?php if ( $arrayName['waterheattype'][0] == "storage:electric" ) {
@@ -3106,28 +2853,44 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                   <label class="tvt-field-result"><?php echo $arrayName['hotwatsysrecom'][0] ?></label>
 							<?php } ?>
             </div>
-        </div> <!-- Closing Div Tag for Hot Water -->
+        <!-- Closing Div Tag for Hot Water -->
+        
+         <!-- Div Containing Solar PV Potential -->
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                <h3 class="tvt-group-title">Solar PV Potential</h3>
+							<?php if ( $arrayName['solarpv_1'][0] ) { ?>
+                  <label class="tvt-field-label">The following are attributes of the homes solar potential</label>
+								<?php
+								$variable3 = $arrayName['solarpv_1'][0];
+								$var3      = explode( '|', $variable3 );
+								foreach ( $var3 as $row3 ) { ?>
+                    <label class="tvt-field-result tvt-field-result-item"> <?php echo $row3 ?> </label>
+								<?php } ?>
+							<?php } else { ?>
+                  <label class="tvt-field-result">Solar potential not measured/recorded</label>
+							<?php } ?>
+            </div> <!-- Closing Div Tag for Solar PV Potential -->
 
     </div> <!-- Closing Div Tag for System SECTION -->
 
     <!-- Div Containing Spot Ventilation SECTION -->
-    <div class="tvt-section-group pagebreakhere">
+    <div id="vent" class="tvt-section-group pagebreakhere">
         <h2 class="tvt-section-title">Spot Ventilation</h2>
 
-			<?php if ( $arrayName['spotbathphoto'][0] ) { ?>
-          <div class="col-sm-12 col-md-12 col-lg-12 centered">
-              <label class="tvt-field-label photo-title"><?php echo $arrayName['spotbathphototitle'][0] ?></label>
-              <img src="<?php echo $arrayName['spotbathphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
-          </div>
-			<?php } ?>
+
 
         <!-- Div Containing Bathroom -->
-        <div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <h3 class="tvt-group-title">Bathroom</h3>
-            </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+              <h3 class="tvt-group-title">Bathroom</h3>
+                
 
-            <div class="col-sm-12 col-md-12 col-lg-12">
+<?php if ( $arrayName['spotbathphoto'][0] ) { ?>
+          
+              <label class="tvt-field-label photo-title"><?php echo $arrayName['spotbathphototitle'][0] ?></label>
+              <img src="<?php echo $arrayName['spotbathphoto'][0]; ?>" alt="Photo of Air Leak Test"/>
+
+			<?php } ?>
+
 							<?php if($arrayName['bathroomfandetails_1'][0]) { ?>
                 <label class="tvt-field-label">The following is true of the bathroom fan</label>
                 <!--php logic inc -->
@@ -3147,7 +2910,7 @@ $arrayName = get_post_meta( $_GET['form_id'] );
                                     <label class="tvt-field-label">Assessor' s Recommendation</label>
                 <label class="tvt-field-result"> <?php echo $arrayName['spotbathrecom'][0] ?></label>
 							<?php } ?>
-            </div>
+
         </div> <!-- Closing Div Tag for Bathroom -->
 
     </div> <!-- Closing Div Tag for Spot Ventilation SECTION -->
@@ -3155,3 +2918,4 @@ $arrayName = get_post_meta( $_GET['form_id'] );
 </div> <!-- Closing Div Tag for Entire Page -->
 
 </body>
+</html>

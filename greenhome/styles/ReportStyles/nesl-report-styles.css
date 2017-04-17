@@ -4,12 +4,15 @@
     text-align:center;
     display:table;
 }
+<<<<<<< HEAD
 h3.tvt-group-title{
     margin-bottom:0 !important;
 }
 .img-responsive{
     width:50% !important;
 }
+=======
+>>>>>>> origin/master
 .tvt{
     padding-left:0;
     padding-right:0;
@@ -37,12 +40,20 @@ div.tvt-section-group:nth-of-type(odd) {
 .col-sm-12,.col-md-12,.col-lg-6{
     overflow:auto !important;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 h2.tvt-section-title{
     width:100%;
     max-width:600px;
     margin-left:auto;
     margin-right:auto;
+<<<<<<< HEAD
+=======
+    padding:10px;
+    font-size:2.5em;
+>>>>>>> origin/master
     font-weight:800 !important;
     text-align:center;
     border:none;
@@ -74,7 +85,10 @@ a{
     text-decoration:none;
     color:black;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 #assessment{
     
 }
@@ -95,6 +109,7 @@ a{
 }
 #vent{
     
+<<<<<<< HEAD
 }
 @media screen and (max-width:599px){
     h2.tvt-section-title{
@@ -107,4 +122,6 @@ a{
         font-size:2.5em;
         padding:10px;
     }
+=======
+>>>>>>> origin/master
 }

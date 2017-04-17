@@ -909,6 +909,7 @@
                         </div>
 
 						<div class="col-sm-12 col-md-4 col-lg-4">
+<<<<<<< HEAD
 							<label class="tvt-field-label">Attic Area (sq ft)
 								<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/AtticArea.pdf">
 									<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
@@ -919,6 +920,10 @@
 								</a>
 							</label>
 							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="roofarea1" type="number" value="<?php echo $formData['roofarea1'][0]; ?>"/>
+=======
+							<label class="tvt-field-label">Roof Area (sq ft)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="RoofArea1" type="number" value="<?php echo $formData['roofarea1'][0]; ?>"/>
+>>>>>>> origin/master
 						</div>
 
 
@@ -939,6 +944,19 @@
 
 						<div class="Attic1Content">
 
+<<<<<<< HEAD
+=======
+							<div class="col-sm-12 col-md-12 col-lg-12">
+							<label class="tvt-field-label">Attic Area
+								<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/AtticArea.pdf">
+									<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+									title="The attic floor area (sq. ft.) must be entered for the house. In many houses this will be the same size as the upper floor 'footprint' you measured in order to calculate the conditioned floor area. If there is more than one roof or attic type, check mark 'Enter a second roof / attic'.
+									 Additional fields will be displayed so that the characteristics of a second roof/attic type can be entered.
+									 ***for more info click the 'i' to open a pdf in a new window***">
+									</span>
+								</a>
+							</label>
+>>>>>>> origin/master
 
 
 								<div class="col-sm-12 col-md-6 col-lg-6">
@@ -1078,6 +1096,7 @@
                         </div>
 
 						<div class="col-sm-12 col-md-4 col-lg-4">
+<<<<<<< HEAD
 							<label class="tvt-field-label">Attic Area (sq ft)
 								<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/AtticArea.pdf">
 									<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
@@ -1087,6 +1106,9 @@
 									</span>
 								</a>
 							</label>
+=======
+							<label class="tvt-field-label">Roof Area (sq ft)<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body' title=""></span></label>
+>>>>>>> origin/master
 							<input class="tvt-field-input" name="RoofArea2" type="number" value="<?php echo $formData['roofarea2'][0]; ?>"/>
 						</div>
 
@@ -1110,7 +1132,24 @@
 
 						<div class="Attic2Content">
 
+<<<<<<< HEAD
 							
+=======
+							<div class="col-sm-12 col-md-12 col-lg-12">
+							<label class="tvt-field-label">Attic Area
+								<a target="_blank" href="../wp-content/themes/greenhome/PDF_Help/AtticArea.pdf">
+									<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-container: 'body'
+									title="The attic floor area (sq. ft.) must be entered for the house. In many houses this will be the same size as the upper floor 'footprint' you measured in order to calculate the conditioned floor area. If there is more than one roof or attic type, check mark 'Enter a second roof / attic'.
+									 Additional fields will be displayed so that the characteristics of a second roof/attic type can be entered.
+									 ***for more info click the 'i' to open a pdf in a new window***">
+									</span>
+								</a>
+							</label>
+
+							<input class="tvt-field-input HomeEnergyScoreReq HollandReq" name="Attic2Area" type="text"
+										 value="<?php echo $formData['attic2area'][0]; ?>"/>
+							</div>
+>>>>>>> origin/master
 
 								<div class="col-sm-12 col-md-6 col-lg-6">
 
@@ -2512,7 +2551,11 @@
                     </div>
                 </div> <!-- Closing Div Tag for Windows (Left) -->
             </div>
+<<<<<<< HEAD
 
+=======
+        </div>
+>>>>>>> origin/master
 
             </div> <!-- Closing Div Tag for Structure SECTION -->
 
@@ -2551,7 +2594,11 @@
 
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysType1" id="heatType1"
                                     onchange="omniHide(this, 'None', 'Heating1'); omniHide(this, 'None', 'Heating2Div');">
+<<<<<<< HEAD
                                 <option disabled selected value> -- select an option --</option>
+=======
+                                <option value="None">None</option>
+>>>>>>> origin/master
                                 <option value="central_furnace:natural_gas">Central Gas Furnace</option>
                                 <option value="wall_furnace:natural_gas">Room (Through-the-wall) Gas Furnace</option>
                                 <option value="central_furnace:lpg">Propane (LPG) Furnace</option>
@@ -2676,7 +2723,11 @@
 
 														<select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="HeatSysType2" id="heatType2"
 	                                    onchange="omniHide(this, 'None', 'Heating2'); omniHide(this, 'None', 'Heating1Div'); ">
+<<<<<<< HEAD
 	                                <option disabled selected value> -- select an option --</option>
+=======
+	                                <option selected value="None">None</option>
+>>>>>>> origin/master
 	                                <option value="central_furnace:natural_gas">Central Gas Furnace</option>
 	                                <option value="wall_furnace:natural_gas">Room (Through-the-wall) Gas Furnace</option>
 	                                <option value="central_furnace:lpg">Propane (LPG) Furnace</option>
@@ -2808,6 +2859,10 @@
                             <select class="tvt-field-input HomeEnergyScoreReq HollandReq" name="CoolSysType1" id="coolType1"
                                     onchange="omniHide(this, 'None', 'Cooling1'); omniHide(this, 'None', 'Cooling2Div')" ;>
                                 <option disabled selected value> -- select an option --</option>
+<<<<<<< HEAD
+=======
+                                <option value="None">None</option>
+>>>>>>> origin/master
                                 <option value="packaged_dx">Central Air Conditioner</option>
                                 <option value="split_dx">Room Air Conditioner</option>
                                 <option value="heat_pump">Electric Heat Pump</option>
@@ -3058,7 +3113,7 @@
                                 <div class="col-sm-12 col-md-12 col-lg-6">
                                     <label class="tvt-field-label">Percentage of Duct in this location</label>
 
-                                    <input class="tvt-field-input HomeEnergyScoreReq HollandReq" id="ductSysPerc1.1" tvt-percent="1" name="DuctSysPerc1_1"
+                                    <input class="tvt-field-input HomeEnergyScoreReq HollandReq" id="ductsysperc1.1" tvt-percent="1" name="ductsysperc1_1"
                                            type="number"
                                            min="0" max="100"
                                            value="<?php echo $formData['ductsysperc1_1'][0]; ?>" onchange="verifyDuctPercentage(1)"/>

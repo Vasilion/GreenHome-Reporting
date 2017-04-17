@@ -1,6 +1,54 @@
 /* Settings for  printing */
 @media print{
 	
+/* NeSL Edits */	
+img.img-responsive{
+	padding-top:0px !important;
+	padding-bottom:30px !important;
+	margin-top:0 !important;
+	width:50% !important;
+	display:table !important;
+}
+img{
+	display:none !important;
+}
+body{
+	background-color: #f8f8f8 !important;
+	margin:0.5in !important;
+	-webkit-print-color-adjust:exact;
+}
+.tvt-section-group{
+	background-color: #f8f8f8 !important;
+	-webkit-print-color-adjust:exact !important;
+}
+.col-sm-12,.col-md-12,.col-lg-6{
+	margin-bottom:20px;
+}
+.tvt-group-title {
+	margin-bottom:8px !important;
+}
+h3.tvt-group-title{
+	background: #0b9444 !important;
+    color: #fff !important;
+    padding: 4px !important;
+	-webkit-print-color-adjust:exact !important;
+	font-size: 8pt !important;
+}
+.tvt-field-result{
+	font-weight:300 !important;
+	font-size: 6pt !important;
+}
+.tvt-field-label{
+	font-weight:800 !important;
+	font-size: 7pt !important;
+}
+h4.tvt-group-subtitle{
+	font-size: 7pt !important;
+}
+/* NeSL Edits */
+
+
+
 	#form1{
 		width: 100%;
 	}	
@@ -17,23 +65,17 @@
 	div#colorblind-div {
 		display: none;
 	}
-	
-	.tvt-tabcontent{
-		
-		display: block!important;
-		
-	}
-	
 	.photo_and_title{
 		
 		display: none;
 	}
-	
-	
-	div {
-		margin: 0 5%;
-		
-	}
+    .tvt-section-group{
+		margin-top:20px;
+        width:100% !important;
+        padding-left:0 !important;
+        padding-right:0 !important;
+    }
+
 	
 	@page{
 		size: 8.5in 11in;
